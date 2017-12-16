@@ -1823,10 +1823,10 @@
 		548680B01F2830E4004B1AE8 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				67252A6A1FB54B0700C42A2D /* PropertiesDetailsCell(楼盘详情Cell) */,
 				6711A9311FB00DD0004425C7 /* HomeTableViewHeaderView.h */,
 				6711A9321FB00DD0004425C7 /* HomeTableViewHeaderView.m */,
 				6711A9331FB00DD0004425C7 /* HomeTableViewHeaderView.xib */,
-				67252A6A1FB54B0700C42A2D /* PropertiesDetailsCell(楼盘详情Cell) */,
 				54C00D971FD6B41100F904F6 /* KHGZ_Cell.h */,
 				54C00D981FD6B41100F904F6 /* KHGZ_Cell.m */,
 				54C00D991FD6B41100F904F6 /* KHGZ_Cell.xib */,

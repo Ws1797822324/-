@@ -286,7 +286,7 @@
     
     self.navigationItem.title = @"楼盘详情";
     
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, kWidth / 2) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
     cycleScrollView.imageURLStringsGroup = _imagesURLStrings;
     cycleScrollView.autoScroll = NO;
 
@@ -319,6 +319,9 @@
     _imgNumL.font = kFont(20);
     _imgNameL.font = kFont(20);
     kViewRadius(_imgNumL, 12);
+    _imagesURLStrings.count == 0 ? (_imgNumL.hidden = YES) : (_imgNumL.hidden = NO);
+    _imagesURLStrings.count == 0 ? (_imgNameL.hidden = YES) : (_imgNameL.hidden = NO);
+
     int  nStr =  0;
     _imagesURLStrings.count == 0 ? ( nStr =   0) :  (nStr =  (int)cycleScrollView.firstIndex + 1);
 
@@ -390,7 +393,6 @@
         if (indexPath.row == 0) {
             PropertiesDetails_HeaderCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PropertiesDetails_HeaderCell_ID"];
             NSString * str1 = @"";
-
             [_PDmodel.price_min_s intValue ] == 0 ? (str1 = @"价格待定") : (str1 = kString(@"%@元左右/㎡", _PDmodel.price_min_s));
             kStringIsEmpty(_PDmodel.price_min_s) ? str1 = @"价格待定" : (str1 = kString(@"%@元左右/㎡", _PDmodel.price_min_s));
 
@@ -433,7 +435,6 @@
 
         MD_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDCell_ID"];
         Md * dic = _mdArr[_mdType];
-        NSLog(@"jjjjj = %@",dic.content);
         cell.md_Label.text =dic.content;
 
         return cell;
@@ -547,15 +548,19 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            return [tableView fd_heightForCellWithIdentifier:@"PropertiesDetails_HeaderCell_ID" configuration:^(PropertiesDetails_HeaderCell *cell) {
-            }];
+    if (indexPath.section == 0 && indexPath.row == 0) {
+
+        if (_tagsArr.count == 0) {
+            return 240;
         }
-        return [tableView fd_heightForCellWithIdentifier:@"PropertiesDetails_HeaderTimeCell_ID" configuration:^(PropertiesDetails_HeaderTimeCell * cell) {
-            
-        }];
-    } else if (indexPath.section == 1 || indexPath.section == 2) {
+       CGFloat tagsH =  [SQButtonTagView returnViewHeightWithTagTexts:_tagsArr viewWidth:kWidth - 40 eachNum:0 Hmargin:10 Vmargin:5 tagHeight:20 tagTextFont:kBoldFont(12)];
+        return 240 + 10 + tagsH;
+    }
+    
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        return 110;
+    }
+    if (indexPath.section == 1 || indexPath.section == 2) {
         kUserData;
         if ([userInfo.status intValue]==1) {  // 游客
             return 0.000001;
@@ -564,20 +569,20 @@
             return   44.f;
         }
     }
-    else if (indexPath.section == 3) {
-        return [tableView fd_heightForCellWithIdentifier:@"PropertiesDetails_ImportantCell_ID" configuration:^(PropertiesDetails_ImportantCell *cell) {
-        }];
+     if (indexPath.section == 3) {
+         return 100;
     }
-    else {
-        return [tableView fd_heightForCellWithIdentifier:@"MDCell_ID" configuration:^(MD_Cell *cell) {
-            Md * dic = _mdArr[_mdType];
-            cell.md_Label.text =dic.content;
-        }];
+    if (indexPath.section == 4) {
+        Md * dic = _mdArr[_mdType];
+        return 16 + [XXHelper calculteTheSizeWithContent:dic.content width:kWidth - 40 font:15];;
+    }  else {
+        return 0.01;
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"%ld - %ld",indexPath.section , indexPath.row);
+
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     if (indexPath.section == 0 && indexPath.row == 0) {
         HouseData_TVC * tvc = [[HouseData_TVC alloc]init];
@@ -637,7 +642,7 @@
                 [_tagsArr addObject:dic.name ];
             }
 
-            
+
             for (Md * mdmodel in _PDmodel.mdArr) {
                 if ([mdmodel.type isEqualToString:@"交通配套"]) {
                     [_mdArr replaceObjectAtIndex:0 withObject:mdmodel];

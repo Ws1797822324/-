@@ -268,7 +268,7 @@
     self.navigationItem.title = @"在售户型";
 
     SDCycleScrollView *cycleScrollView =
-        [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200)
+        [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, kWidth / 2)
                                            delegate:self
                                    placeholderImage:[UIImage imageNamed:@"placeholder"]];
     cycleScrollView.imageURLStringsGroup = _imagesURLStrings;
@@ -300,6 +300,9 @@
     _imgNumL.font = kFont(20);
     _imgNameL.font = kFont(17);
     kViewRadius(_imgNumL, 12);
+    _imagesURLStrings.count == 0 ? (_imgNumL.hidden = YES) : (_imgNumL.hidden = NO);
+    _imagesURLStrings.count == 0 ? (_imgNameL.hidden = YES) : (_imgNameL.hidden = NO);
+
     int  nStr =  0;
     _imagesURLStrings.count == 0 ? ( nStr =   0) :  (nStr =  (int)cycleScrollView.firstIndex + 1);
     self.imgNumL.text = [NSString stringWithFormat:@"  %d/%d  ",nStr,(int)_imagesURLStrings.count];
@@ -378,9 +381,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 0) {
-        return [tableView fd_heightForCellWithIdentifier:@"HouseDetailsOne_Cell_ID"
-                                           configuration:^(id cell){
-                                           }];
+        return 265;
     }
 
 

@@ -110,7 +110,7 @@
                 <outlet property="open_Time_L" destination="LE5-7b-2Dg" id="nUq-ZP-h5h"/>
                 <outlet property="teamwork_Time" destination="I0W-Fc-96S" id="64k-VW-494"/>
             </connections>
-            <point key="canvasLocation" x="32" y="95"/>
+            <point key="canvasLocation" x="-15" y="21"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -22,7 +22,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-
+    [self setupAutoHeightWithBottomView:_tagsViewTool bottomMargin:4];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

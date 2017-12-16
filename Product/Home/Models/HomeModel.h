@@ -188,6 +188,11 @@
 @property (nonatomic , copy) NSString              * room_office;
 @property (nonatomic , copy) NSString              * minareaname;
 @property (nonatomic , strong) NSString            * sc_status;
+@property (nonatomic ,copy) NSString *status;
+@property (nonatomic ,copy) NSString *room_rate;
+@property (nonatomic ,copy) NSString *decoration;
+
+
 
 @end
 #pragma mark - 户型信息 户型详情 中的推荐

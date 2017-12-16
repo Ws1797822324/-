@@ -14,11 +14,12 @@
 // 滚动视图
 @property (weak, nonatomic) IBOutlet UIView *toolView1;
 
-// 标签
-@property (weak, nonatomic) IBOutlet UIView *toolView2;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolView2Height;
+@property (weak, nonatomic) IBOutlet UILabel *decoration_L;
+
+@property (weak, nonatomic) IBOutlet UILabel *room_rate_L;
+
 -(void) cinfigTagsView:(NSArray *)arr;
-@property (weak, nonatomic) IBOutlet UILabel *price_L;
+
 @property (weak, nonatomic) IBOutlet UILabel *minareaname_l;
 @property (weak, nonatomic) IBOutlet UILabel *area;
 @property (weak, nonatomic) IBOutlet UILabel *room_office;

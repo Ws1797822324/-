@@ -75,7 +75,7 @@
     }
     else
     {
-        button.frame = CGRectMake(0, 0, 30, 30);
+        [button sizeToFit];
     }
     return [[UIBarButtonItem alloc]initWithCustomView:button];
 }

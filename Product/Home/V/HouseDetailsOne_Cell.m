@@ -34,10 +34,15 @@
 
 -(void)setModel:(Huxingxinxi *)model {
     _model = model;
-    _price_L.text = model.price;
+    NSString * syr = @"【在售】";
+    if ([model.status intValue] != 1) {
+        syr = @"【预售】";
+    }
     _minareaname_l.text = model.minareaname;
-    _room_office.text = model.room_office;
+    _room_office.text = [NSString stringWithFormat:@"%@%@",model.room_office,syr];
     _area.text = model.area;
+    _decoration_L.text = model.decoration;
+    _room_rate_L.text = kString(@"得房率:%@", model.room_rate);
 }
 
 @end

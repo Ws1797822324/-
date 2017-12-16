@@ -96,12 +96,11 @@
     _pointAnnotion1 = pointAnnotation;
 
     [self.mapView addAnnotation:pointAnnotation];
+    [self.mapView setZoomLevel:17 atPivot:CGPointMake(kWidth / 3 , kHeight / 2)  animated:true];
 
-    [self.mapView setZoomLevel:17 atPivot:CGPointMake(kWidth / 2 , kHeight / 2)  animated:true];
 
     [[RACScheduler mainThreadScheduler]afterDelay:0.1 schedule:^{
-        [weakSelf.mapView selectAnnotation:_pointAnnotion1 animated:NO];
-
+//        [weakSelf.mapView selectAnnotation:_pointAnnotion1 animated:YES];
     }];
 
 
