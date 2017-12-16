@@ -10,10 +10,11 @@
 
 #import "SQButtonTagView.h"
 
-
 @interface HomeCell : UITableViewCell
 
+//@property (weak, nonatomic) IBOutlet UIView *tagsViewTool;
 @property (weak, nonatomic) IBOutlet UIView *tagsViewTool;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *name_L;
