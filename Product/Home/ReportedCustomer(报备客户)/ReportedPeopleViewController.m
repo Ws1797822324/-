@@ -13,6 +13,7 @@
 #import "RemarkTableViewCell.h"
 #import "BuyHouseIdeasViewController.h"
 #import "HousesViewController.h"
+#import "PhoneInputting_Cell.h"
 
 @interface ReportedPeopleViewController ()<UITableViewDelegate,UITableViewDataSource>
     @property (nonatomic, strong) UITableView * tableView;
@@ -62,6 +63,9 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SureTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SureTableViewCell"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"RemarkTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"RemarkTableViewCell"];
+    [self.tableView registerNib:[PhoneInputting_Cell nib] forCellReuseIdentifier:@"PhoneInputting_Cell"];
+
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 5;
@@ -127,13 +131,14 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         if(indexPath.row==0){
             LATFCell.titleLabel.text = @"姓名";
             LATFCell.TF_title.placeholder = @"请输入姓名";
+            LATFCell.TF_title.textColor = [UIColor blackColor];
+
             self.nameTF = LATFCell.TF_title;
             return LATFCell;
         }else if(indexPath.row==1){
-            LATFCell.titleLabel.text = @"联系方式";
-            LATFCell.TF_title.placeholder = @"请输入联系方式";
-            self.phoneTF = LATFCell.TF_title;
-            return LATFCell;
+            PhoneInputting_Cell * cell =[PhoneInputting_Cell loadCellFromNib:tableView];
+            self.phoneTF = cell.phone_TF;
+            return cell;
         }else if(indexPath.row==2){
             sexCell.sexBlock = ^(NSString *sex) {
 
@@ -212,6 +217,7 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         [_phoneTF becomeFirstResponder];
         return;
     }
+
     if (![XXHelper isNumber:_phoneTF.text]) {
         [XXProgressHUD showMessage:@"请输入正确的手机号"];
         [_phoneTF becomeFirstResponder];

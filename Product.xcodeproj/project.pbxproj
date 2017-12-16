@@ -221,6 +221,8 @@
 		54A662D51FBC3C9500CC9A65 /* Certification_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A662D31FBC3C9500CC9A65 /* Certification_VC.xib */; };
 		54ABF44E1FCE5571003DFD65 /* MD_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ABF44C1FCE5571003DFD65 /* MD_Cell.m */; };
 		54ABF44F1FCE5571003DFD65 /* MD_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ABF44D1FCE5571003DFD65 /* MD_Cell.xib */; };
+		54ACC9221FE51C0900EB88E7 /* PhoneInputting_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC9201FE51C0900EB88E7 /* PhoneInputting_Cell.m */; };
+		54ACC9231FE51C0900EB88E7 /* PhoneInputting_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ACC9211FE51C0900EB88E7 /* PhoneInputting_Cell.xib */; };
 		54B67C701FD777C100E041D2 /* ErrorInfoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B67C6A1FD777BF00E041D2 /* ErrorInfoUtility.m */; };
 		54B67C711FD777C100E041D2 /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B67C6C1FD777C000E041D2 /* CommonUtility.m */; };
 		54B67C721FD777C100E041D2 /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B67C6F1FD777C100E041D2 /* POIAnnotation.m */; };
@@ -752,6 +754,9 @@
 		54ABF44B1FCE5571003DFD65 /* MD_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD_Cell.h; sourceTree = "<group>"; };
 		54ABF44C1FCE5571003DFD65 /* MD_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD_Cell.m; sourceTree = "<group>"; };
 		54ABF44D1FCE5571003DFD65 /* MD_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MD_Cell.xib; sourceTree = "<group>"; };
+		54ACC91F1FE51C0900EB88E7 /* PhoneInputting_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneInputting_Cell.h; sourceTree = "<group>"; };
+		54ACC9201FE51C0900EB88E7 /* PhoneInputting_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneInputting_Cell.m; sourceTree = "<group>"; };
+		54ACC9211FE51C0900EB88E7 /* PhoneInputting_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneInputting_Cell.xib; sourceTree = "<group>"; };
 		54B67C6A1FD777BF00E041D2 /* ErrorInfoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorInfoUtility.m; sourceTree = "<group>"; };
 		54B67C6B1FD777C000E041D2 /* CommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtility.h; sourceTree = "<group>"; };
 		54B67C6C1FD777C000E041D2 /* CommonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtility.m; sourceTree = "<group>"; };
@@ -1204,6 +1209,9 @@
 				541452E31FC43DD3007070BC /* LabelAndTFTableViewCell.h */,
 				541452E41FC43DD3007070BC /* LabelAndTFTableViewCell.m */,
 				541452E51FC43DD3007070BC /* LabelAndTFTableViewCell.xib */,
+				54ACC91F1FE51C0900EB88E7 /* PhoneInputting_Cell.h */,
+				54ACC9201FE51C0900EB88E7 /* PhoneInputting_Cell.m */,
+				54ACC9211FE51C0900EB88E7 /* PhoneInputting_Cell.xib */,
 			);
 			path = "ReportedSuccess(报备成交)";
 			sourceTree = "<group>";
@@ -2564,6 +2572,7 @@
 				5442F4711FC544930022E84B /* PropertiesDetails_FootView.xib in Resources */,
 				2648EEA81FC564FE000A4F19 /* MyPeopleTableViewCell.xib in Resources */,
 				543C0E581FD0E28700204DA6 /* BankPopupView.xib in Resources */,
+				54ACC9231FE51C0900EB88E7 /* PhoneInputting_Cell.xib in Resources */,
 				6711A9351FB00DD0004425C7 /* HomeCell.xib in Resources */,
 				543C0AAF1FBD228100AB8171 /* PlaceHolderView.xib in Resources */,
 				54388E7D1FBE8D390040EE6A /* PersonalDataThird_Cell.xib in Resources */,
@@ -2786,6 +2795,7 @@
 				54FF123E1F4D6BEC00A2A23D /* XXTextView.m in Sources */,
 				540C4B951FDBE606003FAB07 /* NSArray+LocaleLog.m in Sources */,
 				5413AB081F2730C000745264 /* CYLTabBarControllerConfig.m in Sources */,
+				54ACC9221FE51C0900EB88E7 /* PhoneInputting_Cell.m in Sources */,
 				67252A4B1FB538C400C42A2D /* MyViewController.m in Sources */,
 				67252A4A1FB538C400C42A2D /* StayparticularsViewController.m in Sources */,
 				67F2C3081FB2AF0D00171778 /* Information_Cell.m in Sources */,

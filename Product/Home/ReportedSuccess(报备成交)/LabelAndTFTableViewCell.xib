@@ -12,46 +12,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="LabelAndTFTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="KGk-i7-Jjw" customClass="LabelAndTFTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="438" height="59"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="58.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证号码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-Pq-yYK">
-                        <rect key="frame" x="20" y="12" width="82" height="19.5"/>
+                        <rect key="frame" x="20" y="19.5" width="82" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入身份证" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eia-ho-LVb">
-                        <rect key="frame" x="120" y="0.0" width="170" height="44"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入身份证" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eia-ho-LVb">
+                        <rect key="frame" x="120" y="2" width="271.5" height="54.5"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLh-hO-QYU">
-                        <rect key="frame" x="283.5" y="0.0" width="16.5" height="43.5"/>
+                        <rect key="frame" x="401.5" y="0.0" width="16.5" height="58.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hongxingxing" translatesAutoresizingMaskIntoConstraints="NO" id="HZi-pp-hFa">
-                        <rect key="frame" x="104" y="11" width="8" height="7"/>
+                        <rect key="frame" x="104" y="18.5" width="8" height="7"/>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="GLh-hO-QYU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5Df-YT-BuW"/>
                     <constraint firstAttribute="trailing" secondItem="GLh-hO-QYU" secondAttribute="trailing" constant="20" id="8Hx-AY-1zi"/>
                     <constraint firstItem="eia-ho-LVb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="120" id="BhH-ME-S7b"/>
-                    <constraint firstAttribute="trailing" secondItem="eia-ho-LVb" secondAttribute="trailing" constant="30" id="PqQ-BP-RKQ"/>
                     <constraint firstItem="rhj-Pq-yYK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="SXB-ad-LBX"/>
                     <constraint firstItem="rhj-Pq-yYK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="THK-gu-XJe"/>
+                    <constraint firstItem="GLh-hO-QYU" firstAttribute="leading" secondItem="eia-ho-LVb" secondAttribute="trailing" constant="10" id="Tjy-zp-vsW"/>
                     <constraint firstItem="HZi-pp-hFa" firstAttribute="trailing" secondItem="rhj-Pq-yYK" secondAttribute="trailing" constant="10" id="cUY-uu-NVB"/>
+                    <constraint firstItem="eia-ho-LVb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eid-QA-IES"/>
                     <constraint firstItem="HZi-pp-hFa" firstAttribute="top" secondItem="rhj-Pq-yYK" secondAttribute="top" constant="-1" id="j8v-tq-QtA"/>
-                    <constraint firstItem="eia-ho-LVb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rkQ-JI-NfD"/>
-                    <constraint firstAttribute="bottom" secondItem="eia-ho-LVb" secondAttribute="bottom" id="xpF-Cz-fr2"/>
+                    <constraint firstItem="eia-ho-LVb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="rkQ-JI-NfD"/>
                     <constraint firstAttribute="bottom" secondItem="GLh-hO-QYU" secondAttribute="bottom" id="xwn-d2-qyU"/>
                 </constraints>
             </tableViewCellContentView>
@@ -61,7 +61,7 @@
                 <outlet property="titleLabel" destination="rhj-Pq-yYK" id="J7d-7v-9lw"/>
                 <outlet property="yuanLabel" destination="GLh-hO-QYU" id="GB9-ww-iZo"/>
             </connections>
-            <point key="canvasLocation" x="183" y="14"/>
+            <point key="canvasLocation" x="105" y="21.5"/>
         </tableViewCell>
     </objects>
     <resources>

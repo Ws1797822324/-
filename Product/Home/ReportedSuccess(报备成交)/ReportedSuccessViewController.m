@@ -11,6 +11,7 @@
 #import "ChooseSexTableViewCell.h"
 #import "SureTableViewCell.h"
 #import "RemarkTableViewCell.h"
+#import "PhoneInputting_Cell.h"
 
 @interface ReportedSuccessViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -57,6 +58,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"RemarkTableViewCell"
                                                bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:@"RemarkTableViewCell"];
+    [self.tableView registerNib:[PhoneInputting_Cell nib] forCellReuseIdentifier:@"PhoneInputting_Cell"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -124,15 +126,17 @@
         } else if (indexPath.row == 1) {
             LATFCell.titleLabel.text = @"身份证号码";
             LATFCell.TF_title.placeholder = @"请输入客户身份证号码";
+            [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+                
+            }];
+
             _sfz_TF = LATFCell.TF_title;
 
             return LATFCell;
         } else if (indexPath.row == 2) {
-            LATFCell.titleLabel.text = @"联系方式";
-            LATFCell.TF_title.placeholder = @"请输入联系方式";
-            LATFCell.TF_title.keyboardType = UIKeyboardTypeNumberPad;
-            _phone_TF = LATFCell.TF_title;
-            return LATFCell;
+            PhoneInputting_Cell * cell = [PhoneInputting_Cell loadCellFromNib:tableView];
+            _phone_TF = cell.phone_TF;
+            return cell;
         } else if (indexPath.row == 3) {
             sexCell.sexBlock = ^(NSString *sex) {
                 _sexStr = sex;
