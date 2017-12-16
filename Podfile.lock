@@ -1,0 +1,119 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AMap3DMap (5.6.0):
+    - AMapFoundation (~> 1.4)
+  - AMapFoundation (1.4.2)
+  - AMapLocation (2.5.0):
+    - AMapFoundation (~> 1.4)
+  - AMapNavi (5.3.0):
+    - AMap3DMap (>= 5.3.0)
+    - AMapFoundation (~> 1.4)
+  - AMapSearch (5.5.0):
+    - AMapFoundation (~> 1.4)
+  - CYLTabBarController (1.13.2)
+  - JCore (1.1.6)
+  - JPush (3.0.7):
+    - JCore (~> 1.1.6)
+  - KLCPopup (1.0)
+  - LBXAlertAction (1.0.6)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.0.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.15.1)
+  - pop (1.0.10)
+  - ReactiveObjC (2.1.2)
+  - SDAutoLayout (2.2.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - TZImagePickerController (1.8.9)
+  - UITableView+FDTemplateLayoutCell (1.6)
+  - UMengUShare/Core (6.4.7):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.7)
+  - UMengUShare/Social/QQ (6.4.7):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedQQ (6.4.7):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.7):
+    - UMengUShare/Core
+  - UMengUShare/Social/SMS (6.4.7):
+    - UMengUShare/Core
+  - UMengUShare/Social/WeChat (6.4.7):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI (6.4.7):
+    - UMengUShare/Core
+  - XHLaunchAd (3.5.8)
+  - ZYCornerRadius (1.0.2)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - AMapLocation (~> 2.5.0)
+  - AMapNavi (~> 5.3.0)
+  - AMapSearch (~> 5.5.0)
+  - CYLTabBarController (~> 1.13.1)
+  - JPush
+  - KLCPopup (~> 1.0)
+  - LBXAlertAction (~> 1.0.6)
+  - Masonry
+  - MBProgressHUD (~> 1.0.0)
+  - MJExtension
+  - MJRefresh
+  - pop (~> 1.0.9)
+  - ReactiveObjC (~> 2.1.2)
+  - SDAutoLayout
+  - SDWebImage (~> 4.0.0)
+  - TZImagePickerController (~> 1.8.8)
+  - UITableView+FDTemplateLayoutCell (~> 1.6)
+  - UMengUShare/Social/QQ
+  - UMengUShare/Social/SMS
+  - UMengUShare/Social/WeChat
+  - UMengUShare/UI
+  - XHLaunchAd (~> 3.5.6)
+  - ZYCornerRadius
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMap3DMap: 2ac4f9ad7f2f8b015013d8d282c55882bcd68dc9
+  AMapFoundation: 6c0471c9a6a0ad17dad46e3d800ad56ca170f82a
+  AMapLocation: d02bd8c0081b0bc51b2e4cf89925ef57448263c9
+  AMapNavi: 3f553beb42afdc4c18b2ca8137f9363038d8783d
+  AMapSearch: dc9958acfb61b58dcbce79736bf14a39dde7506f
+  CYLTabBarController: 1ea13266ead94d45427c9d7ff8fa6e06d6835d23
+  JCore: 18fc8725124f26e55625eaf224659b3a999dcf63
+  JPush: 111b79b8a0169ab8fd4c486dac3ed166ed69293e
+  KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
+  LBXAlertAction: c69d119d0d1224e536e3ae2e90212bb989685481
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  SDAutoLayout: c5509e77ae75735d9a39f7bc83dba6d3f75d49d8
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  TZImagePickerController: b44f4cfc6d320dab9a53adcdda725099be36dcda
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  UMengUShare: 5055d0e01c844379e173bdca0840fc9fa9297d88
+  XHLaunchAd: 8f605c9d62dc9629e561e97c1d43adb1bbbbb2af
+  ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
+
+PODFILE CHECKSUM: f48d214eb3eb9d50182b63c0ea8eec609ddd010c
+
+COCOAPODS: 1.4.0.beta.2

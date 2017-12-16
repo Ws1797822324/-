@@ -1,0 +1,198 @@
+//
+//  Product.pch
+//  Product
+//
+//  Created by apple on 2016/12/26.
+//  Copyright © 2016年 apple. All rights reserved.
+//
+
+#ifndef Product_pch
+#define Product_pch
+
+// 头文件  导入的头文件
+#import "Header.h"
+
+// 网络请求 API
+#import "API.pch"
+
+#pragma mark -  宏定义
+
+///颜色
+#define kRGBColor(r, g, b, a)                                                                      \
+    [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:a]
+
+#define kAllRGB kRGB_HEX(0xF3F3F3)
+
+/** 字体大小 */
+#define kFont(n) [UIFont systemFontOfSize:(n)]
+/** 字体大小（带粗） */
+#define kBoldFont(fond) [UIFont boldSystemFontOfSize:fond]
+
+/** 导航栏高度 */
+#define kNavHeight (kScreenHeight == 812.0 ? 88 : 64)
+
+#define kSafeAreaBottomHeight (kWJScreenHeight == 812.0 ? 34 : 0)
+
+/** 16进制颜色  0x...... */
+#define kRGB_HEX(rgbValue)                                                                         \
+    [UIColor colorWithRed:((CGFloat)((rgbValue & 0xFF0000) >> 16)) / 255.0                         \
+                    green:((CGFloat)((rgbValue & 0xFF00) >> 8)) / 255.0                            \
+                     blue:((CGFloat)(rgbValue & 0xFF)) / 255.0                                     \
+                    alpha:1.0]
+
+#define kRandomColor                                                                               \
+    kRGBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255), 1)
+
+#define kRGBA_HEX(rgbValue, a)                                                                     \
+    [UIColor colorWithRed:((CGFloat)((rgbValue & 0xFF0000) >> 16)) / 255.0                         \
+                    green:((CGFloat)((rgbValue & 0xFF00) >> 8)) / 255.0                            \
+                     blue:((CGFloat)(rgbValue & 0xFF)) / 255.0                                     \
+                    alpha:(a)]
+/// 归档
+#define kUserDefaults [NSUserDefaults standardUserDefaults]
+
+/// 通知
+#define kNoteCenter [NSNotificationCenter defaultCenter]
+
+/// 屏幕
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+//* 国际化语言 */
+#define kLocalizedString(keyStr) NSLocalizedString(keyStr, nil)
+
+#define IOS_N [UIDevice currentDevice].systemVersion.floatValue
+
+#define iOS7Later ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f)
+
+#define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
+
+#define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
+
+#define iOS10Later ([UIDevice currentDevice].systemVersion.floatValue >= 10f)
+
+#define kiPhone4s ((kScreenHeight == 480) ? YES : NO)
+
+#define kiPhone5s ((kScreenHeight == 568) ? YES : NO)
+
+#define kiPhone6s_7s ((kScreenHeight == 667) ? YES : NO)
+
+#define kiPhone6sP_7sP ((kScreenHeight == 736) ? YES : NO)
+
+#define kIPHONE_X (kScreenWidth == (375.0) && kScreenHeight == (812.0) ? true : false)
+
+#define kToken @"token"
+
+#define kOpt @"opt"
+
+/// 弱引用
+#define kWeakSelf __weak __typeof(self) weakSelf = self;
+/// 快速定义 image
+#define kImageNamed(name) [UIImage imageNamed:(name)]
+// frame
+#define kFrame(x, y, width, height) CGRectMake(x, y, width, height)
+
+#define kString(obj, str) [NSString stringWithFormat:obj, str]
+
+#define kIOS11 @available(iOS 11.0, *)
+
+#define kUserData UserInfo *userInfo = [UserInfoTool account];
+
+/// 添加圆角
+#define kViewRadius(View, Radius)                                                                  \
+                                                                                                   \
+    [View.layer setCornerRadius:(Radius)];                                                         \
+    [View.layer setMasksToBounds:YES]
+
+/// 添加边框和圆角
+#define kViewBorderRadius(View, Radius, Width, Color)                                              \
+                                                                                                   \
+    [View.layer setCornerRadius:(Radius)];                                                         \
+    [View.layer setMasksToBounds:YES];                                                             \
+    [View.layer setBorderWidth:(Width)];                                                           \
+    [View.layer setBorderColor:[Color CGColor]]
+
+/// 单例模式宏模板
+#define SINGLETON_FOR_HEADER(className) +(className *) sharedInstance;
+
+#define SINGLETON_FOR_CLASS(className)                                                             \
+                                                                                                   \
+    +(className *) sharedInstance {                                                                \
+        static className *shared##className = nil;                                                 \
+        static dispatch_once_t onceToken;                                                          \
+        dispatch_once(&onceToken, ^{                                                               \
+            shared##className = [[self alloc] init];                                               \
+        });                                                                                        \
+        return shared##className;                                                                  \
+    }
+
+/**Dubug相关*/
+
+#ifdef DEBUG
+#define XXLog(format, ...)                                                                         \
+    NSLog((@"[函数名:%s]\n"                                                                     \
+            "[行号:%d]\n" format),                                                                 \
+          __FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define XXLog(...)
+#endif
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+#pragma mark - 检查跳转登录状态 跳转登录页
+#define kInspectSignInType                                                                         \
+    if (code == 303) {                                                                             \
+        kUserData;                                                                                 \
+        userInfo.LoginType = @"114690";                                                            \
+        [UserInfoTool saveAccount:userInfo];                                                       \
+        LoginViewController *loginVC = [LoginViewController viewControllerFromNib];                \
+        NSSet *set = [NSSet setWithObjects:@"0", nil];                                             \
+        [JPUSHService setTags:set                                                                  \
+                   completion:^(NSInteger iResCode, NSSet * iTags, NSInteger seq) {                \
+                   }                                                                               \
+                          seq:0];                                                                  \
+        YMNavgatinController *navLiginVC =                                                         \
+            [[YMNavgatinController alloc] initWithRootViewController:loginVC];                     \
+        [UIView animateWithDuration:0.2f                                                           \
+                         animations:^{                                                             \
+                             [UIApplication sharedApplication].keyWindow.rootViewController =      \
+                                 navLiginVC;                                                       \
+                         }];                                                                       \
+    }
+
+#define kShowMessage                                                                               \
+    if (code != 200) {                                                                             \
+        [XXProgressHUD showError:message];                                                         \
+    }
+
+//字符串是否为空
+#define kStringIsEmpty(str)                                                                        \
+    ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO)
+//数组是否为空
+#define kArrayIsEmpty(array)                                                                       \
+    (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+//字典是否为空
+#define kDictIsEmpty(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)
+//是否是空对象
+#define kObjectIsEmpty(_object)                                                                    \
+    (_object == nil || [_object isKindOfClass:[NSNull class]] ||                                   \
+     ([_object respondsToSelector:@selector(length)] && [(NSData *) _object length] == 0) ||       \
+     ([_object respondsToSelector:@selector(count)] && [(NSArray *) _object count] == 0))
+
+#define AdjustsScrollViewInsetNever(controller, view)                                              \
+    if (@available(iOS 11.0, *)) {                                                                 \
+        view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;             \
+    } else if ([controller isKindOfClass:[UIViewController class]]) {                              \
+        controller.automaticallyAdjustsScrollViewInsets = false;                                   \
+    }
+
+/// 宽高比
+  #define kHeightCoefficient (kScreenHeight == 812.0 ? 667.0/667.0 : kScreenHeight/667.0)
+
+
+
+#endif /* Product_pch */

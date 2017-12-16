@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntegralRuleS_VC">
+            <connections>
+                <outlet property="confirmButton" destination="4ep-6b-Ug6" id="ppl-XQ-aaJ"/>
+                <outlet property="tableview" destination="Gge-4J-0RG" id="xB8-cv-h5B"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="321"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gge-4J-0RG">
+                    <rect key="frame" x="0.0" y="80" width="375" height="166"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="yIE-vH-RQL"/>
+                        <outlet property="delegate" destination="-1" id="msc-NJ-Bb7"/>
+                    </connections>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分规则" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-a3-PsP">
+                    <rect key="frame" x="20" y="52" width="62" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ep-6b-Ug6">
+                    <rect key="frame" x="32" y="256" width="311" height="45"/>
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="确定" backgroundImage="background_3">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="2np-qT-A2f"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分规则" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-UG-CDy">
+                    <rect key="frame" x="153" y="10" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGH-XG-BGJ">
+                    <rect key="frame" x="16" y="41" width="339" height="1"/>
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Abx-3M-ShC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Pwi-UG-CDy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="03Y-wl-fxh"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Gge-4J-0RG" secondAttribute="trailing" id="5Lh-L7-FpK"/>
+                <constraint firstAttribute="trailing" secondItem="WGH-XG-BGJ" secondAttribute="trailing" constant="20" id="7j1-Rb-GWC"/>
+                <constraint firstItem="Pwi-UG-CDy" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="8bn-wT-NM9"/>
+                <constraint firstItem="WGH-XG-BGJ" firstAttribute="top" secondItem="Pwi-UG-CDy" secondAttribute="bottom" constant="10" id="Cgt-eb-pJi"/>
+                <constraint firstItem="3lp-a3-PsP" firstAttribute="top" secondItem="WGH-XG-BGJ" secondAttribute="bottom" constant="10" id="IyF-F0-YQT"/>
+                <constraint firstItem="4ep-6b-Ug6" firstAttribute="top" secondItem="Gge-4J-0RG" secondAttribute="bottom" constant="10" id="Ozc-91-KV9"/>
+                <constraint firstAttribute="bottom" secondItem="4ep-6b-Ug6" secondAttribute="bottom" constant="20" id="Ttl-Mw-ilu"/>
+                <constraint firstItem="3lp-a3-PsP" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dIN-Yx-bz6"/>
+                <constraint firstItem="Gge-4J-0RG" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hBf-0m-69J"/>
+                <constraint firstItem="WGH-XG-BGJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="pQL-eg-HyU"/>
+                <constraint firstItem="Gge-4J-0RG" firstAttribute="top" secondItem="3lp-a3-PsP" secondAttribute="bottom" constant="10" id="rvl-dR-QdW"/>
+                <constraint firstItem="4ep-6b-Ug6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yb6-vJ-3cX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-65.5" y="-636.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background_3" width="311" height="45"/>
+    </resources>
+</document>

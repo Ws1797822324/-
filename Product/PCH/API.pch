@@ -1,0 +1,51 @@
+//
+//  API.pch
+//  Product
+//
+//  Created by apple on 2016/12/27.
+//  Copyright © 2016年 apple. All rights reserved.
+//
+
+#ifndef API_pch
+#define API_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#pragma mark -  服务器地址
+
+#define apikey  @"82428a4618b6aa313be6914d727cb9b7"
+
+/// IP  121.43.176.154
+#define kPort  @"121.43.176.154"
+
+#pragma mark - BaseUrl  and 头像
+#define kBaseURL [NSString stringWithFormat:@"http://%@:8080/jingjiren/servlet/",kPort]
+
+#define kImgBaseURL [NSString stringWithFormat:@"http://%@:8080/jingjiren/",kPort]
+
+#pragma mark - 接口
+
+// MARK: ------ 登录注册  主页 的   验证码  资讯  主页轮播图 ------
+#define kUserServlet @"UserServlet"
+
+// MARK: ------ 我的页面的  ------
+#define kPersonalServlet @"PersonalServlet"
+
+// MARK: ------ 上传文件是  ------
+#define kUploader @"Uploader"
+
+// MARK: ------ 我的伙伴 ------
+#define kClientServlet @"ClientServlet"
+
+// MARK: ------ 楼盘部分 ------
+#pragma mark -   URL
+
+
+
+
+
+
+
+
+
+#endif /* API_pch */

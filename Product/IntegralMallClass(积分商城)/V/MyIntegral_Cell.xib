@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="KGk-i7-Jjw" customClass="MyIntegral_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报备客户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7E-2h-eOO">
+                        <rect key="frame" x="20" y="7" width="65.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-19-19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxI-5b-bkB">
+                        <rect key="frame" x="115.5" y="9" width="74.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王五" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMO-mD-ZKS">
+                        <rect key="frame" x="20" y="37" width="33" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大河龙城" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71T-Vy-5B8">
+                        <rect key="frame" x="83" y="37" width="61.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKE-yM-p54">
+                        <rect key="frame" x="268.5" y="19.5" width="31.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dixian" translatesAutoresizingMaskIntoConstraints="NO" id="MJw-eo-L7z">
+                        <rect key="frame" x="20" y="58.5" width="280" height="1"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bMO-mD-ZKS" firstAttribute="top" secondItem="b7E-2h-eOO" secondAttribute="bottom" constant="10" id="6DG-2T-cTk"/>
+                    <constraint firstItem="PKE-yM-p54" firstAttribute="trailing" secondItem="MJw-eo-L7z" secondAttribute="trailing" id="7lY-BW-ag2"/>
+                    <constraint firstItem="PKE-yM-p54" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8gN-OQ-nlx"/>
+                    <constraint firstItem="nxI-5b-bkB" firstAttribute="centerY" secondItem="b7E-2h-eOO" secondAttribute="centerY" id="HJ4-YW-N9Q"/>
+                    <constraint firstItem="71T-Vy-5B8" firstAttribute="top" secondItem="bMO-mD-ZKS" secondAttribute="top" id="IqA-dc-lb7"/>
+                    <constraint firstItem="71T-Vy-5B8" firstAttribute="leading" secondItem="bMO-mD-ZKS" secondAttribute="trailing" constant="30" id="Pjr-ay-0q5"/>
+                    <constraint firstAttribute="bottom" secondItem="MJw-eo-L7z" secondAttribute="bottom" id="T8f-xW-0CG"/>
+                    <constraint firstItem="b7E-2h-eOO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="UFP-AS-zWC"/>
+                    <constraint firstAttribute="trailing" secondItem="PKE-yM-p54" secondAttribute="trailing" constant="20" id="jlV-8I-3J7"/>
+                    <constraint firstItem="nxI-5b-bkB" firstAttribute="leading" secondItem="b7E-2h-eOO" secondAttribute="trailing" constant="30" id="k5e-6f-yOd"/>
+                    <constraint firstItem="b7E-2h-eOO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="oL2-ha-FQd"/>
+                    <constraint firstItem="MJw-eo-L7z" firstAttribute="leading" secondItem="b7E-2h-eOO" secondAttribute="leading" id="qD6-fz-lIP"/>
+                    <constraint firstItem="bMO-mD-ZKS" firstAttribute="leading" secondItem="b7E-2h-eOO" secondAttribute="leading" id="s6H-oj-Il8"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="71T-Vy-5B8" secondAttribute="trailing" constant="20" id="y06-WL-YIa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="address_L" destination="71T-Vy-5B8" id="xWD-bJ-iqF"/>
+                <outlet property="jifen_L" destination="PKE-yM-p54" id="1XO-wz-cPj"/>
+                <outlet property="name_L" destination="bMO-mD-ZKS" id="hxf-zg-TIE"/>
+                <outlet property="time_L" destination="nxI-5b-bkB" id="r66-0J-PBX"/>
+                <outlet property="title_L" destination="b7E-2h-eOO" id="JBm-pY-PwL"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="64"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dixian" width="1" height="1"/>
+    </resources>
+</document>

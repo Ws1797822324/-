@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ChooseSexTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Go-rn-s7y">
+                        <rect key="frame" x="20" y="0.0" width="100" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="26g-g3-Vmp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-BH-K0F">
+                        <rect key="frame" x="121" y="0.0" width="50" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="X8k-Mv-YGH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="男" image="xuanzhong">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="nanClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="f5O-k5-5FP"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yn9-Fw-93b">
+                        <rect key="frame" x="201" y="0.0" width="50" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="fav-pV-1u4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="女" image="weixuanzhong">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="nvClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="azU-me-HSt"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="0Go-rn-s7y" secondAttribute="bottom" id="5xP-RD-sTx"/>
+                    <constraint firstItem="lNE-BH-K0F" firstAttribute="leading" secondItem="0Go-rn-s7y" secondAttribute="trailing" constant="1" id="FQI-Hb-2JT"/>
+                    <constraint firstItem="lNE-BH-K0F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gbh-bX-gqY"/>
+                    <constraint firstItem="yn9-Fw-93b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NJl-X9-khc"/>
+                    <constraint firstAttribute="bottom" secondItem="lNE-BH-K0F" secondAttribute="bottom" id="Skj-7a-pMC"/>
+                    <constraint firstItem="0Go-rn-s7y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZER-Tz-Inu"/>
+                    <constraint firstItem="0Go-rn-s7y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jlH-O2-ztt"/>
+                    <constraint firstAttribute="bottom" secondItem="yn9-Fw-93b" secondAttribute="bottom" id="k00-Ef-KYX"/>
+                    <constraint firstItem="yn9-Fw-93b" firstAttribute="leading" secondItem="lNE-BH-K0F" secondAttribute="trailing" constant="30" id="nRf-n7-FJo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="nanBtn" destination="lNE-BH-K0F" id="mNR-Cc-79k"/>
+                <outlet property="nvBtn" destination="yn9-Fw-93b" id="Q23-ML-WSe"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="weixuanzhong" width="16" height="16"/>
+        <image name="xuanzhong" width="15" height="15"/>
+    </resources>
+</document>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="KGk-i7-Jjw" customClass="PersonalDataHeader_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBx-Rt-Gi7">
+                        <rect key="frame" x="20" y="32" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youjiantou" translatesAutoresizingMaskIntoConstraints="NO" id="bHR-A6-zBo">
+                        <rect key="frame" x="293" y="36" width="7" height="13"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Oq6-sI-kdN">
+                        <rect key="frame" x="228" y="12" width="60" height="60"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="A4I-kj-be6"/>
+                            <constraint firstAttribute="height" constant="60" id="Iwa-iM-oRJ"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bHR-A6-zBo" secondAttribute="trailing" constant="20" id="8Cb-1i-8tv"/>
+                    <constraint firstItem="yBx-Rt-Gi7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OhP-n6-BpK"/>
+                    <constraint firstItem="Oq6-sI-kdN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ael-xh-ELX"/>
+                    <constraint firstItem="bHR-A6-zBo" firstAttribute="leading" secondItem="Oq6-sI-kdN" secondAttribute="trailing" constant="5" id="e6I-ND-laP"/>
+                    <constraint firstItem="yBx-Rt-Gi7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sbt-yp-lke"/>
+                    <constraint firstItem="bHR-A6-zBo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="u9g-zl-QQW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImgView" destination="Oq6-sI-kdN" id="97G-JW-Txb"/>
+            </connections>
+            <point key="canvasLocation" x="-68" y="55"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon" width="60" height="60"/>
+        <image name="youjiantou" width="7" height="13"/>
+    </resources>
+</document>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bodoni72.ttc">
+            <string>BodoniSvtyTwoITCTT-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyIntegral_VC">
+            <connections>
+                <outlet property="integraL" destination="9BY-7M-F3i" id="wlS-gB-OTA"/>
+                <outlet property="tableview" destination="IkO-ud-Vtt" id="C3I-5u-BHb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前可用积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA4-Ds-GeD">
+                    <rect key="frame" x="129.5" y="30" width="116.5" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="349" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BY-7M-F3i">
+                    <rect key="frame" x="154.5" y="78" width="67.5" height="48"/>
+                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="40"/>
+                    <color key="textColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_8" translatesAutoresizingMaskIntoConstraints="NO" id="Agm-ar-8sK">
+                    <rect key="frame" x="0.0" y="136" width="375" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="XCF-QC-uVn"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IkO-ud-Vtt">
+                    <rect key="frame" x="0.0" y="163" width="375" height="504"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IkO-ud-Vtt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4eI-bR-RRn"/>
+                <constraint firstItem="nA4-Ds-GeD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Agr-Il-kVQ"/>
+                <constraint firstAttribute="trailing" secondItem="Agm-ar-8sK" secondAttribute="trailing" id="FHf-VA-9cc"/>
+                <constraint firstItem="nA4-Ds-GeD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UUa-Qc-bnQ"/>
+                <constraint firstItem="9BY-7M-F3i" firstAttribute="top" secondItem="nA4-Ds-GeD" secondAttribute="bottom" constant="25" id="VNA-A2-rkX"/>
+                <constraint firstAttribute="bottom" secondItem="IkO-ud-Vtt" secondAttribute="bottom" id="XfP-m2-zdP"/>
+                <constraint firstAttribute="trailing" secondItem="IkO-ud-Vtt" secondAttribute="trailing" id="aZu-Sj-5HC"/>
+                <constraint firstItem="9BY-7M-F3i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gWX-CI-RLP"/>
+                <constraint firstItem="Agm-ar-8sK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rXu-nP-WA9"/>
+                <constraint firstItem="IkO-ud-Vtt" firstAttribute="top" secondItem="Agm-ar-8sK" secondAttribute="bottom" constant="10" id="ssf-uu-iQX"/>
+                <constraint firstItem="Agm-ar-8sK" firstAttribute="top" secondItem="9BY-7M-F3i" secondAttribute="bottom" constant="10" id="wGP-tA-fsX"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="background_8" width="321" height="14"/>
+    </resources>
+</document>

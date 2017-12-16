@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="IntegralMall_CCell">
+            <rect key="frame" x="0.0" y="0.0" width="206" height="155"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="206" height="155"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_12" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2O-RG-c57">
+                        <rect key="frame" x="10" y="10" width="186" height="90"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxT-gc-Qy8">
+                        <rect key="frame" x="10" y="115" width="61" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title=" 2000" image="Integral">
+                            <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-Za-Orj">
+                        <rect key="frame" x="146" y="110" width="55" height="30"/>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="NbN-OG-F8u"/>
+                            <constraint firstAttribute="width" constant="55" id="fgo-WA-8WN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="兑换"/>
+                        <connections>
+                            <action selector="duiHuan:" destination="gTV-IL-0wX" eventType="touchUpInside" id="z8r-bZ-41r"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dixian" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-b8-XU3">
+                        <rect key="frame" x="0.0" y="154" width="206" height="1"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4il-ot-7GX">
+                        <rect key="frame" x="75" y="41" width="42" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Z2O-RG-c57" secondAttribute="trailing" constant="10" id="58b-6N-gYG"/>
+                <constraint firstItem="Z2O-RG-c57" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="BeO-LW-rJ9"/>
+                <constraint firstItem="ITH-Za-Orj" firstAttribute="top" secondItem="Z2O-RG-c57" secondAttribute="bottom" constant="10" id="KD5-TR-0y3"/>
+                <constraint firstItem="ITH-Za-Orj" firstAttribute="centerY" secondItem="ZxT-gc-Qy8" secondAttribute="centerY" id="R1o-o1-IC2"/>
+                <constraint firstAttribute="bottom" secondItem="ITH-Za-Orj" secondAttribute="bottom" constant="15" id="VKy-qF-Iv6"/>
+                <constraint firstItem="kAh-b8-XU3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f95-rz-o64"/>
+                <constraint firstItem="ZxT-gc-Qy8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="fS7-Pj-jnu"/>
+                <constraint firstAttribute="bottom" secondItem="kAh-b8-XU3" secondAttribute="bottom" id="hO2-l3-KWp"/>
+                <constraint firstAttribute="trailing" secondItem="kAh-b8-XU3" secondAttribute="trailing" id="nB7-Bl-X0l"/>
+                <constraint firstAttribute="trailing" secondItem="ITH-Za-Orj" secondAttribute="trailing" constant="5" id="vI7-Ea-MNm"/>
+                <constraint firstItem="Z2O-RG-c57" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="vre-G0-zRu"/>
+            </constraints>
+            <size key="customSize" width="219" height="160"/>
+            <connections>
+                <outlet property="exchangeBtn" destination="ITH-Za-Orj" id="wKy-aY-ZSs"/>
+                <outlet property="image_View" destination="Z2O-RG-c57" id="g0u-94-GXU"/>
+                <outlet property="jifenL" destination="4il-ot-7GX" id="iBW-bx-xxR"/>
+                <outlet property="numButton" destination="ZxT-gc-Qy8" id="RR0-ey-foh"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="16.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Integral" width="20" height="20"/>
+        <image name="background_12" width="167" height="90"/>
+        <image name="dixian" width="1" height="1"/>
+    </resources>
+</document>

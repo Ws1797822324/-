@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PersonalDataThird_Cell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLJ-QY-FQE">
+                        <rect key="frame" x="20" y="14.5" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dixian" translatesAutoresizingMaskIntoConstraints="NO" id="WTW-JY-TPw">
+                        <rect key="frame" x="20" y="48.5" width="280" height="1"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUb-lV-zr8">
+                        <rect key="frame" x="189" y="15" width="41" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="  男" image="weixuanzhong">
+                            <color key="titleColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-61-aT3">
+                        <rect key="frame" x="250" y="15" width="40" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="  女" image="xuanzhong">
+                            <color key="titleColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mLJ-QY-FQE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3bw-gd-NlD"/>
+                    <constraint firstItem="WTW-JY-TPw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="DBC-3J-JyJ"/>
+                    <constraint firstItem="GeR-61-aT3" firstAttribute="leading" secondItem="KUb-lV-zr8" secondAttribute="trailing" constant="20" id="MM8-zo-qLQ"/>
+                    <constraint firstAttribute="bottom" secondItem="WTW-JY-TPw" secondAttribute="bottom" id="MXl-ek-ZoE"/>
+                    <constraint firstItem="GeR-61-aT3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Phe-GK-C6F"/>
+                    <constraint firstItem="GeR-61-aT3" firstAttribute="centerY" secondItem="KUb-lV-zr8" secondAttribute="centerY" id="W1y-NG-uHf"/>
+                    <constraint firstAttribute="trailing" secondItem="WTW-JY-TPw" secondAttribute="trailing" constant="20" id="gwU-ze-FRU"/>
+                    <constraint firstItem="mLJ-QY-FQE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="j1S-lf-ZdJ"/>
+                    <constraint firstAttribute="trailing" secondItem="GeR-61-aT3" secondAttribute="trailing" constant="30" id="r5T-su-USM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="maleButton" destination="KUb-lV-zr8" id="b8S-cy-biW"/>
+                <outlet property="womanButton" destination="GeR-61-aT3" id="wUl-o1-F6S"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dixian" width="1" height="1"/>
+        <image name="weixuanzhong" width="16" height="16"/>
+        <image name="xuanzhong" width="15" height="15"/>
+    </resources>
+</document>
