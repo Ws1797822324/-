@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"报备成交";
+    self.navigationController.navigationBar.translucent = NO;
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -11,6 +11,7 @@
 #import "ChooseSexTableViewCell.h"
 #import "SureTableViewCell.h"
 #import "RemarkTableViewCell.h"
+#import "SFZInputting_Cell.h"
 #import "PhoneInputting_Cell.h"
 
 @interface ReportedSuccessViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -24,6 +25,7 @@
 @property (nonatomic ,strong) UITextField *phone_TF;
 @property (nonatomic ,strong) UITextField *price_TF;
 @property (nonatomic ,strong) XXTextView *beizhu_TV;
+
 
 
 
@@ -59,6 +61,7 @@
                                                bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:@"RemarkTableViewCell"];
     [self.tableView registerNib:[PhoneInputting_Cell nib] forCellReuseIdentifier:@"PhoneInputting_Cell"];
+    [self.tableView registerNib:[SFZInputting_Cell nib] forCellReuseIdentifier:@"SFZInputting_Cell"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -124,15 +127,10 @@
             _name_TF = LATFCell.TF_title;
             return LATFCell;
         } else if (indexPath.row == 1) {
-            LATFCell.titleLabel.text = @"身份证号码";
-            LATFCell.TF_title.placeholder = @"请输入客户身份证号码";
-            [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
-                
-            }];
 
-            _sfz_TF = LATFCell.TF_title;
-
-            return LATFCell;
+            SFZInputting_Cell * cell= [SFZInputting_Cell loadCellFromNib:tableView];
+            _sfz_TF = cell.sfz_TF;
+            return cell;
         } else if (indexPath.row == 2) {
             PhoneInputting_Cell * cell = [PhoneInputting_Cell loadCellFromNib:tableView];
             _phone_TF = cell.phone_TF;
