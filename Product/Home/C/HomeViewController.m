@@ -169,7 +169,6 @@
 
     // 如果你发现你的CycleScrollview会在viewWillAppear时图片卡在中间位置，你可以调用此方法调整图片位置
     [_cycleScrollView adjustWhenControllerViewWillAppera];
-    [self startLocation];
 
 }
 
@@ -231,6 +230,7 @@
     kWeakSelf;
     [super viewDidLoad];
 
+    [self startLocation];
 
     [self requestImage];
 
@@ -447,9 +447,7 @@
     if (_currLocationl.horizontalAccuracy <= 0) {//定位失败
         [XXProgressHUD showMessage:@"定位失败,请下拉刷新定位"];
         [self.tableView.mj_header endRefreshing];
-
         return;
-
     }
 
     NSString * cityStr = [userInfo.position  stringByReplacingOccurrencesOfString:@"市" withString:@""];

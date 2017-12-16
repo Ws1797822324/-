@@ -19,8 +19,9 @@
 
     _tjModel = tjModel;
     _name_L.text = tjModel.name;
-    float qian = [tjModel.price floatValue];
-    _price_L.text = [NSString stringWithFormat:@"%.2f万元起",qian/10000];
+
+
+    _price_L.text = [NSString stringWithFormat:@"%@万元起",tjModel.price];
     _priceS_L.text = [NSString stringWithFormat:@"%@元/㎡",tjModel.price_min_s];
     [_img_V sd_setImageWithURL:[NSURL URLWithString:tjModel.pic] placeholderImage:kImageNamed(@"background_7")];
     _address_L.text = tjModel.address;
@@ -29,8 +30,8 @@
 
     _tuijianModel = tuijianModel;
     _name_L.text = tuijianModel.room_office;
-    float qian = [tuijianModel.price floatValue];
-    _price_L.text = [NSString stringWithFormat:@"%.2f万元起",qian/10000];
+
+    _price_L.text = [NSString stringWithFormat:@"%@万元起",tuijianModel.price];
     _priceS_L.text = tuijianModel.area;
     [_img_V sd_setImageWithURL:[NSURL URLWithString:tuijianModel.pic_hx] placeholderImage:kImageNamed(@"background_7")];
     _address_L.text = tuijianModel.address;

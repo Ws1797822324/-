@@ -246,7 +246,7 @@
 }
 - (void)configTableview {
 
-    self.tableview.backgroundColor = kAllRGB;
+    self.tableview.backgroundColor = [UIColor whiteColor];
 
     [self.view addSubview:self.tableview];
     [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -428,7 +428,7 @@
     if (section == 1) {
         UIView *View = [[UIView alloc] init];
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        View.backgroundColor = [UIColor redColor];
+
         _collectionView =
             [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, _footeViewHeight) collectionViewLayout:layout];
         layout.itemSize = CGSizeMake((kWidth)/2, 150);
