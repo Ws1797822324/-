@@ -46,16 +46,10 @@
         make.top.right.left.bottom.equalTo(_tagsViewTool);
     }];
     self.tagsView.tagTexts = arr;
+        self.tagsViewToolLayout.constant = [SQButtonTagView returnViewHeightWithTagTexts:arr viewWidth:_tagsViewTool.width eachNum:0 Hmargin:10 Vmargin:5 tagHeight:20 tagTextFont:kBoldFont(12)];
 
-    [self.tagsViewTool mas_updateConstraints:^(MASConstraintMaker *make) {
-
-        make.height.offset([SQButtonTagView returnViewHeightWithTagTexts:arr viewWidth:_tagsViewTool.width eachNum:0 Hmargin:10 Vmargin:5 tagHeight:20 tagTextFont:kBoldFont(12)]);
-    }];
     } else {
-        [self.tagsViewTool mas_updateConstraints:^(MASConstraintMaker *make) {
-
-            make.height.offset(0.1);
-        }];
+        self.tagsViewToolLayout.constant = 0.001;
     }
 
 }
