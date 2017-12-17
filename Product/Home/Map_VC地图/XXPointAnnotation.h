@@ -10,4 +10,7 @@
 
 @interface XXPointAnnotation : MAPointAnnotation
 
+@property (nonatomic ,copy) NSString *ID;
+
+
 @end

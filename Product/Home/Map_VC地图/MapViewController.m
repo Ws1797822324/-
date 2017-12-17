@@ -94,10 +94,9 @@
     kWeakSelf;
 
     _pointAnnotion1 = pointAnnotation;
-
     [self.mapView addAnnotation:pointAnnotation];
-    [self.mapView setZoomLevel:17 atPivot:CGPointMake(kWidth / 3 , kHeight / 2)  animated:true];
-
+    [self.mapView setZoomLevel:17];
+    self.mapView.zoomEnabled  = YES;
 
     [[RACScheduler mainThreadScheduler]afterDelay:0.1 schedule:^{
 //        [weakSelf.mapView selectAnnotation:_pointAnnotion1 animated:YES];
@@ -202,6 +201,7 @@
     NSMutableArray *poiAnnotations = [NSMutableArray arrayWithCapacity:response.pois.count];
     
     [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
+
         
         [poiAnnotations addObject:[[POIAnnotation alloc] initWithPOI:obj]];
         
@@ -218,7 +218,7 @@
     /* 如果有多个结果, 设置地图使所有的annotation都可见. */
     else
     {
-        [self.mapView showAnnotations:poiAnnotations animated:NO];
+        [self.mapView showAnnotations:poiAnnotations animated:YES];
     }
 }
 
