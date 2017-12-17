@@ -16,7 +16,7 @@
 
 @interface LoginViewController () <UITextFieldDelegate>
 /// 账号
-@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet TKPhoneTextField *userNameTF;
 
 /// 密码
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
@@ -42,7 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
 
     UIButton *tempBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [tempBtn setImage:kImageNamed(@"close_eyes") forState:UIControlStateNormal];
@@ -76,13 +76,20 @@
 }
 
 #pragma mark - UITextFieldDelegate
-- (BOOL)textField:(UITextField *)textField
-    shouldChangeCharactersInRange:(NSRange)range
-                replacementString:(NSString *)string {
-
-    [textField phoneTFValueChangeValueString:string shouldChangeCharactersInRange:range];
-
-    return false;
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == _userNameTF) {
+        NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        if ([toBeString length] > 13) {
+            
+            return NO;
+        }
+    }
+    if([string hasSuffix:@" "])     // 忽视空格
+        return NO;
+    else
+        return YES;
+    return YES;
 }
 
 // MARK:  密码右边的眼睛
@@ -131,7 +138,7 @@
         @"model" : kString(@"%@", [XXHelper getUserPhoneModelNumber]), // 手机型号
         @"os" : kString(@"%f", IOS_N)
     };
-    
+
     [XXNetWorkManager requestWithMethod:POST
         withParams:params
         withUrlString:kUserServlet
@@ -142,7 +149,7 @@
         withSuccessBlock:^(id objc, int code, NSString *message, id data) {
             if (code == 200) {
                 NSLog(@"登录成功 - %@", data);
-                
+
                 UserInfo *user = [UserInfo mj_objectWithKeyValues:data];
                 user.LoginType = @"096411";
                 user.position = @"南京市";

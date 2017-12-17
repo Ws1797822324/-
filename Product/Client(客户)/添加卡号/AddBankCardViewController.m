@@ -7,11 +7,16 @@
 //
 
 #import "AddBankCardViewController.h"
+#import "RYNumberKeyboard.h"
+#import "UITextField+RYNumberKeyboard.h"
+#import "WLCardNoFormatter.h"
 
-@interface AddBankCardViewController ()
+
+@interface AddBankCardViewController ()<UITextFieldDelegate>
 
 @property (nonatomic ,strong) NSString *imgUrl1;
 @property (nonatomic ,strong) NSString *imgUrl2;
+@property (nonatomic ,strong) WLCardNoFormatter *cardNoFormatter;
 
 
 @end
@@ -22,10 +27,20 @@
     [super viewDidLoad];
     self.title = @"填写卡号";
     kViewRadius(self.sureBtn, 6);
-    kUserData;
-    self.TF_name.text = userInfo.sfz_name;
-    self.TF_usercode.text = userInfo.sfz_code;
-    NSLog(@"----   %@",userInfo.sfz_z);
+//    kUserData;
+//    self.TF_name.text = userInfo.sfz_name;
+//    self.TF_usercode.text = userInfo.sfz_code;
+//    NSLog(@"----   %@",userInfo.sfz_z);
+
+    self.TF_bankcode.delegate = self;
+    self.TF_usercode.ry_inputType = RYIDCardInputType;
+    self.TF_usercode.ry_inputAccessoryText = @"请输入身份证号";
+    [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        if (_TF_usercode.text.length >= 19) {
+            _TF_usercode.text = [_TF_usercode.text substringToIndex:18];
+        }
+
+    }];
     [self.button_F sd_setImageWithURL:[NSURL URLWithString:@""] forState:UIControlStateNormal placeholderImage:kImageNamed(@"bg_card_default")];
     [self.button_S sd_setImageWithURL:[NSURL URLWithString:@""] forState:UIControlStateNormal placeholderImage:kImageNamed(@"bg_card_default")];
 
@@ -33,6 +48,26 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
 }
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.TF_bankcode) {
+        [self.cardNoFormatter bankNoField:textField shouldChangeCharactersInRange:range replacementString:string];
+        return NO;
+    }
+    return YES;
+}
+
+
+- (WLCardNoFormatter *)cardNoFormatter {
+    if(_cardNoFormatter == nil) {
+        _cardNoFormatter = [[WLCardNoFormatter alloc] init];
+    }
+    return _cardNoFormatter;
+}
+
+
+
 - (IBAction)SFZClick1:(UIButton *)sender {
     kWeakSelf;
     [UIImage openPhotoPickerGetImages:^(NSArray<AlbumsModel *> *imagesModel, NSArray *photos, NSArray *assets) {
@@ -120,6 +155,11 @@
         [XXProgressHUD showMessage:@"请输入银行卡号码"];
         return;
     }
+    if ([XXHelper validateBankCardWithNumber:[_TF_bankcode.text stringByReplacingOccurrencesOfString:@" " withString:@""]]) {
+        [XXProgressHUD showMessage:@"请输入正确的银行卡号码"];
+        return;
+
+    }
 
     if (kStringIsEmpty(_imgUrl1)) {
         [XXProgressHUD showMessage:@"身份证照片正面上传失败!\n请重新选择照片"];
@@ -145,7 +185,7 @@
          NSDictionary *params = @{
                                   kOpt : @"comm_rz",
                                   kToken : userInfo.token,
-                                  @"bank_num" : _TF_bankcode.text,
+                                  @"bank_num" : [_TF_bankcode.text stringByReplacingOccurrencesOfString:@" " withString:@""],
                                   @"open_bank" : _TF_bankname.text,
                                   @"pic_z" : _imgUrl1,
                                   @"pic_fan" : _imgUrl2,

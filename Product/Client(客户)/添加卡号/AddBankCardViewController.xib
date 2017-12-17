@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddBankCardViewController">
             <connections>
-                <outlet property="TF_bankcode" destination="aYi-q0-lNX" id="fzr-xa-pfN"/>
+                <outlet property="TF_bankcode" destination="aYi-q0-lNX" id="xll-se-hpL"/>
                 <outlet property="TF_bankname" destination="RHe-uY-l5F" id="tAK-JH-5fz"/>
                 <outlet property="TF_name" destination="ovh-ix-gBZ" id="Jah-s3-dPI"/>
                 <outlet property="TF_usercode" destination="p1P-8R-cJl" id="dTo-Jf-H8f"/>
@@ -77,7 +77,7 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入银行卡号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYi-q0-lNX">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入银行卡号" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aYi-q0-lNX">
                     <rect key="frame" x="100" y="72" width="210" height="43"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="wYX-JL-0ww"/>
@@ -106,7 +106,7 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入开户行" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHe-uY-l5F">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入开户行" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="RHe-uY-l5F">
                     <rect key="frame" x="100" y="116" width="210" height="43"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="Cx5-2J-8uP"/>
@@ -145,8 +145,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入身份证号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p1P-8R-cJl" customClass="BXTextField">
-                    <rect key="frame" x="100" y="160" width="230" height="43"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="p1P-8R-cJl" customClass="BXTextField">
+                    <rect key="frame" x="100" y="160" width="210" height="43"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="gew-hP-cwr"/>
                     </constraints>
@@ -235,7 +235,6 @@
                 <constraint firstItem="ALS-Vl-YLP" firstAttribute="top" secondItem="sAu-UD-Fja" secondAttribute="bottom" id="ZEZ-oj-afW"/>
                 <constraint firstItem="dG9-Ga-56N" firstAttribute="top" secondItem="ALS-Vl-YLP" secondAttribute="bottom" id="bKL-1L-b0C"/>
                 <constraint firstAttribute="trailing" secondItem="ZVF-sW-LgE" secondAttribute="trailing" constant="20" id="c44-gZ-MVS"/>
-                <constraint firstItem="p1P-8R-cJl" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" constant="10" id="f5C-E1-2e9"/>
                 <constraint firstItem="RHe-uY-l5F" firstAttribute="top" secondItem="a0S-6k-Q8h" secondAttribute="bottom" id="f5Z-qb-NFG"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="AzU-AS-sUP" secondAttribute="trailing" id="f7C-Gz-i69"/>
                 <constraint firstItem="f66-As-xfj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="fM1-4J-Whz"/>
@@ -252,6 +251,7 @@
                 <constraint firstItem="sVC-UV-AAI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="y3s-9k-J7R"/>
                 <constraint firstItem="7Z7-az-c0y" firstAttribute="top" secondItem="ugD-fp-JTc" secondAttribute="bottom" constant="5" id="yUF-ti-TrU"/>
                 <constraint firstItem="p1P-8R-cJl" firstAttribute="leading" secondItem="f66-As-xfj" secondAttribute="trailing" id="zqv-6z-PTo"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="p1P-8R-cJl" secondAttribute="trailing" constant="10" id="zto-ww-JZc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="-43" y="36"/>

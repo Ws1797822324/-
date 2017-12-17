@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="loginBtn" destination="0KD-JJ-dt9" id="7b9-MW-Xyg"/>
                 <outlet property="passwordTF" destination="yC1-MB-Eu6" id="wrB-o9-GFm"/>
-                <outlet property="userNameTF" destination="3z5-gB-uQU" id="gQH-Dw-RXy"/>
+                <outlet property="userNameTF" destination="3z5-gB-uQU" id="j5Z-4h-cTS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -70,7 +70,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu" translatesAutoresizingMaskIntoConstraints="NO" id="UNN-F6-NhX">
                             <rect key="frame" x="10" y="9.5" width="18" height="21"/>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3z5-gB-uQU">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3z5-gB-uQU" customClass="TKPhoneTextField">
                             <rect key="frame" x="81" y="5" width="220" height="29"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>

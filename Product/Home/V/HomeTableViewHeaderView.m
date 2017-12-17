@@ -10,12 +10,7 @@
 
 @interface HomeTableViewHeaderView ()
 
-
-
-
 @end
-
-
 
 @implementation HomeTableViewHeaderView
 

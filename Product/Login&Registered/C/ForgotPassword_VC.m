@@ -10,7 +10,7 @@
 
 @interface ForgotPassword_VC () <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
+@property (weak, nonatomic) IBOutlet TKPhoneTextField *phoneTF;
 
 @property (weak, nonatomic) IBOutlet UITextField *codeTF;
 
@@ -71,13 +71,20 @@
 
 
 #pragma mark - UITextFieldDelegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    
-    [textField phoneTFValueChangeValueString:string shouldChangeCharactersInRange:range];
-    
-    
-    return false;
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+{
+    if (textField == _phoneTF) {
+        NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        if ([toBeString length] > 13) {
+
+            return NO;
+        }
+    }
+    if([string hasSuffix:@" "])     // 忽视空格
+        return NO;
+    else
+        return YES;
+    return YES;
 }
 
 

@@ -8,11 +8,17 @@
 
 #import "SFZInputting_Cell.h"
 
+#import "RYNumberKeyboard.h"
+#import "UITextField+RYNumberKeyboard.h"
+
+
 @implementation SFZInputting_Cell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
 
+    self.sfz_TF.ry_inputType = RYIDCardInputType;
+    self.sfz_TF.ry_inputAccessoryText = @"请输入身份证号";
     [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
         if (_sfz_TF.text.length >= 19) {
             _sfz_TF.text = [_sfz_TF.text substringToIndex:18];

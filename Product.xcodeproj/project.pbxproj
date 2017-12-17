@@ -197,6 +197,12 @@
 		5447928C1FBEDCD300DFB52B /* PromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5447928B1FBEDCD300DFB52B /* PromptView.m */; };
 		5447928E1FBEDCE500DFB52B /* PromptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5447928D1FBEDCE500DFB52B /* PromptView.xib */; };
 		545B80FA1FC17CE3008A253E /* MyPartner_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 545B80F91FC17CE3008A253E /* MyPartner_VC.m */; };
+		546C915B1FE63161005C938F /* UITextField+RYNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C91551FE63161005C938F /* UITextField+RYNumberKeyboard.m */; };
+		546C915C1FE63161005C938F /* RYNumbeKeyboard.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 546C91571FE63161005C938F /* RYNumbeKeyboard.bundle */; };
+		546C915D1FE63161005C938F /* RYNumberKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546C91581FE63161005C938F /* RYNumberKeyboard.xib */; };
+		546C915E1FE63161005C938F /* RYNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C915A1FE63161005C938F /* RYNumberKeyboard.m */; };
+		546C91611FE63854005C938F /* TKPhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C91601FE63854005C938F /* TKPhoneTextField.m */; };
+		546C91671FE65405005C938F /* WLCardNoFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C91661FE65404005C938F /* WLCardNoFormatter.m */; };
 		547E460A1FD3E14100FB3941 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547E46091FD3E14100FB3941 /* MapViewController.m */; };
 		547E460D1FD510F900FB3941 /* MoneyDetails_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 547E460C1FD510F900FB3941 /* MoneyDetails_VC.m */; };
 		547E46101FD5128700FB3941 /* MoneyDetailsA_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 547E460F1FD5128700FB3941 /* MoneyDetailsA_VC.m */; };
@@ -225,9 +231,6 @@
 		54ACC9231FE51C0900EB88E7 /* PhoneInputting_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ACC9211FE51C0900EB88E7 /* PhoneInputting_Cell.xib */; };
 		54ACC9271FE5297B00EB88E7 /* SFZInputting_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC9251FE5297B00EB88E7 /* SFZInputting_Cell.m */; };
 		54ACC9281FE5297B00EB88E7 /* SFZInputting_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ACC9261FE5297B00EB88E7 /* SFZInputting_Cell.xib */; };
-		54ACC9301FE52B1800EB88E7 /* BXTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC92A1FE52B1800EB88E7 /* BXTextField.m */; };
-		54ACC9311FE52B1800EB88E7 /* UITextField+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC92B1FE52B1800EB88E7 /* UITextField+BXExtension.m */; };
-		54ACC9321FE52B1800EB88E7 /* UIView+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ACC92C1FE52B1800EB88E7 /* UIView+BXExtension.m */; };
 		54B67C701FD777C100E041D2 /* ErrorInfoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B67C6A1FD777BF00E041D2 /* ErrorInfoUtility.m */; };
 		54B67C711FD777C100E041D2 /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B67C6C1FD777C000E041D2 /* CommonUtility.m */; };
 		54B67C721FD777C100E041D2 /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B67C6F1FD777C100E041D2 /* POIAnnotation.m */; };
@@ -717,6 +720,16 @@
 		5447928F1FBEE98800DFB52B /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		545B80F81FC17CE3008A253E /* MyPartner_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPartner_VC.h; sourceTree = "<group>"; };
 		545B80F91FC17CE3008A253E /* MyPartner_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPartner_VC.m; sourceTree = "<group>"; };
+		546C91551FE63161005C938F /* UITextField+RYNumberKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+RYNumberKeyboard.m"; sourceTree = "<group>"; };
+		546C91561FE63161005C938F /* RYNumberKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYNumberKeyboard.h; sourceTree = "<group>"; };
+		546C91571FE63161005C938F /* RYNumbeKeyboard.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RYNumbeKeyboard.bundle; sourceTree = "<group>"; };
+		546C91581FE63161005C938F /* RYNumberKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RYNumberKeyboard.xib; sourceTree = "<group>"; };
+		546C91591FE63161005C938F /* UITextField+RYNumberKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+RYNumberKeyboard.h"; sourceTree = "<group>"; };
+		546C915A1FE63161005C938F /* RYNumberKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYNumberKeyboard.m; sourceTree = "<group>"; };
+		546C915F1FE63853005C938F /* TKPhoneTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPhoneTextField.h; sourceTree = "<group>"; };
+		546C91601FE63854005C938F /* TKPhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPhoneTextField.m; sourceTree = "<group>"; };
+		546C91651FE65404005C938F /* WLCardNoFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCardNoFormatter.h; sourceTree = "<group>"; };
+		546C91661FE65404005C938F /* WLCardNoFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCardNoFormatter.m; sourceTree = "<group>"; };
 		547E46091FD3E14100FB3941 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		547E460B1FD510F900FB3941 /* MoneyDetails_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyDetails_VC.h; sourceTree = "<group>"; };
 		547E460C1FD510F900FB3941 /* MoneyDetails_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyDetails_VC.m; sourceTree = "<group>"; };
@@ -765,12 +778,6 @@
 		54ACC9241FE5297B00EB88E7 /* SFZInputting_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFZInputting_Cell.h; sourceTree = "<group>"; };
 		54ACC9251FE5297B00EB88E7 /* SFZInputting_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFZInputting_Cell.m; sourceTree = "<group>"; };
 		54ACC9261FE5297B00EB88E7 /* SFZInputting_Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SFZInputting_Cell.xib; sourceTree = "<group>"; };
-		54ACC92A1FE52B1800EB88E7 /* BXTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BXTextField.m; sourceTree = "<group>"; };
-		54ACC92B1FE52B1800EB88E7 /* UITextField+BXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BXExtension.m"; sourceTree = "<group>"; };
-		54ACC92C1FE52B1800EB88E7 /* UIView+BXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BXExtension.m"; sourceTree = "<group>"; };
-		54ACC92D1FE52B1800EB88E7 /* UITextField+BXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+BXExtension.h"; sourceTree = "<group>"; };
-		54ACC92E1FE52B1800EB88E7 /* BXTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BXTextField.h; sourceTree = "<group>"; };
-		54ACC92F1FE52B1800EB88E7 /* UIView+BXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BXExtension.h"; sourceTree = "<group>"; };
 		54B67C6A1FD777BF00E041D2 /* ErrorInfoUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorInfoUtility.m; sourceTree = "<group>"; };
 		54B67C6B1FD777C000E041D2 /* CommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtility.h; sourceTree = "<group>"; };
 		54B67C6C1FD777C000E041D2 /* CommonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtility.m; sourceTree = "<group>"; };
@@ -1779,6 +1786,19 @@
 			path = RootControllers;
 			sourceTree = "<group>";
 		};
+		546C91541FE63161005C938F /* RYNumberkeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				546C91591FE63161005C938F /* UITextField+RYNumberKeyboard.h */,
+				546C91551FE63161005C938F /* UITextField+RYNumberKeyboard.m */,
+				546C91561FE63161005C938F /* RYNumberKeyboard.h */,
+				546C91571FE63161005C938F /* RYNumbeKeyboard.bundle */,
+				546C91581FE63161005C938F /* RYNumberKeyboard.xib */,
+				546C915A1FE63161005C938F /* RYNumberKeyboard.m */,
+			);
+			path = RYNumberkeyboard;
+			sourceTree = "<group>";
+		};
 		548680A51F282FC8004B1AE8 /* Contact(消息) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1922,19 +1942,6 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		54ACC9291FE52B1800EB88E7 /* JYJKeyBoard */ = {
-			isa = PBXGroup;
-			children = (
-				54ACC92E1FE52B1800EB88E7 /* BXTextField.h */,
-				54ACC92A1FE52B1800EB88E7 /* BXTextField.m */,
-				54ACC92F1FE52B1800EB88E7 /* UIView+BXExtension.h */,
-				54ACC92C1FE52B1800EB88E7 /* UIView+BXExtension.m */,
-				54ACC92D1FE52B1800EB88E7 /* UITextField+BXExtension.h */,
-				54ACC92B1FE52B1800EB88E7 /* UITextField+BXExtension.m */,
-			);
-			path = JYJKeyBoard;
-			sourceTree = "<group>";
-		};
 		54CA241B1FB92E010035A0B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -2038,7 +2045,7 @@
 		54FF11651F4D6A0C00A2A23D /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
-				54ACC9291FE52B1800EB88E7 /* JYJKeyBoard */,
+				546C91541FE63161005C938F /* RYNumberkeyboard */,
 				540C4B8E1FDBE606003FAB07 /* DataLog */,
 				54F224531FD9026A00CA8016 /* IQKeyboardManager */,
 				268271441FC7F285006FE8F9 /* HJRadiaMenu */,
@@ -2155,6 +2162,10 @@
 				6711A9721FB05A4F004425C7 /* UIColor+PosColor.m */,
 				54FF121C1F4D6BEC00A2A23D /* UITextField+Extension.h */,
 				54FF121D1F4D6BEC00A2A23D /* UITextField+Extension.m */,
+				546C915F1FE63853005C938F /* TKPhoneTextField.h */,
+				546C91601FE63854005C938F /* TKPhoneTextField.m */,
+				546C91651FE65404005C938F /* WLCardNoFormatter.h */,
+				546C91661FE65404005C938F /* WLCardNoFormatter.m */,
 				54FF122A1F4D6BEC00A2A23D /* XXTextView.h */,
 				54FF122B1F4D6BEC00A2A23D /* XXTextView.m */,
 				540A05AF1FBA81EF007EB851 /* BRTextField.h */,
@@ -2643,6 +2654,7 @@
 				540A05B61FBA9147007EB851 /* ConfigNameDate_VC.xib in Resources */,
 				268271181FC6D403006FE8F9 /* AddBankCardViewController.xib in Resources */,
 				67252A791FB54CF100C42A2D /* PropertiesDetails_ChoiceCell.xib in Resources */,
+				546C915C1FE63161005C938F /* RYNumbeKeyboard.bundle in Resources */,
 				6711A9371FB00DD0004425C7 /* HomeTableViewHeaderView.xib in Resources */,
 				541452BB1FC3B7DC007070BC /* WorkType_Cell.xib in Resources */,
 				67F2C3351FB3054F00171778 /* private_key.pfx in Resources */,
@@ -2663,6 +2675,7 @@
 				544431AE1FC69BD50042C286 /* QingYong_SCell.xib in Resources */,
 				544431A41FC675240042C286 /* QingYong_FCell.xib in Resources */,
 				5431A4F71FC2C784004A5750 /* Partner_Cell.xib in Resources */,
+				546C915D1FE63161005C938F /* RYNumberKeyboard.xib in Resources */,
 				54C00D871FD6617F00F904F6 /* KeHuXiangQing_VC.xib in Resources */,
 				5442F49D1FC578B70022E84B /* HouseDynamic_Cell.xib in Resources */,
 				67F2C3361FB3054F00171778 /* public_key.der in Resources */,
@@ -2774,7 +2787,6 @@
 				540A05AC1FBA8069007EB851 /* BRAddressPickerView.m in Sources */,
 				549313D51F3417A800CD9432 /* NewFeatureController.m in Sources */,
 				54F224891FD9035900CA8016 /* MoneyDetailsHeaderView.m in Sources */,
-				54ACC9321FE52B1800EB88E7 /* UIView+BXExtension.m in Sources */,
 				54ACC9271FE5297B00EB88E7 /* SFZInputting_Cell.m in Sources */,
 				54FF11BF1F4D6A0C00A2A23D /* UIView+SDExtension.m in Sources */,
 				5442F4981FC5786F0022E84B /* HouseDynamic_TVC.m in Sources */,
@@ -2801,13 +2813,13 @@
 				2648EE611FC3C1D7000A4F19 /* ReportedPeopleViewController.m in Sources */,
 				541452E61FC43DD3007070BC /* LabelAndTFTableViewCell.m in Sources */,
 				540C4B941FDBE606003FAB07 /* NSDictionary+LocaleLog.m in Sources */,
+				546C915B1FE63161005C938F /* UITextField+RYNumberKeyboard.m in Sources */,
 				541167601F53F130007CC764 /* AlbumsModel.m in Sources */,
 				5431A4ED1FC270D1004A5750 /* MyAnnotation.m in Sources */,
 				54388E831FBECDCB0040EE6A /* GoodsParticulars_VC.m in Sources */,
 				541452E11FC43DC7007070BC /* PushLiLvViewController.m in Sources */,
 				54ABF44E1FCE5571003DFD65 /* MD_Cell.m in Sources */,
 				5431A4FC1FC2D427004A5750 /* CLLocation+YCLocation.m in Sources */,
-				54ACC9311FE52B1800EB88E7 /* UITextField+BXExtension.m in Sources */,
 				5442F4941FC5738C0022E84B /* BrokeragePlan_Cell.m in Sources */,
 				67252A4D1FB538C400C42A2D /* AdviceViewController.m in Sources */,
 				67252A411FB538C400C42A2D /* ApartnerViewController.m in Sources */,
@@ -2831,6 +2843,7 @@
 				540C4B951FDBE606003FAB07 /* NSArray+LocaleLog.m in Sources */,
 				5413AB081F2730C000745264 /* CYLTabBarControllerConfig.m in Sources */,
 				54ACC9221FE51C0900EB88E7 /* PhoneInputting_Cell.m in Sources */,
+				546C91671FE65405005C938F /* WLCardNoFormatter.m in Sources */,
 				67252A4B1FB538C400C42A2D /* MyViewController.m in Sources */,
 				67252A4A1FB538C400C42A2D /* StayparticularsViewController.m in Sources */,
 				67F2C3081FB2AF0D00171778 /* Information_Cell.m in Sources */,
@@ -2906,6 +2919,7 @@
 				67252A631FB538FB00C42A2D /* WMScrollView.m in Sources */,
 				54FF11C31F4D6A0C00A2A23D /* UIButton+HCBState.m in Sources */,
 				541452D31FC42860007070BC /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				546C915E1FE63161005C938F /* RYNumberKeyboard.m in Sources */,
 				54CA241E1FB92E240035A0B0 /* HomeModel.m in Sources */,
 				260384631FCE9D590067EAEB /* AllPeopleTableViewCell.m in Sources */,
 				54CA242A1FB98E200035A0B0 /* PersonalData_VC.m in Sources */,
@@ -2957,7 +2971,6 @@
 				540C4BA21FDBF134003FAB07 /* UITableViewCell+XX.m in Sources */,
 				268270FB1FC6B8C2006FE8F9 /* ThreePartiesShareTools.m in Sources */,
 				260384701FCFD7D40067EAEB /* XHNetworking.m in Sources */,
-				54ACC9301FE52B1800EB88E7 /* BXTextField.m in Sources */,
 				540A05AE1FBA8069007EB851 /* YYClassInfo.m in Sources */,
 				6711A97D1FB05FB1004425C7 /* ADRollView.m in Sources */,
 				67E5BE201FB3F6AB004AA616 /* AllProperties_VC.m in Sources */,
@@ -3008,6 +3021,7 @@
 				54FF11B51F4D6A0C00A2A23D /* MYPresentAnimationManager.m in Sources */,
 				54388E7A1FBE8D390040EE6A /* PersonalDataSecond_Cell.m in Sources */,
 				541452B51FC3B537007070BC /* WorkType_VC.m in Sources */,
+				546C91611FE63854005C938F /* TKPhoneTextField.m in Sources */,
 				67F2C30C1FB2CF3000171778 /* InformationDetails_WebVC.m in Sources */,
 				541452D71FC43D5F007070BC /* UIViewController+MJPopupViewController.m in Sources */,
 				2682711B1FC7B1CA006FE8F9 /* ChooseDredgeBankViewController.m in Sources */,

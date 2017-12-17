@@ -100,6 +100,7 @@
         [_locationManager stopUpdatingLocation];
 
     }
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-hans",nil, nil] forKey:@"AppleLanguages"];
     [[RACScheduler mainThreadScheduler] afterDelay:0.1 schedule:^{
 
         [self requestHouseData];
@@ -293,6 +294,19 @@
                               @"lat" : userInfo.lat,
                               @"lng" : userInfo.lng,
                               };
+#pragma mark - 测定和ID号IDhiU盾hi一
+    for (NSString *key in params) {
+        NSString *value = params[key];
+        if(value == nil) {
+
+            [LBXAlertAction showAlertWithTitle:@"楼盘11111111111" msg:@"6789878" buttonsStatement:@[@"hh "] chooseBlock:^(NSInteger buttonIdx) {
+
+            }];
+
+            return;
+
+        }
+    }
     [XXNetWorkManager requestWithMethod:POST withParams:params withUrlString:@"Houses" withHud:@"推荐楼盘..." withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
@@ -317,7 +331,8 @@
     kWeakSelf;
     // 全部楼盘
     [[_homeHeader.allPropertiesBtn rac_signalForControlEvents:UIControlEventTouchUpInside ]subscribeNext:^(__kindof UIControl * _Nullable x) {
-        
+
+
         AllProperties_VC * allVC = [[AllProperties_VC alloc]init];
         allVC.navigationItem.title = @"全部楼盘";
         allVC.type = 10;
@@ -451,12 +466,24 @@
     }
 
     NSString * cityStr = [userInfo.position  stringByReplacingOccurrencesOfString:@"市" withString:@""];
-
     NSDictionary * dic = @{
                            kOpt : @"tianqi",
                            kToken : userInfo.token,
                            @"name" : cityStr
                            };
+    #pragma mark - 测定和ID号IDhiU盾hiuh
+    for (NSString *key in dic) {
+        NSString *value = dic[key];
+        if(value == nil) {
+
+            [LBXAlertAction showAlertWithTitle:@"天气请求" msg:@"6789878" buttonsStatement:@[@"hh "] chooseBlock:^(NSInteger buttonIdx) {
+
+            }];
+
+            return;
+
+        }
+    }
     kWeakSelf;
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"News" withHud:nil withProgressBlock:^(float requestProgress) {
 

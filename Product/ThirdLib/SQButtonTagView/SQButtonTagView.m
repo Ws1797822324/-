@@ -71,15 +71,15 @@
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 
             button.layer.borderColor = tagTextColor.CGColor;
-
+            kViewRadius(button, 4);
             [button setTitleColor:tagTextColor forState:UIControlStateNormal];
             button.titleLabel.font = tagTextFont;
             [self addSubview:button];
             [self.buttonTags addObject:button];
             button.tag = 101 + i;
-            [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-
-
+            [button addTarget:self
+                          action:@selector(buttonAction:)
+                forControlEvents:UIControlEventTouchUpInside];
         }
     }
 
@@ -139,8 +139,8 @@
                 [button setTitle:tagTexts[i] forState:UIControlStateNormal];
                 NSInteger a = i / self.eachNum;
                 NSInteger b = i % self.eachNum;
-                button.frame =
-                    (CGRect){b * (with + self.hmargin), a * (self.tagHeight + self.vmargin), with, self.tagHeight};
+                button.frame = (CGRect){b * (with + self.hmargin),
+                                        a * (self.tagHeight + self.vmargin), with, self.tagHeight};
                 [button setHidden:NO];
                 [button setTitle:tagTexts[i] forState:UIControlStateNormal];
 
@@ -152,38 +152,41 @@
 
         __block CGFloat totalWidth = 0;
         __block NSInteger row = 0;
-        [self.buttonTags enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *_Nonnull stop) {
+        [self.buttonTags
+            enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *_Nonnull stop) {
 
-            if (idx < tagTexts.count) {
-                NSString *tempString = tagTexts[idx];
-                [button setTitle:tempString forState:UIControlStateNormal];
+                if (idx < tagTexts.count) {
+                    NSString *tempString = tagTexts[idx];
+                    [button setTitle:tempString forState:UIControlStateNormal];
 
-                [button setBackgroundColor:kRGB_HEX(0xf3f3f3)];
+                    [button setBackgroundColor:kRGB_HEX(0xf3f3f3)];
 
-                CGFloat itemWidth = [self sizeForText:tempString
-                                                 Font:self.tagTextFont
-                                                 size:CGSizeMake(MAXFLOAT, self.tagHeight)
-                                                 mode:NSLineBreakByWordWrapping]
-                                        .width +
-                                    20;
+                    CGFloat itemWidth = [self sizeForText:tempString
+                                                     Font:self.tagTextFont
+                                                     size:CGSizeMake(MAXFLOAT, self.tagHeight)
+                                                     mode:NSLineBreakByWordWrapping]
+                                            .width +
+                                        20;
 
-                totalWidth += itemWidth + self.hmargin;
-                if (totalWidth - self.hmargin > self.viewWidth) {
-                    totalWidth = itemWidth + self.hmargin;
-                    row += 1;
-                    button.frame = CGRectMake(0, row * (self.tagHeight + self.vmargin), itemWidth, self.tagHeight);
+                    totalWidth += itemWidth + self.hmargin;
+                    if (totalWidth - self.hmargin > self.viewWidth) {
+                        totalWidth = itemWidth + self.hmargin;
+                        row += 1;
+                        button.frame = CGRectMake(0, row * (self.tagHeight + self.vmargin),
+                                                  itemWidth, self.tagHeight);
+                    } else {
+                        button.frame = CGRectMake(totalWidth - itemWidth - self.hmargin,
+                                                  row * (self.tagHeight + self.vmargin), itemWidth,
+                                                  self.tagHeight);
+                    }
+                    [button setHidden:NO];
+                    [button setTitle:tagTexts[idx] forState:UIControlStateNormal];
+
                 } else {
-                    button.frame = CGRectMake(totalWidth - itemWidth - self.hmargin,
-                                              row * (self.tagHeight + self.vmargin), itemWidth, self.tagHeight);
+                    [button setHidden:YES];
                 }
-                [button setHidden:NO];
-                [button setTitle:tagTexts[idx] forState:UIControlStateNormal];
 
-            } else {
-                [button setHidden:YES];
-            }
-
-        }];
+            }];
     }
 }
 
@@ -214,8 +217,6 @@
 
 - (void)refreshView {
 
-
-
     for (UIButton *buttonTag in self.buttonTags) {
         if ([self.selectArray containsObject:@(buttonTag.tag - 101)]) {
             [buttonTag setBackgroundColor:self.selectedBackgroundColor];
@@ -229,7 +230,10 @@
     }
 }
 
-- (CGSize)sizeForText:(NSString *)text Font:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
+- (CGSize)sizeForText:(NSString *)text
+                 Font:(UIFont *)font
+                 size:(CGSize)size
+                 mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
     if (!font) font = [UIFont systemFontOfSize:12];
     if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
@@ -241,7 +245,8 @@
             attr[NSParagraphStyleAttributeName] = paragraphStyle;
         }
         CGRect rect = [text boundingRectWithSize:size
-                                         options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                         options:NSStringDrawingUsesLineFragmentOrigin |
+                                                 NSStringDrawingUsesFontLeading
                                       attributes:attr
                                          context:nil];
         result = rect.size;
@@ -282,7 +287,6 @@
         self.selectedTagTextColor = selectedTagTextColor;
         self.selectedBackgroundColor = selectedBackgroundColor;
 
-        
         for (NSInteger i = 0; i < totalTagsNum; i++) {
 
             if (type == 3) {
@@ -323,7 +327,6 @@
 
 - (void)buttonTypeAction:(UIButton *)button {
 
-    
     NSInteger tag = button.tag - 101;
 
     if ([self.selectArray containsObject:@(tag)]) {
@@ -336,7 +339,6 @@
         }
     }
 
-    
     if (self.selectBlock) {
         self.selectBlock(self, self.selectArray.copy);
     }

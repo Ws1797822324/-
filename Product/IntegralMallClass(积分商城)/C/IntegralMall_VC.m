@@ -41,7 +41,7 @@
     self.collerctionView.delegate = self;
     CGFloat itemWidth = (kWidth - 10) / 2;
 
-    self.layout.itemSize = CGSizeMake(itemWidth, (_collerctionView.width / 2));
+    self.layout.itemSize = CGSizeMake(itemWidth, itemWidth * 0.9);
     // 设置最小行间距
     _layout.minimumLineSpacing = 10;
     // 设置垂直间距

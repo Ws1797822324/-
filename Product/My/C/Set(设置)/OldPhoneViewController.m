@@ -13,7 +13,7 @@
 {
     UITextField *pw_TextField;
     UITextField *codeTextField;
-    UITextField *phoneNewTextField;
+    TKPhoneTextField *phoneNewTextField;
     NSString* _codeStr;
 }
 
@@ -189,7 +189,7 @@
     make.top.mas_equalTo(line2.mas_bottom).offset(20);
     }];
     
-    phoneNewTextField = [[UITextField alloc] init];
+    phoneNewTextField = [[TKPhoneTextField alloc] init];
     phoneNewTextField.textColor = [UIColor blackColor];
     phoneNewTextField.delegate = self;
     phoneNewTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -220,13 +220,21 @@
 }
 
 #pragma mark - UITextFieldDelegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    
-    [textField phoneTFValueChangeValueString:string shouldChangeCharactersInRange:range];
-    
-    
-    return false;
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+{
+    if (textField == phoneNewTextField) {
+        NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        if ([toBeString length] > 13) {
+
+            return NO;
+        }
+    }
+    if([string hasSuffix:@" "])     // 忽视空格
+        return NO;
+    else
+        return YES;
+    return YES;
 }
 //获取验证码
 -(void)codeBtnClick:(UIButton*)sender{
