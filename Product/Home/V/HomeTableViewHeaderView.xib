@@ -26,9 +26,9 @@
                     <rect key="frame" x="0.0" y="207" width="400" height="120"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_10" translatesAutoresizingMaskIntoConstraints="NO" id="HcC-jX-OHX">
-                            <rect key="frame" x="0.0" y="0.0" width="400" height="120"/>
+                            <rect key="frame" x="0.0" y="5" width="400" height="115"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="HcC-jX-OHX" secondAttribute="height" multiplier="10:3" id="1k7-Fk-Qwz"/>
+                                <constraint firstAttribute="width" secondItem="HcC-jX-OHX" secondAttribute="height" multiplier="80:23" id="4TF-7N-bmm"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定位中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLK-sZ-LxQ">
@@ -104,7 +104,7 @@
                         <constraint firstItem="KLK-sZ-LxQ" firstAttribute="leading" secondItem="mIR-aU-2dw" secondAttribute="leading" constant="20" id="dns-Hp-auH"/>
                         <constraint firstAttribute="height" constant="120" id="dv2-Zp-KiI"/>
                         <constraint firstAttribute="trailing" secondItem="HcC-jX-OHX" secondAttribute="trailing" id="hUv-Xv-Vac"/>
-                        <constraint firstItem="HcC-jX-OHX" firstAttribute="top" secondItem="mIR-aU-2dw" secondAttribute="top" id="lA0-p0-KdU"/>
+                        <constraint firstItem="HcC-jX-OHX" firstAttribute="top" secondItem="mIR-aU-2dw" secondAttribute="top" constant="5" id="lA0-p0-KdU"/>
                         <constraint firstAttribute="bottom" secondItem="HcC-jX-OHX" secondAttribute="bottom" id="lLD-g2-dNY"/>
                         <constraint firstItem="HcC-jX-OHX" firstAttribute="leading" secondItem="mIR-aU-2dw" secondAttribute="leading" id="mbP-kv-nmz"/>
                         <constraint firstItem="cQ7-dD-lKF" firstAttribute="centerY" secondItem="MXD-Tj-Hdv" secondAttribute="centerY" id="q8B-EH-l9S"/>
@@ -120,22 +120,37 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Caf-WS-Xcc" userLabel="Button1">
                             <rect key="frame" x="0.0" y="0.5" width="76" height="92.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Caf-WS-Xcc" secondAttribute="height" multiplier="19:23" id="MhM-1G-aAW"/>
+                            </constraints>
                             <state key="normal" image="quanbuloupan"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klt-2g-sS3" userLabel="Button2">
                             <rect key="frame" x="81" y="0.5" width="76" height="92.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="klt-2g-sS3" secondAttribute="height" multiplier="19:23" id="xIU-rW-KKe"/>
+                            </constraints>
                             <state key="normal" image="zhoubianloupan"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMN-8p-u1l" userLabel="Button3">
                             <rect key="frame" x="162" y="0.5" width="76" height="92.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="vMN-8p-u1l" secondAttribute="height" multiplier="19:23" id="fPp-tL-txS"/>
+                            </constraints>
                             <state key="normal" image="baobeikehu"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0t6-nT-m7I" userLabel="Button4">
                             <rect key="frame" x="243" y="0.5" width="76" height="92.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="0t6-nT-m7I" secondAttribute="height" multiplier="19:23" id="h7g-2B-qki"/>
+                            </constraints>
                             <state key="normal" image="baobeichengjiao"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbv-iQ-Kzj" userLabel="Button5">
                             <rect key="frame" x="324" y="0.5" width="76" height="92.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Pbv-iQ-Kzj" secondAttribute="height" multiplier="19:23" id="jJk-zA-mCd"/>
+                            </constraints>
                             <state key="normal" image="fangdaijisuanqi"/>
                         </button>
                     </subviews>

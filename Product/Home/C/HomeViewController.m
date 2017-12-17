@@ -389,7 +389,7 @@
         }
     }
 
-    self.adRollView = [[ADRollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth-48, 40)];
+    self.adRollView = [[ADRollView alloc] initWithFrame:CGRectMake(0, 3, kScreenWidth-48, 25)];
     self.adRollView.tag = 997;
     [self.adRollView setVerticalShowDataArr:headlineArr];
     [self.homeHeader.adRollView addSubview:_adRollView];
