@@ -91,15 +91,18 @@
 
 
     pointAnnotation.coordinate = [self getGaoDeCoordinateByBaiDuCoordinate:_location];
-    kWeakSelf;
+
+    [self.mapView selectedAnnotations];
 
     _pointAnnotion1 = pointAnnotation;
+
     [self.mapView addAnnotation:pointAnnotation];
     [self.mapView setZoomLevel:17];
     self.mapView.zoomEnabled  = YES;
-
+//    kWeakSelf;
     [[RACScheduler mainThreadScheduler]afterDelay:0.1 schedule:^{
 //        [weakSelf.mapView selectAnnotation:_pointAnnotion1 animated:YES];
+
     }];
 
 
@@ -202,7 +205,6 @@
     
     [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
 
-        
         [poiAnnotations addObject:[[POIAnnotation alloc] initWithPOI:obj]];
         
     }];
@@ -233,7 +235,7 @@
 - (void)settingLocation {
     self.locationManager = [[AMapLocationManager alloc] init];
 
-    _mapView.showsUserLocation = NO; // 显示用户位置
+    _mapView.showsUserLocation = YES; // 显示用户位置
 
     _mapView.mapType = MAMapTypeStandard; // 普通地图
 

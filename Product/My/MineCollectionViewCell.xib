@@ -25,8 +25,11 @@
                             <constraint firstAttribute="width" secondItem="CX0-JN-4SO" secondAttribute="height" multiplier="10:10" id="KXo-iT-o5s"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-v6-o2k">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-v6-o2k">
                         <rect key="frame" x="0.0" y="68" width="70" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="X0h-v6-o2k" secondAttribute="height" multiplier="70:17" id="fAG-Om-c9x"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

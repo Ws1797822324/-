@@ -235,7 +235,7 @@
 - (IBAction)codeBtn:(UIButton *)sender {
     
     if (kStringIsEmpty(_phoneTF.text)) {
-        [XXProgressHUD showError:@"请输入手机号"];
+        [XXProgressHUD showMessage:@"请输入手机号"];
         return;
     }
     _phoneTF.text= [_phoneTF.text stringByReplacingOccurrencesOfString:@" " withString:@""];

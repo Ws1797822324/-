@@ -19,6 +19,9 @@
     [super awakeFromNib];
     
     self.label.textColor = [UIColor blackColor];
+    if (kiPhone5s) {
+        _label.font = kFont(7);
+    }
 }
 
 -(void)setupWithImageName:(NSString*)imageName title:(NSString*)title{
@@ -26,7 +29,14 @@
     [self.imageView setImage:[UIImage imageNamed:imageName]];
     
     self.label.text = title;
-    self.label.font=[UIFont systemFontOfSize:14];
+
+    if (kiPhone5s) {
+        _label.font = kFont(11);
+    } else {
+        _label.font = kFont(14);
+
+    }
+
 }
 
 @end

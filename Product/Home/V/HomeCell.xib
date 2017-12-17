@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,10 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京建邺  奥体" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78B-po-rvk">
-                        <rect key="frame" x="160" y="36" width="80.5" height="14.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="120" id="yy2-Sq-srO"/>
-                        </constraints>
+                        <rect key="frame" x="160" y="36" width="116.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -76,11 +74,13 @@
                     <constraint firstAttribute="trailing" secondItem="oya-Df-FyW" secondAttribute="trailing" constant="10" id="aDz-dT-O2S"/>
                     <constraint firstItem="78B-po-rvk" firstAttribute="top" secondItem="QsO-QQ-fub" secondAttribute="bottom" constant="8" id="aLh-HW-VAn"/>
                     <constraint firstItem="xaL-sJ-MJZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="apQ-wE-nPQ"/>
+                    <constraint firstItem="zAv-5J-aWz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QsO-QQ-fub" secondAttribute="trailing" constant="10" id="cFh-jL-UIn"/>
                     <constraint firstItem="BAR-Il-NVO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="78B-po-rvk" secondAttribute="trailing" constant="20" id="dih-qM-jeF"/>
                     <constraint firstItem="mQY-LB-zhV" firstAttribute="top" secondItem="78B-po-rvk" secondAttribute="bottom" constant="4.5" id="gjl-qm-hd9"/>
                     <constraint firstItem="oya-Df-FyW" firstAttribute="top" secondItem="mQY-LB-zhV" secondAttribute="bottom" constant="5.5" id="hKh-8U-yrI"/>
                     <constraint firstItem="78B-po-rvk" firstAttribute="leading" secondItem="xaL-sJ-MJZ" secondAttribute="trailing" constant="10" id="k6g-2z-6K6"/>
                     <constraint firstAttribute="trailing" secondItem="BAR-Il-NVO" secondAttribute="trailing" constant="10" id="n9u-yv-bA3"/>
+                    <constraint firstItem="78B-po-rvk" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.33" id="v3g-15-G7T"/>
                     <constraint firstItem="zAv-5J-aWz" firstAttribute="centerY" secondItem="QsO-QQ-fub" secondAttribute="centerY" id="vUK-8I-hYa"/>
                     <constraint firstItem="mQY-LB-zhV" firstAttribute="leading" secondItem="xaL-sJ-MJZ" secondAttribute="trailing" constant="10" id="vZ0-mk-Ijq"/>
                     <constraint firstAttribute="trailing" secondItem="mQY-LB-zhV" secondAttribute="trailing" constant="10" id="y2U-YY-xef"/>

@@ -334,6 +334,7 @@ static NSString *identifier = @"homeCell";
                                                              delegate:self
                                                            dataSource:self];
     [self.view addSubview:self.collectionView];
+    _collectionView.scrollEnabled = NO;
     [self.collectionView registerNib:[UINib nibWithNibName:@"MineCollectionViewCell" bundle:nil]
           forCellWithReuseIdentifier:identifier];
 
