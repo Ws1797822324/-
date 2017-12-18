@@ -430,11 +430,13 @@
     
     NSLog(@"我是第%ld张",index);
     Banner * model = _bannerArr[index] ;
+
     InformationModel * kModel = [[InformationModel alloc]init];
     kModel.extra = model.extra;
     kModel.type = model.type;
     kModel.ID = model.ID;
     InformationDetails_WebVC * vc = [[InformationDetails_WebVC alloc]init];
+    vc.navigationItem.title = model.title;
         vc.model =kModel;
     [(YMNavgatinController*)self.navigationController pushViewController:vc type:YMNavgatinControllerTypeBlue animated:YES];
 }

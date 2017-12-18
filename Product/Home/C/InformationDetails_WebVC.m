@@ -35,7 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"资讯详情";
     WKWebView * webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, kNavHeight, kWidth, kHeight - kNavHeight)];
     webView.UIDelegate = self;
     webView.navigationDelegate = self;
@@ -96,9 +95,10 @@
 
         //创建图片内容对象
 
-        //如果有缩略图，则设置缩略图
-        UIImage * thumimage =kImageNamed(@"logo");
-        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"资讯分享" descr:nil thumImage:thumimage];
+            //如果有缩略图，则设置缩略图
+
+
+        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_model.title descr:nil thumImage:_model.pic];
 
 
         shareObject.webpageUrl = kString(@"http://121.43.176.154:8080/h5/newsInfo.html?ids=%@", _model.ID);

@@ -169,7 +169,12 @@
 
             //如果有缩略图，则设置缩略图
             UIImage * thumimage =kImageNamed(@"logo");
-            UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"楼盘分享" descr:nil thumImage:thumimage];
+            id shar = thumimage;
+            if (_imagesURLStrings.count != 0) {
+                shar = [_imagesURLStrings firstObject];
+            }
+
+            UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"楼盘分享" descr:nil thumImage:shar];
 
 
             shareObject.webpageUrl = kString(@"http://121.43.176.154:8080/h5/recommendInfoDetail.html?ids=%@", _houseID);

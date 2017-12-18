@@ -194,7 +194,12 @@
         //创建图片内容对象
 
         //如果有缩略图，则设置缩略图
-        UIImage * thumimage =kImageNamed(@"logo");
+            UIImage * thumimage =kImageNamed(@"logo");
+            id shar = thumimage;
+            if (_imagesURLStrings.count != 0) {
+                shar = [_imagesURLStrings firstObject];
+            }
+
         UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"户型分享" descr:nil thumImage:thumimage];
 
 

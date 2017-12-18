@@ -120,10 +120,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    InformationModel *mmodel = _dataArr[indexPath.row];
 
     InformationDetails_WebVC *hWebVc = [[InformationDetails_WebVC alloc] init];
+    hWebVc.navigationItem.title = mmodel.title;
 
-    InformationModel *mmodel = _dataArr[indexPath.row];
+
     hWebVc.classNameNum = 9964;
 
     if ([mmodel.type intValue]== 1) {
