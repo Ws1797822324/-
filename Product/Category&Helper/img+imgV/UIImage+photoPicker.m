@@ -206,6 +206,7 @@ typedef void(^albumAuthorizationCallBack)();
     picker.showSelectBtn = NO;
     picker.allowCrop = YES;  // 允许裁剪
     picker.needCircleCrop = YES;  // 圆框
+        picker.circleCropRadius = (kWidth - 20) / 2;
     } else {
         picker.showSelectBtn = NO;
         picker.allowCrop = YES;  // 允许裁剪
