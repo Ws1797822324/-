@@ -89,7 +89,10 @@
     if (indexPath.section == 3 && indexPath.row == 1 && kStringIsEmpty(str1)) { // 物业费
         str1 = @"待定";
     }
-    if (indexPath.section == 3 && indexPath.row == 0 && kStringIsEmpty(str1)) { // 均价
+    if (indexPath.section == 3 && indexPath.row == 0 && !kStringIsEmpty(str1)) { // 均价
+        str1 = kString(@"%@元左右/㎡", str1);
+    }
+    if (indexPath.section == 3 && indexPath.row == 0 && [str1 isEqualToString:@"0元左右/㎡"]) { // 均价
         str1 = @"售价待定";
     }
     cell.text_L.text = str1;
