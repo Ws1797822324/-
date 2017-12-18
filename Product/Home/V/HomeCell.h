@@ -23,7 +23,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *juli_L;
 
 @property (nonatomic ,strong) HouseModel *model;
+@property (nonatomic, strong) SQButtonTagView *tagsView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagsView_H;
+
+- (void)tagsData:(NSArray *)arr;
 
 
 @end

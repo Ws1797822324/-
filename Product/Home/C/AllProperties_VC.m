@@ -617,13 +617,13 @@ params = @{
     [XXNetWorkManager requestWithMethod:POST withParams:params withUrlString:@"Houses" withHud:@"刷新列表" withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
-        NSLog(@"iiiooooo %@",objc);
+
 
         if (code == 200) {
             _page ++;
-            
+
             if (type) {
-                _dataArr = [NSMutableArray array];
+                _dataArr = [[NSMutableArray alloc]init];
 
                 _dataArr = [HouseModel mj_objectArrayWithKeyValuesArray:data];
             } else {
@@ -633,7 +633,7 @@ params = @{
                 }
                 [_dataArr addObjectsFromArray:arr];
 
-                
+
             }
         [_tableview.mj_header endRefreshing];
         [_tableview.mj_footer endRefreshing];
@@ -656,7 +656,19 @@ params = @{
 
     HomeCell *cell = [HomeCell loadCellFromNib:tableView];
 
-    cell.model = _dataArr[indexPath.row];
+    HouseModel * model = _dataArr[indexPath.row];
+    cell.model = model;
+
+
+    cell.tagsView.hidden = 0;
+    if (model.tagsArr.count>0) {
+        cell.tagsView.hidden = 1;
+        [cell tagsData:model.tagsArr];
+    } else {
+        cell.tagsView_H.constant = 2;
+        [cell.tagsView removeFromSuperview];
+    }
+
 
     return cell;
 }
@@ -665,21 +677,35 @@ params = @{
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    PropertiesDetails_VC * propertiesDetails = [[PropertiesDetails_VC alloc]init];
-    HouseModel * model = _dataArr[indexPath.row];
-
+    PropertiesDetails_VC *propertiesDetails = [[PropertiesDetails_VC alloc] init];
+    HouseModel *model = _dataArr[indexPath.row];
 
     propertiesDetails.houseID = model.ID;
 
-    
-    [(YMNavgatinController*)self.navigationController pushViewController:propertiesDetails type:YMNavgatinControllerTypeClear animated:YES];
-
+    [(YMNavgatinController *) self.navigationController
+        pushViewController:propertiesDetails
+                      type:YMNavgatinControllerTypeClear
+                  animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:@"HomeCell" configuration:^(HomeCell *cell) {
-        cell.model = _dataArr[indexPath.row];
-    }];
+
+    HouseModel * model = _dataArr[indexPath.row];
+    if (model.tagsArr.count == 0) {
+        return 85;
+    } else {
+        NSMutableArray * arrr = [NSMutableArray array];
+        for (Label * jj in model.tagsArr) {
+            [arrr addObject:jj.name];
+        }
+        return 70 + [SQButtonTagView returnViewHeightWithTagTexts:arrr
+                                                        viewWidth:kWidth - 170
+                                                          eachNum:0
+                                                          Hmargin:10
+                                                          Vmargin:5
+                                                        tagHeight:20
+                                                      tagTextFont:kBoldFont(12)];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

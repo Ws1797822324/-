@@ -10,9 +10,7 @@
 
 @interface HomeCell ()
 
-@property (nonatomic, strong) SQButtonTagView *tagsView;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagsView_H;
 @end
 
 @implementation HomeCell
@@ -35,10 +33,6 @@
     [_imgView sd_setImageWithURL:[NSURL URLWithString:model.pic]
                 placeholderImage:kImageNamed(@"timg-2")];
 
-    if (model.tagsArr.count != 0) {
-
-        [self tagsData:model.tagsArr];
-    }
 }
 
 - (void)tagsData:(NSArray *)arr {
@@ -51,14 +45,16 @@
         }
 
     } else {
-        for (Label *nn in arr) {
-            [mArr addObject:nn.name];
-        }
+        for (Label * kk in arr) {
+            [mArr addObject:kk.name];
+        };
     }
-    NSLog(@"------****  0%@", mArr);
+
 
     if (arr.count == 0) {
         self.tagsView_H.constant = 20;
+
+        return;
     } else {
 
         self.tagsView = [[SQButtonTagView alloc] initWithTotalTagsNum:3
