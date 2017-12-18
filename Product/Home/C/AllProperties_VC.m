@@ -556,7 +556,7 @@
                               kOpt : @"selectHouses",
                               kToken : userInfo.token,
                               @"page" : kString(@"%d", _page),
-                              @"row" : @"10",
+                              @"row" : @"15",
                               @"lat" : kStringIsEmpty(userInfo.lat) ? @"32.164575" : userInfo.lat,
                               @"lng" : kStringIsEmpty(userInfo.lng) ? @"118.691732" : userInfo.lng,
                               @"zhoubian" : kString(@"%d", _type),

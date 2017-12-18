@@ -206,6 +206,16 @@ typedef void(^albumAuthorizationCallBack)();
     picker.showSelectBtn = NO;
     picker.allowCrop = YES;  // 允许裁剪
     picker.needCircleCrop = YES;  // 圆框
+    } else {
+        picker.showSelectBtn = NO;
+        picker.allowCrop = YES;  // 允许裁剪
+        picker.needCircleCrop = NO;  // 圆框
+        NSInteger left = 0;
+        NSInteger widthHeight = kWidth - 2 * left;
+        NSInteger top = kHeight  / 3;
+        picker.cropRect = CGRectMake(left, top, widthHeight, kHeight / 3);
+
+
     }
     picker.didFinishPickingPhotosWithInfosHandle = ^(NSArray<UIImage *> *images,NSArray *assets,BOOL isSelectOriginalPhoto,NSArray<NSDictionary *> *infos){
         

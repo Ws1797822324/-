@@ -23,6 +23,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timg-2" translatesAutoresizingMaskIntoConstraints="NO" id="xaL-sJ-MJZ">
                         <rect key="frame" x="10" y="6" width="140" height="70"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="140" id="Ggp-M8-vPJ"/>
                             <constraint firstAttribute="width" secondItem="xaL-sJ-MJZ" secondAttribute="height" multiplier="2:1" id="Ur0-ni-M9f"/>
                         </constraints>
                     </imageView>

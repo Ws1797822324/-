@@ -54,6 +54,7 @@
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         if (code == 200) {
+            
             _model = [PeopleDetailsModel mj_objectWithKeyValues:data];
             self.name_L.text = self.model.name;
             self.phone_L.text = self.model.phone;
@@ -80,7 +81,7 @@
     cell.model = _model.lpArr[indexPath.row];
     kWeakSelf;
     [[cell.qingYong_Btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf qingyong_BtnAction:[_model.lpArr[indexPath.row] record_id]];
+        [weakSelf qingyong_BtnAction:_model.lpArr[indexPath.row]];
         
     }];
     return cell;
@@ -102,9 +103,9 @@
 
 - (IBAction)message_Btn:(UIButton *)sender {
 
-    [LBXAlertAction showAlertWithTitle:@"发送手机短信" msg:kString(@"号码:%@",  @"10010") buttonsStatement:@[@"发送",@"取消"] chooseBlock:^(NSInteger buttonIdx) {
+    [LBXAlertAction showAlertWithTitle:@"发送手机短信" msg:kString(@"号码:%@",  self.model.phone) buttonsStatement:@[@"发送",@"取消"] chooseBlock:^(NSInteger buttonIdx) {
         if (buttonIdx == 0) {
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"sms://%@",@"1000000000"]];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"sms://%@",self.model.phone]];
             [[UIApplication sharedApplication] openURL:url];
 
         }
@@ -112,7 +113,7 @@
 }
 
 - (IBAction)phone_Btn:(UIButton *)sender {
-    [XXHelper makePhoneCallWithTelNumber:@"100010000"];
+    [XXHelper makePhoneCallWithTelNumber:self.model.phone];
 }
 #pragma mark --------- 购房意向
 - (IBAction)houseIdea_Btn:(UIButton *)sender {
@@ -125,9 +126,10 @@
 
 
 #pragma mark - 请佣按钮
-- (void)qingyong_BtnAction:(NSString *)fwID {
+- (void)qingyong_BtnAction:(LP *)model {
 
-    if ([_model.yh_attestation intValue] == 0) {  // 未认证  要去填银行卡的东西
+
+    if ([model.yh_attestation intValue] == 0) {  // 未认证  要去填银行卡的东西
         kWeakSelf;
         BankPopupView * tempView = [BankPopupView viewFromXib];
         tempView.width = kWidth * 0.75;
@@ -153,7 +155,7 @@
         vc.khID = _khID;
         vc.baoBeiType = @"2";
 
-        vc.fwID = fwID;
+        vc.fwID = model.record_id;
 
     }
 }

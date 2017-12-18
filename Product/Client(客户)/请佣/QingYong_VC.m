@@ -94,14 +94,20 @@
 
 
     if (kStringIsEmpty(_name_TF.text)) {
-        [XXProgressHUD showError:@"请输入姓名"];
+        [XXProgressHUD showMessage:@"请输入姓名"];
         return;
     }
-    if (kStringIsEmpty(_name_TF.text)) {
-        [XXProgressHUD showError:@"请输入联系方式"];
+    if (kStringIsEmpty(_phone_TF.text)) {
+        [XXProgressHUD showMessage:@"请输入联系方式"];
         return;
-    }if (kStringIsEmpty(_l_id)) {
-        [XXProgressHUD showError:@"请选择一个地址"];
+
+    }
+    if (![XXHelper isNumber:_phone_TF.text]) {
+        [XXProgressHUD showMessage:@"请输入正确的手机号"];
+        return;
+    }
+    if (kStringIsEmpty(_l_id)) {
+        [XXProgressHUD showMessage:@"请选择一个地址"];
         return;
     }
     kUserData;

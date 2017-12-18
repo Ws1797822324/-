@@ -24,9 +24,11 @@
     _model = model;
     _name_L.text = model.name;
     _l_name_L.text = model.l_name;
-    NSArray * timeArr = [model.time componentsSeparatedByString:@"."];
-    _time_L.text =timeArr[0];
-    _phone_L.text = model.phone;
+
+    _time_L.text = [model.time stringByReplacingOccurrencesOfString:@".0" withString:@""];
+    NSMutableString * str = [[NSMutableString alloc]initWithString:model.phone];
+    [str replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    _phone_L.text = str;
     [_type_Btn setTitleColor:kRGB_HEX(0x0F83FA) forState:0];
 
     switch ([model.status intValue]) {

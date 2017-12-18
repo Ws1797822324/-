@@ -44,8 +44,14 @@
     }
 if (indexPath.section == 1 && indexPath.row == 1) {
     _name_L.text = @"客户联系方式";
+
     _textField.placeholder = @"请输入联系方式";
     _textField.keyboardType = UIKeyboardTypeNumberPad;
+    [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        if (_textField.text.length >= 12) {
+            _textField.text = [_textField.text substringToIndex:11];
+        }
+    }];
 }
     if (indexPath.section == 4) {
         _textField.placeholder = @"请输入佣金数额(元)";

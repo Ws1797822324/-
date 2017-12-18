@@ -98,7 +98,7 @@
 
     if (_currLocationl.horizontalAccuracy > 0) {//已经定位成功了
         [_locationManager stopUpdatingLocation];
-
+        return;
     }
     [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-hans",nil, nil] forKey:@"AppleLanguages"];
     [[RACScheduler mainThreadScheduler] afterDelay:0.1 schedule:^{
@@ -242,14 +242,15 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.bounces = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
 
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf requestImage];
         [weakSelf requestHouseData];
         [weakSelf requestTianQi];
-        [self.locationManager startUpdatingLocation];
 
+        
 
     }];
     HomeTableViewHeaderView * homeHeader = [[[UINib nibWithNibName:@"HomeTableViewHeaderView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
@@ -420,7 +421,7 @@
         }
     }
     
-    _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, kWidth / 2) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
     _cycleScrollView.tag = 884;
     _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     _cycleScrollView.pageControlType = NO;

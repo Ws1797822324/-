@@ -35,6 +35,7 @@
 @property (nonatomic , copy) NSString              * price;
 @property (nonatomic , copy) NSString              * com_status;
 @property (nonatomic , copy) NSString              * name;
+@property (nonatomic ,copy) NSString *yh_attestation;
 @property (nonatomic ,copy) NSString *apply;
 
 
