@@ -23,6 +23,8 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic ,copy) NSString *type;
+@property (nonatomic ,copy) NSString *extra;
+
 
 
 @end

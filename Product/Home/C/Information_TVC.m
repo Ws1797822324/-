@@ -123,11 +123,29 @@
 
     InformationDetails_WebVC *hWebVc = [[InformationDetails_WebVC alloc] init];
 
+    InformationModel *mmodel = _dataArr[indexPath.row];
+    hWebVc.classNameNum = 9964;
 
-    hWebVc.model = _dataArr[indexPath.row];
+    if ([mmodel.type intValue]== 1) {
+        mmodel.type = @"3";
+        hWebVc.classNameNum = 994;
+    }
+    hWebVc.model = mmodel;
+
+
+
     [(YMNavgatinController *) self.navigationController pushViewController:hWebVc
                                                                       type:YMNavgatinControllerTypeBlue
                                                                   animated:YES];
+    kUserData;
+    [XXNetWorkManager requestWithMethod:POST withParams:@{@"opt" : @"browse", @"token" : userInfo.token,@"id" :  mmodel.ID} withUrlString:@"CommissionServlet" withHud:nil withProgressBlock:^(float requestProgress) {
+
+    } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+
+    } withFailuerBlock:^(id error) {
+
+    }];
+
 }
 
 

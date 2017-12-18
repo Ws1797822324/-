@@ -145,6 +145,8 @@ if ( kkk == 7) {
     if (kkk == 2) {
         NewStayparticularsViewController * vc = [[NewStayparticularsViewController alloc]init];
         vc.ids = ID;
+        vc.type = @"1";
+        vc.wsType = @"0";
         [(YMNavgatinController *)[self topViewController:kkk].navigationController  pushViewController:vc type:YMNavgatinControllerTypeBlue animated:YES];
     }
     if (kkk == 1) {

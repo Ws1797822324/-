@@ -41,6 +41,7 @@
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         if (code==200) {
+            
             self.dataArray = [CommissionListModel mj_objectArrayWithKeyValuesArray:data];
             [self.tableview cyl_reloadData];
         }else{
@@ -127,6 +128,8 @@
     NewStayparticularsViewController *vc=[[NewStayparticularsViewController alloc]init];
     vc.type=type;
     vc.ids = model.ID;
+
+    vc.wsType = model.type ;
     [self.navigationController pushViewController:vc animated:YES];
     
     

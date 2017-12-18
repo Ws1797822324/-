@@ -75,7 +75,7 @@
             if (type) {
                 _dataArr = [MyPartner_Model mj_objectArrayWithKeyValuesArray:data];
             } else {
-                [_dataArr arrayByAddingObjectsFromArray:[MyPartner_Model mj_objectArrayWithKeyValuesArray:data]];
+                [_dataArr addObjectsFromArray:[MyPartner_Model mj_objectArrayWithKeyValuesArray:data]];
             }
             
             [weakSelf.tableview cyl_reloadData];        

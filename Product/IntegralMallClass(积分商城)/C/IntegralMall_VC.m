@@ -103,7 +103,7 @@
                 if (type) {
                     _dataArr = [IntegralMall_Model mj_objectArrayWithKeyValuesArray:data];
                 } else {
-                    [_dataArr arrayByAddingObjectsFromArray:[IntegralMall_Model mj_objectArrayWithKeyValuesArray:data]];
+                    [_dataArr addObjectsFromArray:[IntegralMall_Model mj_objectArrayWithKeyValuesArray:data]];
                 }
                 [_integralButton setTitle:objc[@"message"] forState:UIControlStateNormal];
             }

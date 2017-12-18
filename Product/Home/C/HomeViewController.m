@@ -200,6 +200,8 @@
 
             NSMutableArray * bannerArr  = [NSMutableArray array];
             _bannerArr = [Banner mj_objectArrayWithKeyValuesArray:data[@"banner"]];
+
+
             for (Banner *dic1 in _bannerArr) {
                 [bannerArr addObject:dic1.content];
             }
@@ -295,19 +297,8 @@
                               @"lat" : userInfo.lat,
                               @"lng" : userInfo.lng,
                               };
-#pragma mark - 测定和ID号IDhiU盾hi一
-    for (NSString *key in params) {
-        NSString *value = params[key];
-        if(value == nil) {
 
-            [LBXAlertAction showAlertWithTitle:@"楼盘11111111111" msg:@"6789878" buttonsStatement:@[@"hh "] chooseBlock:^(NSInteger buttonIdx) {
 
-            }];
-
-            return;
-
-        }
-    }
     [XXNetWorkManager requestWithMethod:POST withParams:params withUrlString:@"Houses" withHud:@"推荐楼盘..." withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
@@ -336,7 +327,7 @@
 
         AllProperties_VC * allVC = [[AllProperties_VC alloc]init];
         allVC.navigationItem.title = @"全部楼盘";
-        allVC.type = 10;
+        allVC.type = 0;
         [(YMNavgatinController *)weakSelf.navigationController pushViewController:allVC type:YMNavgatinControllerTypeBlue animated:YES];
     }];
     // 周边楼盘
@@ -440,7 +431,7 @@
     NSLog(@"我是第%ld张",index);
     Banner * model = _bannerArr[index] ;
     InformationModel * kModel = [[InformationModel alloc]init];
-    kModel.content = model.content;
+    kModel.extra = model.extra;
     kModel.type = model.type;
     kModel.ID = model.ID;
     InformationDetails_WebVC * vc = [[InformationDetails_WebVC alloc]init];

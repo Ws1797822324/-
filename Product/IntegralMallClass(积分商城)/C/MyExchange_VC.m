@@ -54,7 +54,7 @@
                 if (arr.count == 0) {
                     [XXProgressHUD showMessage:@"没有更多的记录了"];
                 }
-                [_dataArr arrayByAddingObjectsFromArray:arr];
+                [_dataArr addObjectsFromArray:arr];
             }
 
             [weakSelf.tableview cyl_reloadData];

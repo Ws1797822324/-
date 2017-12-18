@@ -42,6 +42,8 @@
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         if (code==200) {
+
+
             self.dataArray = [CommissionListModel mj_objectArrayWithKeyValuesArray:data];
             [self.tableview cyl_reloadData];
         }else{
@@ -63,6 +65,7 @@
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         if (code==200) {
+            
             NSArray * array = [CommissionListModel mj_objectArrayWithKeyValuesArray:data];
             if (array.count==0) {
                 [XXProgressHUD showError:@"没有更多数据啦"];
@@ -127,6 +130,7 @@
     NewStayparticularsViewController *vc=[[NewStayparticularsViewController alloc]init];
     vc.type=type;
     vc.ids = model.ID;
+    vc.wsType = model.type ;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

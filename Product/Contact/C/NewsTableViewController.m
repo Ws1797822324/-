@@ -75,7 +75,7 @@
                 if (arr.count == 0) {
                     [XXProgressHUD showMessage:@"没有更多的消息了"];
                 }
-                [_dataArray arrayByAddingObjectsFromArray:arr];
+                [_dataArray addObjectsFromArray:arr];
             }
             [self.tableview.mj_header endRefreshing];
             [self.tableview.mj_footer endRefreshing];

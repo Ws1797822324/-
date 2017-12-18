@@ -23,7 +23,13 @@
 
 -(void)setModel:(CommissionListModel *)model {
     _model = model;
-    _name_L.text = model.name;
+    if ([model.type intValue] == 1) {
+        _name_L.text = kString(@"%@ A", model.name);
+    }
+    if ([model.type intValue] == 2) {
+        _name_L.text = kString(@"%@ B", model.name);
+    }
+
     _phone_L.text = model.phone;
     _address_L.text = model.l_id;
     _money_L.text = model.brokerage;

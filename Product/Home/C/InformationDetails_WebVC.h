@@ -13,6 +13,9 @@
 
 @property (nonatomic ,strong) InformationModel *model;
 
+@property (nonatomic ,assign) int classNameNum;
+
+
 
 
 @end

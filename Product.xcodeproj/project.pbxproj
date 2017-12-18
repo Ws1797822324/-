@@ -2290,6 +2290,7 @@
 				541AB58D1FDA76D800328EF5 /* My_YongJin_Cell.h */,
 				541AB58E1FDA76D800328EF5 /* My_YongJin_Cell.m */,
 				541AB58F1FDA76D800328EF5 /* My_YongJin_Cell.xib */,
+				5442F47D1FC54D230022E84B /* View */,
 				67252A141FB538C400C42A2D /* 我的分佣 */,
 				67252A1D1FB538C400C42A2D /* 我的成交 */,
 			);
@@ -2301,13 +2302,12 @@
 			children = (
 				67252A151FB538C400C42A2D /* MyBrokerageViewController.h */,
 				67252A161FB538C400C42A2D /* MyBrokerageViewController.m */,
-				67252A171FB538C400C42A2D /* NewAlreadyaccondViewController.h */,
-				67252A181FB538C400C42A2D /* NewAlreadyaccondViewController.m */,
 				67252A191FB538C400C42A2D /* NewStayaccountsViewController.h */,
 				67252A1A1FB538C400C42A2D /* NewStayaccountsViewController.m */,
+				67252A171FB538C400C42A2D /* NewAlreadyaccondViewController.h */,
+				67252A181FB538C400C42A2D /* NewAlreadyaccondViewController.m */,
 				67252A1B1FB538C400C42A2D /* NewStayparticularsViewController.h */,
 				67252A1C1FB538C400C42A2D /* NewStayparticularsViewController.m */,
-				5442F47D1FC54D230022E84B /* View */,
 			);
 			path = "我的分佣";
 			sourceTree = "<group>";

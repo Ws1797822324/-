@@ -16,7 +16,7 @@
 }
 - (void)setModel:(AttentionListModel *)model
 {
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.pic]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:kImageNamed(@"placeholder")];
     self.allMoneyLabel.text = [NSString stringWithFormat:@"%@万元起",model.price];
     self.name.text = model.name;
     self.addressLabel.text = model.address;

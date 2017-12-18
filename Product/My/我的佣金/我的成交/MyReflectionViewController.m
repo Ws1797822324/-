@@ -47,7 +47,17 @@
     [self loadRequest];
     TitleView * titleview = [TitleView viewFromXib];
     self.titleview = titleview;
-    titleview.frame = CGRectMake(0, 0, kWidth, 80);
+    titleview.frame = CGRectMake(0, 0, kWidth, kNavHeight + 80);
+
+
+    [[titleview.right_Button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        self.selectIndex = 1;
+
+    }];
+    [[titleview.left_Button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        self.selectIndex = 0;
+    }];
+
     [self.view addSubview:titleview];
     self.viewFrame = CGRectMake(0, 80, kScreenWidth, kScreenHeight - 80 );
     

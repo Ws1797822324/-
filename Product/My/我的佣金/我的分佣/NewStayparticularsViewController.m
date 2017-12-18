@@ -30,7 +30,7 @@
 
     NSDictionary *dic =
         [[NSDictionary alloc] initWithObjectsAndKeys:@"Commissioninfo", @"opt", self.ids, @"id",
-                                                     userInfo.token, @"token", nil];
+                                                     userInfo.token, @"token",self.wsType ,@"type", nil];
     [XXNetWorkManager requestWithMethod:POST
         withParams:dic
         withUrlString:@"Commission"
@@ -39,6 +39,7 @@
 
         }
         withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+            
             if (code == 200) {
                 self.model = [CommissionDetailsModel mj_objectWithKeyValues:data];
                 [self.tableView reloadData];

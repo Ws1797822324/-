@@ -41,12 +41,21 @@
     webView.navigationDelegate = self;
 
     if ([_model.type intValue] == 1) {
-        [webView loadHTMLString:_model.content baseURL:nil];
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://121.43.176.154:8080/h5/bannerContext.html?ids=%@",_model.ID]]]];
 
     } else {
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_model.content]]];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_model.extra]]];
 
         
+    }
+    if ([_model.type intValue] == 3) {
+
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://121.43.176.154:8080/h5/newsInfo.html?ids=%@",_model.ID]]]];
+
+    }
+    if (_classNameNum == 9964) {
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_model.content]]];
+
     }
     
     UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];

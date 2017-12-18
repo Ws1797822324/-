@@ -92,7 +92,7 @@
                     [XXProgressHUD showMessage:@"没有更多数据了"];
                 }
                 
-                [_dataArray arrayByAddingObjectsFromArray:arr];
+                [_dataArray addObjectsFromArray:arr];
             }
         }
         [self.tableview cyl_reloadData];

@@ -17,5 +17,7 @@
 @property (nonatomic, strong) NSString * nodealtime;
 @property (nonatomic, strong) NSString * phone;
 @property (nonatomic, strong) NSString * status;
+@property (nonatomic ,copy) NSString *type;
+
 
 @end

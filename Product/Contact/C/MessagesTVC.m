@@ -73,7 +73,7 @@
                     if (arr.count == 0) {
                         [XXProgressHUD showMessage:@"没有更多的消息了"];
                     }
-                    [_dataArray arrayByAddingObjectsFromArray:arr];
+                    [_dataArray addObjectsFromArray:arr];
                 }
                 [weakSelf.tableview cyl_reloadData];
 

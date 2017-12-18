@@ -66,10 +66,13 @@
                 _dataArray = [BaoBeiChengJiao mj_objectArrayWithKeyValuesArray:data];
 
             } else {
-                [_dataArray arrayByAddingObjectsFromArray:[BaoBeiChengJiao mj_objectArrayWithKeyValuesArray:data]];
+                if ([BaoBeiChengJiao mj_objectArrayWithKeyValuesArray:data].count == 0) {
+                    [XXProgressHUD showMessage:@"已经到底啦"];
+                }
+                [_dataArray addObjectsFromArray:[BaoBeiChengJiao mj_objectArrayWithKeyValuesArray:data]];
             }
+            [weakSelf.tableview cyl_reloadData];
         }
-        [weakSelf.tableview cyl_reloadData];
 
 
     } withFailuerBlock:^(id error) {

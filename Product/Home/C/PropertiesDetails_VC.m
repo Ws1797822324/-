@@ -316,11 +316,10 @@
     _imgNameL.textColor = [UIColor whiteColor];
     _imgNumL.backgroundColor = kRGBColor(152, 152, 152, 0.8);
     _imgNumL.textColor = [UIColor whiteColor];
-    _imgNumL.font = kFont(20);
-    _imgNameL.font = kFont(20);
+    _imgNumL.font = kFont(17);
+    _imgNameL.font = kFont(16);
     kViewRadius(_imgNumL, 12);
     _imagesURLStrings.count == 0 ? (_imgNumL.hidden = YES) : (_imgNumL.hidden = NO);
-    _imagesURLStrings.count == 0 ? (_imgNameL.hidden = YES) : (_imgNameL.hidden = NO);
 
     int  nStr =  0;
     _imagesURLStrings.count == 0 ? ( nStr =   0) :  (nStr =  (int)cycleScrollView.firstIndex + 1);
@@ -393,8 +392,10 @@
         if (indexPath.row == 0) {
             PropertiesDetails_HeaderCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PropertiesDetails_HeaderCell_ID"];
             NSString * str1 = @"";
-            [_PDmodel.price_min_s intValue ] == 0 ? (str1 = @"价格待定") : (str1 = kString(@"%@元左右/㎡", _PDmodel.price_min_s));
             kStringIsEmpty(_PDmodel.price_min_s) ? str1 = @"价格待定" : (str1 = kString(@"%@元左右/㎡", _PDmodel.price_min_s));
+
+            [_PDmodel.price_min_s intValue ] == 0 ? (str1 = @"价格待定") : (str1 = kString(@"%@元左右/㎡", _PDmodel.price_min_s));
+
 
             cell.price_L.text = str1;
             [cell cinfigTagsView:_tagsArr];
@@ -551,10 +552,10 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
 
         if (_tagsArr.count == 0) {
-            return 240;
+            return 245;
         }
        CGFloat tagsH =  [SQButtonTagView returnViewHeightWithTagTexts:_tagsArr viewWidth:kWidth - 40 eachNum:0 Hmargin:10 Vmargin:5 tagHeight:20 tagTextFont:kBoldFont(12)];
-        return 240 + 10 + tagsH;
+        return 245 + 10 + tagsH;
     }
     
     if (indexPath.section == 0 && indexPath.row == 1) {

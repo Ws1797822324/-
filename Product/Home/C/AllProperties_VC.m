@@ -28,6 +28,8 @@
 @property (nonatomic, strong) NSMutableArray *pirceArrayF; // 单价    2
 @property (nonatomic ,copy) NSString *pirce11;
 @property (nonatomic ,copy) NSString *pirce12;
+@property (nonatomic ,assign) int pirceType;
+
 
 @property (nonatomic, strong) NSMutableArray *pirceArrayS; //总价  2
 @property (nonatomic ,copy) NSString *pirce21;
@@ -51,8 +53,6 @@
 
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithPatternImage:kImageNamed(@"background_Nav")]];
 
-
-
     [self requestConditionData];  //区域
     [self requestPirceData];  // 价格
     [self requestHuXingData]; // 户型
@@ -66,7 +66,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    [self configMenu];
+    if (_type != 1) {
+        [self configMenu];
+    }
     [self configTableView];
     _districtArr = [NSMutableArray array];
     _jieDaoArr = [NSMutableArray array];
@@ -83,6 +85,7 @@
     _pirce11 = @"";
     _pirce12 = @"";
     _page = 0;
+    _pirceType = 1;
     [self requestAllHouseDataIsRefreshType:YES];
 
 }
@@ -104,10 +107,19 @@
     //  设置默认项
     [menu selectIndexPath:[DOPIndexPath indexPathWithCol:0 row:0 item:0] triggerDelegate:NO];
 
-
+    kWeakSelf;
     [[kNoteCenter rac_addObserverForName:@"ItemPopupViewTF" object:nil] subscribeNext:^(NSNotification *_Nullable x) {
         NSDictionary *dict = x.userInfo;
-        NSLog(@"通知收到了  - %@", dict);
+        NSLog(@"通知收到了  - %@  - %d", dict,_pirceType);
+        if (_pirceType == 1) {
+            _pirce11 = [[dict allKeys] firstObject];
+            _pirce12 = [[dict allValues] firstObject];
+        }
+        if (_pirceType == 2) {
+            _pirce21 = [[dict allKeys] firstObject];
+            _pirce22 = [[dict allValues] firstObject];
+        }
+        [weakSelf requestAllHouseDataIsRefreshType:YES];
     }];
 }
 
@@ -119,7 +131,7 @@
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column {
 
     if (column == 0) {
-        return _districtArr.count + 1;
+        return _districtArr.count + 2;
     }
     if (column == 1) {
 
@@ -140,7 +152,10 @@
         if (indexPath.row == 0) {
             return @"不限";
         }
-        return _districtArr[indexPath.row - 1];
+        if (indexPath.row == 1) {
+            return @"周边";
+        }
+        return _districtArr[indexPath.row - 2];
     }
     if (indexPath.column == 1) {
 
@@ -193,8 +208,6 @@
         if (indexPath.row == 0) {
             return @"不限";
         }
-//        NSArray *arr1 = _jieDaoArr[indexPath.row - 1];
-//        return arr1[indexPath.item];
         return @"";
     }
 
@@ -230,6 +243,7 @@
 
 - (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath {
 
+
     if (indexPath.column == 3) {
         if (indexPath.row != 0) {
         JZLXModel * jmodel = _jZLX_Arr[indexPath.row -1];
@@ -250,38 +264,47 @@
         }
         [self requestAllHouseDataIsRefreshType:YES];
     }
-//    if (indexPath.column == 1) {
-//
-//        if (indexPath.row == 0) {
-//
-//            if (indexPath.item == 0) {
-//                _pirce11 = @"kkk";
-//                _pirce12 = @"ooo";
-//            } else {
-////                PirceModel * model = _pirceArrayF[indexPath.item - 1];
-////                _pirce11 = model.min;
-////                _pirce12 = model.max;
-//            }
-//        }
-//        if (indexPath.row == 1) {
-//
-//            if (indexPath.item == 0) {
-//                _pirce21 = @"";
-//                _pirce22 = @"";
-//            } else {
-////                PirceModel * model = _pirceArrayS[indexPath.item - 1];
-////                _pirce21 = model.min;
-////                _pirce22 = model.max;
-//            }
-//        }
-//        [self requestAllHouseDataIsRefreshType:YES];
-//
-//    }
-    if (indexPath.column == 0) {
+    if (indexPath.column == 1) {   // 价格
+
         if (indexPath.row == 0) {
+            _pirceType = 1;
+        }
+        if (indexPath.row == 1) {
+            _pirceType =2;
+        }
+        if (indexPath.item == 0) {
+            _pirce11 = @"";
+            _pirce12 = @"";
+            _pirce21 = @"";
+            _pirce22 = @"";
+            [self requestAllHouseDataIsRefreshType:YES];
+        }
+        if (indexPath.row == 0 && indexPath.item > 0) {
+
+            PirceModel *modelF = _pirceArrayF[indexPath.item -1];
+
+            _pirce11 = modelF.min;
+            _pirce12 = modelF.max;
+            [self requestAllHouseDataIsRefreshType:YES];
+
+        }
+
+        if (indexPath.row == 1 && indexPath.item > 0) {
+
+            PirceModel *modelS = _pirceArrayS[indexPath.item - 1];
+            _pirce21 = modelS.min;
+            _pirce22 = modelS.max;
+            [self requestAllHouseDataIsRefreshType:YES];
+
+        }
+    }
+    if (indexPath.column == 0) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
             _cityID = @"";
-        } else {
-        DistrictListModel * model = _cityModel.districtListArr[indexPath.row - 1];
+        }
+        else
+        {
+        DistrictListModel * model = _cityModel.districtListArr[indexPath.row - 2];
             if (model.jeidaoArr.count == 0) {
                 _cityID = model.disName;
             } else {
@@ -335,8 +358,14 @@
     if (kiPhone6sP_7sP) {
         h = 0;
     }
-#pragma mark -  这个页面的 menu  和 tableView 布局有极大地问题
-    _tableview.frame = CGRectMake(0, 45 + kNavHeight, kWidth, kHeight - kNavHeight - 45);
+
+    if (_type != 1) {
+
+        _tableview.frame = CGRectMake(0, 45 + kNavHeight, kWidth, kHeight - kNavHeight - 45);
+    } else {
+        _tableview.frame = CGRectMake(0,kNavHeight, kWidth, kHeight - kNavHeight);
+
+    }
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"search")highImage:kImageNamed(@"search")target:self action:@selector(rightAction) withTitle:@""];
 }
 
@@ -539,7 +568,6 @@
 
 - (void)rightAction {
 
-    NSLog(@"你点到了右边搜索");
     SearchViewController * searchVc = [[SearchViewController alloc]init];
     [self.navigationController pushViewController:searchVc animated:YES];
 }
@@ -548,28 +576,45 @@
 
 -(void)requestAllHouseDataIsRefreshType:(BOOL)type {
     kUserData;
+    NSDictionary * params = @{};
     if (type) {
         _page = 0;
     }
+    if (_type == 1) { // 周边
+params = @{
+                                  kOpt : @"selectHouses",
+                                  kToken : userInfo.token,
+                                  @"page" : kString(@"%d", _page),
+                                  @"row" : @"15",
+                                  @"lat" : kStringIsEmpty(userInfo.lat) ? @"32.164575" : userInfo.lat,
+                                  @"lng" : kStringIsEmpty(userInfo.lng) ? @"118.691732" : userInfo.lng,
+                                @"zhoubian" : @"1",
 
-    NSDictionary * params = @{
-                              kOpt : @"selectHouses",
-                              kToken : userInfo.token,
-                              @"page" : kString(@"%d", _page),
-                              @"row" : @"15",
-                              @"lat" : kStringIsEmpty(userInfo.lat) ? @"32.164575" : userInfo.lat,
-                              @"lng" : kStringIsEmpty(userInfo.lng) ? @"118.691732" : userInfo.lng,
-                              @"zhoubian" : kString(@"%d", _type),
-                              @"building_types" : _jzlxID,  /// 建筑类型
-                              @"q_id" : _cityID,    /// 区域 id
-                              @"zshx_id" : _huxingID,  /// 户型 id
-                              @"price_max" : _pirce22 ,  ///总价最大值
-                              @"price_min" : _pirce21 ,  ///总价最小值
-                              @"price_max_s" : _pirce12,  /// 单价最大值
-                              @"price_min_s" : _pirce11 , /// 单价最小值
-                              };
+                                  };
 
-    [XXNetWorkManager requestWithMethod:POST withParams:params withUrlString:@"Houses" withHud:nil withProgressBlock:^(float requestProgress) {
+    } else {  // 全部
+
+
+         params = @{
+                                  kOpt : @"selectHouses",
+                                  kToken : userInfo.token,
+                                  @"page" : kString(@"%d", _page),
+                                  @"row" : @"15",
+                                  @"lat" : kStringIsEmpty(userInfo.lat) ? @"32.164575" : userInfo.lat,
+                                  @"lng" : kStringIsEmpty(userInfo.lng) ? @"118.691732" : userInfo.lng,
+                                  //                              @"zhoubian" : kString(@"%d", _type),
+                                  @"building_types" : _jzlxID,  /// 建筑类型
+                                  @"q_id" : _cityID,    /// 区域 id
+                                  @"zshx_id" : _huxingID,  /// 户型 id
+                                  @"price_max" : _pirce22 ,  ///总价最大值
+                                  @"price_min" : _pirce21 ,  ///总价最小值
+                                  @"price_max_s" : _pirce12,  /// 单价最大值
+                                  @"price_min_s" : _pirce11 , /// 单价最小值
+                                  };
+
+    }
+
+    [XXNetWorkManager requestWithMethod:POST withParams:params withUrlString:@"Houses" withHud:@"刷新列表" withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         NSLog(@"iiiooooo %@",objc);
@@ -584,13 +629,14 @@
             } else {
                 NSArray * arr = [HouseModel mj_objectArrayWithKeyValuesArray:data];
                 if (arr.count == 0) {
-                    [XXProgressHUD showMessage:@"没有更多数据啦"];
+                    [XXProgressHUD showMessage:@"没有更多楼盘啦"];
                 }
-                [_dataArr arrayByAddingObjectsFromArray:arr];
+                [_dataArr addObjectsFromArray:arr];
+
+                
             }
         [_tableview.mj_header endRefreshing];
         [_tableview.mj_footer endRefreshing];
-
         [_tableview cyl_reloadData];
     }
 

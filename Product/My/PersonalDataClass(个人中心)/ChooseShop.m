@@ -89,7 +89,7 @@
             if (dataArr.count == 0) {
                 [XXProgressHUD showMessage:@"没有更多店铺了"];
             }
-            [_dataArray arrayByAddingObjectsFromArray:dataArr];
+            [_dataArray addObjectsFromArray:dataArr];
         }
         [weakSelf.tableview.mj_header endRefreshing];
         [weakSelf.tableview.mj_footer endRefreshing];

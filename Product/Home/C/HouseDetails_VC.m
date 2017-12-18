@@ -297,12 +297,12 @@
     _imgNameL.textColor = [UIColor whiteColor];
     _imgNumL.backgroundColor = kRGBColor(152, 152, 152, 0.8);
     _imgNumL.textColor = [UIColor whiteColor];
-    _imgNumL.font = kFont(20);
-    _imgNameL.font = kFont(17);
+    _imgNumL.font = kFont(18);
+    _imgNameL.font = kFont(16);
     kViewRadius(_imgNumL, 12);
     _imagesURLStrings.count == 0 ? (_imgNumL.hidden = YES) : (_imgNumL.hidden = NO);
-    _imagesURLStrings.count == 0 ? (_imgNameL.hidden = YES) : (_imgNameL.hidden = NO);
 
+    
     int  nStr =  0;
     _imagesURLStrings.count == 0 ? ( nStr =   0) :  (nStr =  (int)cycleScrollView.firstIndex + 1);
     self.imgNumL.text = [NSString stringWithFormat:@"  %d/%d  ",nStr,(int)_imagesURLStrings.count];
