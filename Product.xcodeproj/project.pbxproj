@@ -48,7 +48,6 @@
 		266D31C21FCC157A007F15ED /* MessagesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 266D31C01FCC157A007F15ED /* MessagesTVC.m */; };
 		266D31C61FCCF818007F15ED /* CommissionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 266D31C51FCCF818007F15ED /* CommissionListModel.m */; };
 		266D31C91FCD0329007F15ED /* CommissionDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 266D31C81FCD0329007F15ED /* CommissionDetailsModel.m */; };
-		268270FB1FC6B8C2006FE8F9 /* ThreePartiesShareTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 268270F91FC6B8C1006FE8F9 /* ThreePartiesShareTools.m */; };
 		268271011FC6C666006FE8F9 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 268270FF1FC6C666006FE8F9 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		268271021FC6C666006FE8F9 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 268271001FC6C666006FE8F9 /* TencentOpenAPI.framework */; };
 		268271041FC6C69B006FE8F9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 268271031FC6C68B006FE8F9 /* Security.framework */; };
@@ -468,8 +467,6 @@
 		266D31C51FCCF818007F15ED /* CommissionListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommissionListModel.m; sourceTree = "<group>"; };
 		266D31C71FCD0329007F15ED /* CommissionDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommissionDetailsModel.h; sourceTree = "<group>"; };
 		266D31C81FCD0329007F15ED /* CommissionDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommissionDetailsModel.m; sourceTree = "<group>"; };
-		268270F91FC6B8C1006FE8F9 /* ThreePartiesShareTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreePartiesShareTools.m; sourceTree = "<group>"; };
-		268270FA1FC6B8C1006FE8F9 /* ThreePartiesShareTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreePartiesShareTools.h; sourceTree = "<group>"; };
 		268270FF1FC6C666006FE8F9 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		268271001FC6C666006FE8F9 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		268271031FC6C68B006FE8F9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -1270,15 +1267,6 @@
 			path = "Calculators(计算器)";
 			sourceTree = "<group>";
 		};
-		268270F51FC6B37D006FE8F9 /* Share(分享) */ = {
-			isa = PBXGroup;
-			children = (
-				268270FA1FC6B8C1006FE8F9 /* ThreePartiesShareTools.h */,
-				268270F91FC6B8C1006FE8F9 /* ThreePartiesShareTools.m */,
-			);
-			path = "Share(分享)";
-			sourceTree = "<group>";
-		};
 		268270FC1FC6C50B006FE8F9 /* QQSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1815,7 +1803,6 @@
 			children = (
 				548680AE1F2830E4004B1AE8 /* C */,
 				548680B01F2830E4004B1AE8 /* V */,
-				268270F51FC6B37D006FE8F9 /* Share(分享) */,
 				2648EE5E1FC3C169000A4F19 /* Calculators(计算器) */,
 				2648EE5D1FC3C168000A4F19 /* ReportedSuccess(报备成交) */,
 				2648EE5C1FC3C121000A4F19 /* ReportedCustomer(报备客户) */,
@@ -2969,7 +2956,6 @@
 				67252A521FB538C400C42A2D /* MineCollectionViewCell.m in Sources */,
 				54F2247B1FD9026A00CA8016 /* IQBarButtonItem.m in Sources */,
 				540C4BA21FDBF134003FAB07 /* UITableViewCell+XX.m in Sources */,
-				268270FB1FC6B8C2006FE8F9 /* ThreePartiesShareTools.m in Sources */,
 				260384701FCFD7D40067EAEB /* XHNetworking.m in Sources */,
 				540A05AE1FBA8069007EB851 /* YYClassInfo.m in Sources */,
 				6711A97D1FB05FB1004425C7 /* ADRollView.m in Sources */,

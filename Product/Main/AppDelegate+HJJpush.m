@@ -1,9 +1,6 @@
 ///     ec0454d60d2e714e303de6fd
-//  AppDelegate+HJJpush.m
-//  EasyCarToBuy
-//
-//  Created by HJ on 2017/8/28.
-//  Copyright © 2017年 HYS. All rights reserved.
+//  Ap
+
 //
 
 #import "AppDelegate+HJJpush.h"

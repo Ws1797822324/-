@@ -65,7 +65,6 @@
 
 
 #import <MessageUI/MessageUI.h>
-#import "ThreePartiesShareTools.h"
 
 #import <JPUSHService.h>
 

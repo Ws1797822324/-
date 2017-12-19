@@ -7,7 +7,6 @@
 //
 
 #import "MyInvitationViewController.h"
-#import "ThreePartiesShareTools.h"
 
 @interface MyInvitationViewController () <UITableViewDataSource, UITableViewDelegate,MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) NSMutableArray  *dataArr;
