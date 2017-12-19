@@ -17,7 +17,7 @@
 #import "MyExchange_VC.h"
 #import "NewStayparticularsViewController.h"
 #import "MessagesTVC.h"
-
+#import "WorkType_VC.h"
 
 
 @implementation AppDelegate (HJJpush)
@@ -115,6 +115,15 @@
     //    5    积分提醒     ->    礼品商城
     //    6    邀请完成    ->    我的伙伴
     //    7   通知
+    //    8
+
+    if (kkk == 8) {
+        WorkType_VC * vc = [[WorkType_VC alloc]init];
+        vc.navigationItem.title = @"成交详情";
+        vc.type_vc = @"1";
+        vc.kh_ID = ID;
+        [[self topViewController:kkk].navigationController  pushViewController:vc animated:YES];
+    }
 if ( kkk == 7) {
     MessagesTVC * vc = [[MessagesTVC alloc]init];
     [(YMNavgatinController *)[self topViewController:kkk].navigationController  pushViewController:vc type:YMNavgatinControllerTypeBlue animated:YES];

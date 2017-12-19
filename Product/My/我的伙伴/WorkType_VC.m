@@ -23,13 +23,14 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _page = 0;
-    _dataArray = [NSMutableArray array];
-    [self requestDataRefreshType:YES];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configTableview];
+    _page = 0;
+    _dataArray = [NSMutableArray array];
+    [self requestDataRefreshType:YES];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -56,7 +57,6 @@
     kWeakSelf;
     if (type) {
         _page = 0;
-        _dataArray = [NSMutableArray array];
     }
     NSDictionary * dic = @{
                            kOpt : @"ck_friend",
@@ -72,6 +72,8 @@
         if (code == 200) {
             if (type) {
                 _page ++;
+                _dataArray = [NSMutableArray array];
+
                 _dataArray = [WorkTypeModel mj_objectArrayWithKeyValuesArray:data];
             } else {
                 NSArray * arr = [WorkTypeModel mj_objectArrayWithKeyValuesArray:data];
@@ -82,6 +84,9 @@
             }
         }
         [weakSelf.tableview cyl_reloadData];
+        [weakSelf.tableview.mj_header endRefreshing];
+        [weakSelf.tableview.mj_footer endRefreshing];
+
         NSLog(@"00000 --%@",objc);
     } withFailuerBlock:^(id error) {
 

@@ -42,8 +42,8 @@
 - (IBAction)daikanBtn:(UIButton *)sender {
     
     WorkType_VC * vc = [[WorkType_VC alloc]init];
-    vc.navigationItem.title = @"成交详情";
-    vc.type_vc = @"1";
+    vc.navigationItem.title = @"带看详情";
+    vc.type_vc = @"0";
     vc.kh_ID = _khID;
 
     [self.navigationController pushViewController:vc animated:YES];
@@ -52,8 +52,8 @@
 - (IBAction)chengjiaoBtn:(UIButton *)sender {
     
     WorkType_VC * vc = [[WorkType_VC alloc]init];
-    vc.navigationItem.title = @"带看详情";
-    vc.type_vc = @"0";
+    vc.navigationItem.title = @"成交详情";
+    vc.type_vc = @"1";
     vc.kh_ID = _khID;
 
     [self.navigationController pushViewController:vc animated:YES];

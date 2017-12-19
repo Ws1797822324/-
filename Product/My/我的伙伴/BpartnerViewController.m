@@ -78,7 +78,10 @@
                 [_dataArr addObjectsFromArray:[MyPartner_Model mj_objectArrayWithKeyValuesArray:data]];
             }
             
-            [weakSelf.tableview cyl_reloadData];        
+            [weakSelf.tableview cyl_reloadData];
+            [weakSelf.tableview.mj_header endRefreshing];
+            [weakSelf.tableview.mj_footer endRefreshing];
+
         }
     } withFailuerBlock:^(id error) {
         

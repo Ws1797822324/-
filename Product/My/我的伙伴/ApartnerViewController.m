@@ -23,14 +23,14 @@
     [super viewDidLoad];
 
     [self configTableview];
+    [self requestDataPage:YES];
     // Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    _dataArr = [NSMutableArray array];
-    [self requestDataPage:YES];
+
 
 
 }
@@ -56,16 +56,22 @@
         kInspectSignInType;
         kShowMessage;
         if (code == 200) {
-            _dataArr = [NSMutableArray array];
-
             _page ++;
             if (type) {
+                _dataArr = [NSMutableArray array];
                 _dataArr = [MyPartner_Model mj_objectArrayWithKeyValuesArray:data];
             } else {
-                [_dataArr addObjectsFromArray:[MyPartner_Model mj_objectArrayWithKeyValuesArray:data]];
+
+                NSArray * ARR = [MyPartner_Model mj_objectArrayWithKeyValuesArray:data];
+                if (ARR.count == 0) {
+                    [XXProgressHUD showMessage:@"没有更多了"];
+                }
+                [_dataArr addObjectsFromArray:ARR];
+
             }
             [weakSelf.tableview cyl_reloadData];
-
+            [weakSelf.tableview.mj_header endRefreshing];
+            [weakSelf.tableview.mj_footer endRefreshing];
         }
 
     } withFailuerBlock:^(id error) {
@@ -87,7 +93,7 @@
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self requestDataPage:YES];
     }];
-    self.tableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self requestDataPage:NO];
     }];
 }
@@ -126,15 +132,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
