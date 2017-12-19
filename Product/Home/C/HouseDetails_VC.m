@@ -197,10 +197,11 @@
             UIImage * thumimage =kImageNamed(@"logo");
             id shar = thumimage;
             if (_imagesURLStrings.count != 0) {
-                shar = [_imagesURLStrings firstObject];
-            }
+                UIImageView * bbb = [[UIImageView alloc]init];
+                [bbb sd_setImageWithURL:[NSURL URLWithString:_imagesURLStrings[0]]placeholderImage:kImageNamed(@"logo")];
+                shar = [XXHelper compressOriginalImage:bbb.image toSize:CGSizeMake(50, 50)];            }
 
-        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"户型分享" descr:nil thumImage:thumimage];
+        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"户型分享" descr:_xqModel.minareaname thumImage:thumimage];
 
 
         shareObject.webpageUrl = kString(@"http://121.43.176.154:8080/h5/recommendInfoDetail.html?ids=%@", _wuId);

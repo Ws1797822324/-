@@ -97,9 +97,11 @@
 
             //如果有缩略图，则设置缩略图
 
+            UIImageView * bbb = [[UIImageView alloc]init];
+            [bbb sd_setImageWithURL:[NSURL URLWithString:_model.pic]placeholderImage:kImageNamed(@"logo")];
+          UIImage * shar = [XXHelper compressOriginalImage:bbb.image toSize:CGSizeMake(50, 50)];
 
-        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_model.title descr:nil thumImage:_model.pic];
-
+        UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_model.title descr:nil thumImage:shar];
 
         shareObject.webpageUrl = kString(@"http://121.43.176.154:8080/h5/newsInfo.html?ids=%@", _model.ID);
         //分享消息对象设置分享内容对象

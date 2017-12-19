@@ -1159,4 +1159,23 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     return [phoneTest evaluateWithObject:mobileNum];
 
 }
+
+#pragma mark - 压缩图片到指定尺寸大小
+
+/**
+ *  压缩图片到指定尺寸大小
+ *
+ *  @param image 原始图片
+ *  @param size  目标大小
+ *
+ *  @return 生成图片
+ */
++(UIImage *)compressOriginalImage:(UIImage *)image toSize:(CGSize)size{
+    UIImage * resultImage = image;
+    UIGraphicsBeginImageContext(size);
+    [resultImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

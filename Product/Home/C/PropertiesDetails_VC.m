@@ -80,6 +80,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mdType = 0;
+    _mdArray = [NSMutableArray array];
+    _mdArr = [Md mj_objectArrayWithKeyValuesArray:@[@{@"type" : @"", @"content" : @"暂时未知"},@{@"type" : @"", @"content" : @"暂时未知"},@{@"type" : @"", @"content" : @"暂时未知"},@{@"type" : @"", @"content" : @"暂时未知"}]];
+
     self.item1Str = @"yiguanzhu";
     [self configTableview];
 
@@ -171,10 +175,13 @@
             UIImage * thumimage =kImageNamed(@"logo");
             id shar = thumimage;
             if (_imagesURLStrings.count != 0) {
-                shar = [_imagesURLStrings firstObject];
+
+                UIImageView * bbb = [[UIImageView alloc]init];
+                [bbb sd_setImageWithURL:[NSURL URLWithString:_imagesURLStrings[0]]placeholderImage:kImageNamed(@"logo")];
+                shar = [XXHelper compressOriginalImage:bbb.image toSize:CGSizeMake(50, 50)];
             }
 
-            UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"楼盘分享" descr:nil thumImage:shar];
+            UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"楼盘分享" descr:_PDmodel.name thumImage: shar];
 
 
             shareObject.webpageUrl = kString(@"http://121.43.176.154:8080/h5/recommendInfoDetail.html?ids=%@", _houseID);
@@ -208,6 +215,8 @@
 
 }
 
+
+
 -(void) duanxinAction {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -221,11 +230,6 @@
 
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
 
-
-    self.mdType = 0;
-    _mdArray = [NSMutableArray array];
-
-    _mdArr = [Md mj_objectArrayWithKeyValuesArray:@[@{@"type" : @"", @"content" : @"暂时未知"},@{@"type" : @"", @"content" : @"暂时未知"},@{@"type" : @"", @"content" : @"暂时未知"},@{@"type" : @"", @"content" : @"暂时未知"}]];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -246,6 +250,9 @@
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.view).offset(-kNavHeight);
         make.bottom.equalTo(self.view).offset(-50);
+    }];
+    self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self requestData];
     }];
     PropertiesDetails_FootView * footView = [PropertiesDetails_FootView viewFromXib];
     [self.view addSubview:footView];
@@ -671,8 +678,9 @@
             UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:@""];
             UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
             self.navigationItem.rightBarButtonItems = @[item2,item1];
-            
+            [weakSelf.tableview.mj_header endRefreshing];
             [weakSelf.tableview reloadData];
+
         }
     } withFailuerBlock:^(id error) {
 

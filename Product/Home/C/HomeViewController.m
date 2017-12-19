@@ -458,26 +458,18 @@
         [self.tableView.mj_header endRefreshing];
         return;
     }
+    NSString * cityStr = userInfo.position;
+    if (kStringIsEmpty(cityStr)) {
+        cityStr = @"南京";
+    }
 
-    NSString * cityStr = [userInfo.position  stringByReplacingOccurrencesOfString:@"市" withString:@""];
     NSDictionary * dic = @{
                            kOpt : @"tianqi",
                            kToken : userInfo.token,
-                           @"name" : cityStr
+                           @"name" : [cityStr  stringByReplacingOccurrencesOfString:@"市" withString:@""]
                            };
-    #pragma mark - 测定和ID号IDhiU盾hiuh
-    for (NSString *key in dic) {
-        NSString *value = dic[key];
-        if(value == nil) {
 
-            [LBXAlertAction showAlertWithTitle:@"天气请求" msg:@"6789878" buttonsStatement:@[@"hh "] chooseBlock:^(NSInteger buttonIdx) {
 
-            }];
-
-            return;
-
-        }
-    }
     kWeakSelf;
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"News" withHud:nil withProgressBlock:^(float requestProgress) {
 
@@ -486,6 +478,7 @@
         if (code == 200) {
 
             NSLog(@"tianqi   -- %@",data[@"result"][@"today"]);
+
             _tianqimodel = [TianQiModel mj_objectWithKeyValues:data[@"result"][@"today"]];
         } else {
             _tianqimodel.weather = @"天气";

@@ -367,4 +367,6 @@
 */
 + (BOOL)isNumber:(NSString *)mobileNum;
 
+#pragma mark - 压缩图片到指定尺寸大小
++(UIImage *)compressOriginalImage:(UIImage *)image toSize:(CGSize)size;
 @end
