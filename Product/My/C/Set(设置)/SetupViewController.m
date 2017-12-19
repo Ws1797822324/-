@@ -179,12 +179,9 @@
         LoginViewController * loginVC = [LoginViewController viewControllerFromNib];
 
         [JPUSHService setAlias:@"0" completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-
-
         } seq:0];
         NSSet * setS = [NSSet setWithObject:@"0"];
         [JPUSHService setTags:setS completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
-
         } seq:0];
 
         YMNavgatinController * navLiginVC = [[YMNavgatinController alloc] initWithRootViewController:loginVC];

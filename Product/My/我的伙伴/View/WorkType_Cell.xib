@@ -143,6 +143,9 @@
                         <state key="normal" title="  请佣  ">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="qingYong:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DLZ-zO-cKD"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dixian" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-NE-nW4">
                         <rect key="frame" x="0.0" y="97.5" width="350" height="1"/>
@@ -223,7 +226,7 @@
                 <outlet property="typeImage4" destination="O4w-DI-yzf" id="foB-2r-zNC"/>
                 <outlet property="type_L" destination="7Kn-WW-mtL" id="N2M-0d-2VO"/>
             </connections>
-            <point key="canvasLocation" x="-58" y="145"/>
+            <point key="canvasLocation" x="28" y="129"/>
         </tableViewCell>
     </objects>
     <resources>

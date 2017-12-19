@@ -34,6 +34,17 @@
 
 @implementation LoginViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [JPUSHService setAlias:@"0" completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+    } seq:0];
+    NSSet * setS = [NSSet setWithObject:@"0"];
+    [JPUSHService setTags:setS completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
+    } seq:0];
+
+
+}
+
 - (void)viewDidAppear:(BOOL)animated {
 
     [super viewDidAppear:animated];

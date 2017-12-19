@@ -25,6 +25,7 @@
     // Configure the view for the selected state
 }
 
+
 -(void)setModel:(LP *)model {
     _model = model;
     NSString * price = model.price;
@@ -76,6 +77,13 @@
     }
 
 
+}
+
+
+- (IBAction)qingYong:(UIButton *)sender {
+    if ([_delegate respondsToSelector:@selector(func:)]) {
+        [_delegate func:sender.tag];
+    }
 }
 
 @end

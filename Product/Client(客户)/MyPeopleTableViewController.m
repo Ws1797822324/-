@@ -178,7 +178,7 @@
 
 
         allCell.titleLabel.text = [NSString stringWithFormat:@"%@ %@",model.name,str];
-        allCell.timeLabel.text = model.time;
+        allCell.timeLabel.text = [model.time stringByReplacingOccurrencesOfString:@".0" withString:@""];
         return allCell;
     }else{
         NSMutableString * str = [[NSMutableString alloc]initWithString:model.phone];

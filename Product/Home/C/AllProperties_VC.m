@@ -569,6 +569,7 @@
 - (void)rightAction {
 
     SearchViewController * searchVc = [[SearchViewController alloc]init];
+    searchVc.type = @"房屋";
     [self.navigationController pushViewController:searchVc animated:YES];
 }
 
@@ -659,7 +660,6 @@ params = @{
     HouseModel * model = _dataArr[indexPath.row];
     cell.model = model;
 
-
     cell.tagsView.hidden = 0;
     if (model.tagsArr.count>0) {
         cell.tagsView.hidden = 1;
@@ -679,9 +679,7 @@ params = @{
 
     PropertiesDetails_VC *propertiesDetails = [[PropertiesDetails_VC alloc] init];
     HouseModel *model = _dataArr[indexPath.row];
-
     propertiesDetails.houseID = model.ID;
-
     [(YMNavgatinController *) self.navigationController
         pushViewController:propertiesDetails
                       type:YMNavgatinControllerTypeClear

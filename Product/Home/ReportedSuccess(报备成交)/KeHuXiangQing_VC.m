@@ -12,7 +12,7 @@
 #import "BankPopupView.h"
 #import "QingYong_VC.h"
 #import "AddBankCardViewController.h"
-@interface KeHuXiangQing_VC () <UITableViewDelegate,UITableViewDataSource>
+@interface KeHuXiangQing_VC () <UITableViewDelegate,UITableViewDataSource,qingYongSecondProtocol>
 @property (nonatomic ,assign) int page;
 @property (nonatomic ,strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) PeopleDetailsModel * model;
@@ -79,15 +79,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PeopleDetails_Cell * cell = [tableView dequeueReusableCellWithIdentifier:@"PeopleDetails_Cell"];
     cell.model = _model.lpArr[indexPath.row];
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    kWeakSelf;
-    [[cell.qingYong_Btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf qingyong_BtnAction:_model.lpArr[indexPath.row]];
-        
-    }];
+
+    cell.qingYong_Btn.tag = indexPath.row;
     return cell;
 }
 
+-(void)func:(NSInteger)index {
+    [self qingyong_BtnAction:_model.lpArr[index]];
+
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -127,8 +129,6 @@
 
 #pragma mark - 请佣按钮
 - (void)qingyong_BtnAction:(LP *)model {
-
-
     if ([model.yh_attestation intValue] == 0) {  // 未认证  要去填银行卡的东西
         kWeakSelf;
         BankPopupView * tempView = [BankPopupView viewFromXib];
@@ -139,8 +139,6 @@
             [KLCPopup dismissAllPopups];
             AddBankCardViewController * vc = [AddBankCardViewController viewControllerFromNib];
             [weakSelf.navigationController pushViewController:vc animated:true];
-
-
         }];
         KLCPopup *popView =[KLCPopup popupWithContentView:tempView showType:KLCPopupShowTypeGrowIn dismissType:KLCPopupDismissTypeGrowOut maskType:KLCPopupMaskTypeDimmed dismissOnBackgroundTouch:NO dismissOnContentTouch:NO];
 

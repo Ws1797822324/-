@@ -348,6 +348,9 @@
         [(YMNavgatinController *)weakSelf.navigationController pushViewController:aroundVC type:YMNavgatinControllerTypeBlue animated:YES];
 
     }];
+    kUserData;
+    if ([userInfo.status intValue]!=1) {  // 游客
+
 
     // 报备客户
     [[_homeHeader.BBKHBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -359,6 +362,10 @@
         ReportedSuccessBase_VC * VC = [ReportedSuccessBase_VC viewControllerFromNib];
         [(YMNavgatinController *)weakSelf.navigationController pushViewController:VC type:YMNavgatinControllerTypeBlue animated:YES];
     }];
+
+    } else {
+
+    }
     // 房贷计算器
     [[_homeHeader.FDJSQBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         MainCalculatorsViewController * VC = [[MainCalculatorsViewController alloc] init];
@@ -502,20 +509,26 @@
 #pragma mark  ------  搜索框
 - (void)createdNavUI
 {
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(110/2, 30, kWidth - 110, 30)];
-    self.TF_search = [[UITextField alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth - 140, 30)];
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(40, 30, kWidth - 80, 40)];
+    self.TF_search = [[UITextField alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth - 80, 40)];
     self.TF_search.placeholder = @"  请输入小区房或房源编号";
+    self.TF_search.userInteractionEnabled = NO;
     self.TF_search.backgroundColor =  kRGBColor(71, 149, 238, 0.8);
-    self.TF_search.alpha = 0.5;
+    self.TF_search.alpha = 0.6;
     [self.TF_search setValue:kRGBColor(157, 201, 247,1) forKeyPath:@"_placeholderLabel.textColor"];
-    [self.TF_search setValue:[UIFont boldSystemFontOfSize:13] forKeyPath:@"_placeholderLabel.font"];
-    self.TF_search.font = [UIFont systemFontOfSize:13];
+    [self.TF_search setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    self.TF_search.font = [UIFont systemFontOfSize:14];
 
     [view addSubview:self.TF_search];
+    UIView * searchView = [[UIView alloc]init];
+    searchView.frame = self.TF_search.frame;
+    [view addSubview:searchView];
+
     self.TF_search.borderStyle = UITextBorderStyleRoundedRect;
     kViewRadius(self.TF_search, 15);
     //创建左侧视图
     UIImage *im = [UIImage imageNamed:@"search"];
+
     UIImageView *iv = [[UIImageView alloc] initWithImage:im];
     UIView *lv = [[UIView alloc] initWithFrame:CGRectMake(10, 0, 20, 20)];
     iv.center = lv.center;
@@ -530,6 +543,14 @@
     [self.TF_search addGestureRecognizer:tap];
     
     [self.view addSubview:view];
+    [view tapPeformBlock:^{
+        [self searchCar];
+    }];
+
+    [searchView tapPeformBlock:^{
+        [self searchCar];
+    }];
+
 }
 
 
@@ -557,9 +578,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     HomeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeCell_ID"];
+    HouseModel * model = _houseArr[indexPath.row];
+    cell.model = model;
 
-    cell.model = _houseArr[indexPath.row];
-    
+    cell.tagsView.hidden = 0;
+    if (model.tagsArr.count>0) {
+        cell.tagsView.hidden = 1;
+        [cell tagsData:model.tagsArr];
+    } else {
+        cell.tagsView_H.constant = 2;
+        [cell.tagsView removeFromSuperview];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -567,7 +596,22 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
     
-    return 90;
+    HouseModel * model = _houseArr[indexPath.row];
+    if (model.tagsArr.count == 0) {
+        return 85;
+    } else {
+        NSMutableArray * arrr = [NSMutableArray array];
+        for (Label * jj in model.tagsArr) {
+            [arrr addObject:jj.name];
+        }
+        return 70 + [SQButtonTagView returnViewHeightWithTagTexts:arrr
+                                                        viewWidth:kWidth - 170
+                                                          eachNum:0
+                                                          Hmargin:10
+                                                          Vmargin:5
+                                                        tagHeight:20
+                                                      tagTextFont:kBoldFont(12)];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

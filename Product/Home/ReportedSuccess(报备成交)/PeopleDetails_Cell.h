@@ -10,6 +10,12 @@
 
 #import "PeopleDetailsModel.h"
 
+@protocol qingYongSecondProtocol <NSObject>
+
+- (void)func:(NSInteger) index;
+
+@end
+
 
 @interface PeopleDetails_Cell : UITableViewCell
 
@@ -34,6 +40,9 @@
 @property (nonatomic ,strong) NSArray *imageVArr;
 
 @property (nonatomic ,strong) LP *model;
+
+@property (nonatomic ,weak) id <qingYongSecondProtocol> delegate;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *name_L;
 @property (weak, nonatomic) IBOutlet UILabel *time_L;

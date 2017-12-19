@@ -17,7 +17,7 @@
 #import "BaseView.h"
 #import "BankPopupView.h"
 
-@interface PeopleDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface PeopleDetailsViewController ()<UITableViewDelegate,UITableViewDataSource,qingYongProtocol>
 @property (nonatomic, strong) PeopleDetailsModel * model;
 @end
 
@@ -69,16 +69,14 @@
 }
 
 -(UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    kWeakSelf;
-
     
     WorkType_Cell * cell = [tableView dequeueReusableCellWithIdentifier:@"WorkType_Cell_ID"];
     cell.model = _model.lpArr[indexPath.row];
+    cell.qingYongButton.tag = indexPath.row;
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [[cell.qingYongButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf qingyong_BtnAction:[_model.lpArr[indexPath.row] record_id]];
 
-    }];
+
     return cell;
 }
 
@@ -116,10 +114,11 @@
     };
     [self.navigationController pushViewController:VC animated:YES];
 }
-
-
 #pragma mark - 请佣按钮
-- (void)qingyong_BtnAction:(NSString *)fwID {
+
+
+-(void)func:(NSInteger)Num {
+    NSString *fwID = [_model.lpArr[Num] record_id];
 
     if ([_model.yh_attestation intValue] == 0) {  // 未认证  要去填银行卡的东西
         kWeakSelf;
@@ -141,28 +140,15 @@
         [popView showWithLayout:popLayout];
 
     } else {
-    QingYong_VC * vc= [[QingYong_VC alloc]init];
-    [self.navigationController pushViewController:vc animated:true];
+        QingYong_VC * vc= [[QingYong_VC alloc]init];
+        [self.navigationController pushViewController:vc animated:true];
         vc.khID = _ids;
         vc.baoBeiType = self.baibeiType;
-        
+
         vc.fwID = fwID;
     }
+
 }
-#pragma mark --------- 结佣
-- (void)jieyong_Btn:(id)sender {
-    
-    ChooseDredgeBankViewController * VC = [[ChooseDredgeBankViewController alloc] init];
-    VC.clickNoOrYes = ^(NSString *code) {
-        [self dismissPopupViewControllerWithanimationType:0];
-        if ([code isEqualToString:@"no"]) {
-            
-        }else{
-            AddBankCardViewController * VC = [[AddBankCardViewController alloc] init];
-            [self.navigationController pushViewController:VC animated:YES];
-        }
-    };
-    [self presentPopupViewController:VC animationType:0];
-    
-}
+
+
 @end

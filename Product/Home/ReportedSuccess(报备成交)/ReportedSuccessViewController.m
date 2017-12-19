@@ -131,10 +131,18 @@
             SFZInputting_Cell * cell= [SFZInputting_Cell loadCellFromNib:tableView];
             _sfz_TF = cell.sfz_TF;
             return cell;
-        } else if (indexPath.row == 2) {
-            PhoneInputting_Cell * cell = [PhoneInputting_Cell loadCellFromNib:tableView];
-            _phone_TF = cell.phone_TF;
-            return cell;
+        }else if (indexPath.row == 2) {
+            LATFCell.titleLabel.text = @"联系方式";
+            LATFCell.TF_title.placeholder = @"请输入联系方式";
+            LATFCell.TF_title.keyboardType = UIKeyboardTypeNumberPad;
+            [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+                if (LATFCell.TF_title.text.length >= 12) {
+                    LATFCell.TF_title.text = [LATFCell.TF_title.text substringToIndex:11];
+                }
+
+                }];
+            _phone_TF = LATFCell.TF_title;
+            return LATFCell;
         } else if (indexPath.row == 3) {
             sexCell.sexBlock = ^(NSString *sex) {
                 _sexStr = sex;

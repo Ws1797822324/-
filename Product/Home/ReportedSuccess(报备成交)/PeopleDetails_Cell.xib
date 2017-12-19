@@ -250,6 +250,9 @@
                         <state key="normal" title="   请佣   ">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="qingYongButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="atV-od-YRA"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

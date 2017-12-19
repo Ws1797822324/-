@@ -17,6 +17,12 @@
     _imageVArr = @[_typeImage1,_typeImage2,_typeImage3,_typeImage4,_typeImage5,_typeImage6,_typeImage7,_typeImage8,_typeImage9];
     
 }
+- (IBAction)qingYongButton:(UIButton *)sender {
+
+    if ([_delegate respondsToSelector:@selector(func:)]) {
+        [_delegate func:sender.tag];
+    }
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -32,7 +38,6 @@
         price = @"售价待定";
     }
     _money_L.text = price;
-
     _name_L.text = model.name;
     NSArray * a1 = [model.time componentsSeparatedByString:@"."];
     _time_L.text = [a1 firstObject];

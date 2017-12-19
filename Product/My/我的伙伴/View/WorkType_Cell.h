@@ -11,6 +11,10 @@
 #import "PeopleDetailsModel.h"
 
 
+@protocol qingYongProtocol <NSObject>
+- (void)func:(NSInteger)Num;
+@end
+
 @interface WorkType_Cell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *qingYongButton;
 @property (weak, nonatomic) IBOutlet UILabel *price_L;
@@ -33,6 +37,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *name_L;
 
 @property (nonatomic ,strong) NSString *status;
+
+@property (nonatomic ,weak)  id<qingYongProtocol> delegate;
+
 
 
 @end

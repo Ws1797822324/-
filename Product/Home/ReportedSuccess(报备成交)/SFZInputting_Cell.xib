@@ -20,19 +20,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证号码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OG-H7-ZuY">
-                        <rect key="frame" x="10" y="12" width="82" height="19.5"/>
+                        <rect key="frame" x="20" y="12" width="82" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="giA-h2-haB" customClass="BXTextField">
-                        <rect key="frame" x="112" y="3" width="188" height="37.5"/>
+                        <rect key="frame" x="122" y="3" width="178" height="37.5"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hongxingxing" translatesAutoresizingMaskIntoConstraints="NO" id="xP6-at-bFR">
-                        <rect key="frame" x="94" y="11" width="8" height="7"/>
+                        <rect key="frame" x="104" y="11" width="8" height="7"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -43,13 +43,14 @@
                     <constraint firstItem="giA-h2-haB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="OvB-2C-ROb"/>
                     <constraint firstItem="giA-h2-haB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PuW-H1-tyU"/>
                     <constraint firstAttribute="trailing" secondItem="giA-h2-haB" secondAttribute="trailing" constant="20" id="dMv-1z-oTo"/>
-                    <constraint firstItem="5OG-H7-ZuY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sPt-eV-N5I"/>
+                    <constraint firstItem="5OG-H7-ZuY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sPt-eV-N5I"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="sfz_TF" destination="giA-h2-haB" id="1Cc-4S-UkR"/>
             </connections>
+            <point key="canvasLocation" x="-21" y="-49"/>
         </tableViewCell>
     </objects>
     <resources>
