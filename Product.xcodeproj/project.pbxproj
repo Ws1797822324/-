@@ -246,6 +246,7 @@
 		54C21EAF1EC2B22000D63166 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54C21EB11EC2B22000D63166 /* infoPlist.strings */; };
 		54CA241E1FB92E240035A0B0 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CA241D1FB92E240035A0B0 /* HomeModel.m */; };
 		54CA242A1FB98E200035A0B0 /* PersonalData_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CA24291FB98E200035A0B0 /* PersonalData_VC.m */; };
+		54CF237A1FE90C7B00F51A5B /* KeyInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CF23791FE90C7B00F51A5B /* KeyInputTextField.m */; };
 		54D11F851FD535DC00EF1B3A /* LXFHouseLoanCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D11F831FD535DC00EF1B3A /* LXFHouseLoanCalculator.m */; };
 		54F224781FD9026A00CA8016 /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F224551FD9026A00CA8016 /* IQTextView.m */; };
 		54F224791FD9026A00CA8016 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F224591FD9026A00CA8016 /* IQToolbar.m */; };
@@ -802,6 +803,8 @@
 		54CA241D1FB92E240035A0B0 /* HomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
 		54CA24281FB98E200035A0B0 /* PersonalData_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalData_VC.h; sourceTree = "<group>"; };
 		54CA24291FB98E200035A0B0 /* PersonalData_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalData_VC.m; sourceTree = "<group>"; };
+		54CF23781FE90C7A00F51A5B /* KeyInputTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyInputTextField.h; sourceTree = "<group>"; };
+		54CF23791FE90C7B00F51A5B /* KeyInputTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyInputTextField.m; sourceTree = "<group>"; };
 		54D11F831FD535DC00EF1B3A /* LXFHouseLoanCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFHouseLoanCalculator.m; sourceTree = "<group>"; };
 		54D11F841FD535DC00EF1B3A /* LXFHouseLoanCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFHouseLoanCalculator.h; sourceTree = "<group>"; };
 		54F224551FD9026A00CA8016 /* IQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTextView.m; sourceTree = "<group>"; };
@@ -1184,11 +1187,11 @@
 			children = (
 				2648EE5F1FC3C1D7000A4F19 /* ReportedPeopleViewController.h */,
 				2648EE601FC3C1D7000A4F19 /* ReportedPeopleViewController.m */,
+				2648EE941FC51D8F000A4F19 /* HousesViewController.h */,
+				2648EE951FC51D8F000A4F19 /* HousesViewController.m */,
 				2648EE9C1FC52288000A4F19 /* ChooseHouseTableViewCell.h */,
 				2648EE9D1FC52288000A4F19 /* ChooseHouseTableViewCell.m */,
 				2648EE9E1FC52288000A4F19 /* ChooseHouseTableViewCell.xib */,
-				2648EE941FC51D8F000A4F19 /* HousesViewController.h */,
-				2648EE951FC51D8F000A4F19 /* HousesViewController.m */,
 				2648EE971FC51DCC000A4F19 /* BuyHouseIdeasViewController.h */,
 				2648EE981FC51DCC000A4F19 /* BuyHouseIdeasViewController.m */,
 				2648EE991FC51DCC000A4F19 /* BuyHouseIdeasViewController.xib */,
@@ -1230,6 +1233,8 @@
 				54ACC91F1FE51C0900EB88E7 /* PhoneInputting_Cell.h */,
 				54ACC9201FE51C0900EB88E7 /* PhoneInputting_Cell.m */,
 				54ACC9211FE51C0900EB88E7 /* PhoneInputting_Cell.xib */,
+				54CF23781FE90C7A00F51A5B /* KeyInputTextField.h */,
+				54CF23791FE90C7B00F51A5B /* KeyInputTextField.m */,
 				54ACC9241FE5297B00EB88E7 /* SFZInputting_Cell.h */,
 				54ACC9251FE5297B00EB88E7 /* SFZInputting_Cell.m */,
 				54ACC9261FE5297B00EB88E7 /* SFZInputting_Cell.xib */,
@@ -2974,6 +2979,7 @@
 				541AB5891FDA1F3200328EF5 /* ChooseCity_VC.m in Sources */,
 				2682714E1FC818D6006FE8F9 /* ActivityTableViewController.m in Sources */,
 				67F2C3011FB29F9500171778 /* SDWaitingView.m in Sources */,
+				54CF237A1FE90C7B00F51A5B /* KeyInputTextField.m in Sources */,
 				5442F4901FC573350022E84B /* BrokeragePlan_VC.m in Sources */,
 				540A05A81FBA8069007EB851 /* BRDatePickerView.m in Sources */,
 				6711A9731FB05A4F004425C7 /* UIColor+PosColor.m in Sources */,

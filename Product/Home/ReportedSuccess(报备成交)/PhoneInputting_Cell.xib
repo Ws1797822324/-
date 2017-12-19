@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,38 +27,50 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hongxingxing" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-MJ-y2o">
                         <rect key="frame" x="87.5" y="11" width="8" height="7"/>
                     </imageView>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Rs2-mA-37D">
-                        <rect key="frame" x="105.5" y="3" width="194.5" height="38"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                    </textField>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入联系方式" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="H58-gb-2f2">
-                        <rect key="frame" x="105.5" y="3" width="194.5" height="38"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H58-gb-2f2">
+                        <rect key="frame" x="110.5" y="5" width="37" height="34"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="g7b-YH-XTT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6n-Do-a2R" customClass="KeyInputTextField">
+                        <rect key="frame" x="182.5" y="5" width="70" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="mi4-yC-bnO"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="****" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liQ-kZ-chu">
+                        <rect key="frame" x="147.5" y="12" width="30" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="H58-gb-2f2" firstAttribute="top" secondItem="Rs2-mA-37D" secondAttribute="top" id="3Yb-86-fba"/>
-                    <constraint firstItem="Rs2-mA-37D" firstAttribute="leading" secondItem="B4h-MJ-y2o" secondAttribute="trailing" constant="10" id="6Ao-Dq-QH1"/>
-                    <constraint firstItem="Rs2-mA-37D" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6iL-dn-PHl"/>
+                    <constraint firstItem="H58-gb-2f2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="5jB-di-r3C"/>
+                    <constraint firstItem="c6n-Do-a2R" firstAttribute="leading" secondItem="liQ-kZ-chu" secondAttribute="trailing" constant="5" id="6W1-zP-8V9"/>
+                    <constraint firstItem="H58-gb-2f2" firstAttribute="leading" secondItem="B4h-MJ-y2o" secondAttribute="trailing" constant="15" id="E3j-Je-6AU"/>
+                    <constraint firstItem="liQ-kZ-chu" firstAttribute="leading" secondItem="H58-gb-2f2" secondAttribute="trailing" id="L2i-Hg-C60"/>
                     <constraint firstItem="0mH-43-fvp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="MZ0-tF-hFk"/>
-                    <constraint firstAttribute="trailing" secondItem="Rs2-mA-37D" secondAttribute="trailing" constant="20" id="Oap-Bg-42x"/>
-                    <constraint firstItem="H58-gb-2f2" firstAttribute="leading" secondItem="Rs2-mA-37D" secondAttribute="leading" id="TEr-bT-tUP"/>
-                    <constraint firstItem="H58-gb-2f2" firstAttribute="bottom" secondItem="Rs2-mA-37D" secondAttribute="bottom" id="e8T-jR-0a2"/>
-                    <constraint firstItem="H58-gb-2f2" firstAttribute="trailing" secondItem="Rs2-mA-37D" secondAttribute="trailing" id="ftb-7c-jWa"/>
-                    <constraint firstItem="Rs2-mA-37D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="h0F-Xb-IMJ"/>
+                    <constraint firstItem="liQ-kZ-chu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Swc-2P-Ga6"/>
+                    <constraint firstItem="c6n-Do-a2R" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WQr-lS-efk"/>
+                    <constraint firstItem="H58-gb-2f2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gK9-pI-bqu"/>
                     <constraint firstItem="0mH-43-fvp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hE1-9a-hBM"/>
                     <constraint firstItem="B4h-MJ-y2o" firstAttribute="top" secondItem="0mH-43-fvp" secondAttribute="top" constant="-1" id="mS0-g9-GM4"/>
+                    <constraint firstItem="c6n-Do-a2R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tCO-K2-FOq"/>
                     <constraint firstItem="B4h-MJ-y2o" firstAttribute="trailing" secondItem="0mH-43-fvp" secondAttribute="trailing" constant="10" id="uX1-Ax-NoZ"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="background_TF" destination="Rs2-mA-37D" id="8MV-ao-gWu"/>
-                <outlet property="phone_TF" destination="H58-gb-2f2" id="d64-cs-oGN"/>
+                <outlet property="left_TF" destination="H58-gb-2f2" id="NK4-en-mki"/>
+                <outlet property="right_TF" destination="c6n-Do-a2R" id="8tk-Q7-6d8"/>
+                <outlet property="xingxing_L" destination="liQ-kZ-chu" id="OgP-uw-qjO"/>
             </connections>
             <point key="canvasLocation" x="128" y="110"/>
         </tableViewCell>

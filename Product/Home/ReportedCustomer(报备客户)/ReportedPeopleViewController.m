@@ -14,10 +14,13 @@
 #import "BuyHouseIdeasViewController.h"
 #import "HousesViewController.h"
 #import "PhoneInputting_Cell.h"
+#import "KeyInputTextField.h"
 
-@interface ReportedPeopleViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface ReportedPeopleViewController ()<UITableViewDelegate,UITableViewDataSource,KeyInputTextFieldDelegate>
     @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic ,strong) NSArray *seleArr;
+
 
 @property (nonatomic ,strong) NSString *sexStr;
 
@@ -25,6 +28,9 @@
 
 @property (nonatomic ,strong) UITextField *nameTF;
 @property (nonatomic ,strong) UITextField *phoneTF;
+@property (nonatomic ,strong) UITextField *phone_leftTF;
+@property (nonatomic ,strong) UITextField *phone_rightTF;
+@property (nonatomic ,strong) NSString *phoneStr;
 
 @property (nonatomic ,strong) UITextView *textview;
 
@@ -51,21 +57,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _sexStr = @"1";
+
     self.title = @"报备客户";
+
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     [self.view addSubview:self.tableView];
-    
+
     [self.tableView registerNib:[UINib nibWithNibName:@"LabelAndTFTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"LabelAndTFTableViewCell"];
-    
+
     [self.tableView registerNib:[UINib nibWithNibName:@"ChooseSexTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"ChooseSexTableViewCell"];
-    
+
     [self.tableView registerNib:[UINib nibWithNibName:@"SureTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SureTableViewCell"];
-    
+
     [self.tableView registerNib:[UINib nibWithNibName:@"RemarkTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"RemarkTableViewCell"];
     [self.tableView registerNib:[PhoneInputting_Cell nib] forCellReuseIdentifier:@"PhoneInputting_Cell"];
 
-    
+
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 5;
@@ -121,24 +129,46 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     sureCell.selectionStyle = UITableViewCellSelectionStyleNone;
     RemarkTableViewCell * remarkCell = [tableView dequeueReusableCellWithIdentifier:@"RemarkTableViewCell"];
     remarkCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if(indexPath.section==0){
+    if (indexPath.section == 0) {
 
         cell.textLabel.text = @"报备楼盘";
-        _seleArr.count == 0 ? (cell.detailTextLabel.text = @"请选择楼盘") : (cell.detailTextLabel.text = kString(@"您已选择%lu个楼盘", _seleArr.count));
+        _seleArr.count == 0
+            ? (cell.detailTextLabel.text = @"请选择楼盘")
+            : (cell.detailTextLabel.text = kString(@"您已选择%lu个楼盘", _seleArr.count));
 
         return cell;
-    }else if(indexPath.section==1){
-        if(indexPath.row==0){
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
             LATFCell.titleLabel.text = @"姓名";
             LATFCell.TF_title.placeholder = @"请输入姓名";
             LATFCell.TF_title.textColor = [UIColor blackColor];
-
             self.nameTF = LATFCell.TF_title;
             return LATFCell;
-        }else if(indexPath.row==1){
-            PhoneInputting_Cell * cell =[PhoneInputting_Cell loadCellFromNib:tableView];
-            self.phoneTF = cell.phone_TF;
-            return cell;
+        } else if (indexPath.row == 1) {
+
+            if (_phoneType == 1) {
+                PhoneInputting_Cell *cell = [PhoneInputting_Cell loadCellFromNib:tableView];
+                cell.right_TF.keyInputDelegate = self;
+                self.phone_rightTF = cell.right_TF;
+                self.phone_leftTF = cell.left_TF;
+                return cell;
+
+            }
+            if (_phoneType != 1) {
+                LATFCell.titleLabel.text = @"联系方式";
+                LATFCell.TF_title.placeholder = @"请输入联系方式";
+                LATFCell.TF_title.keyboardType = UIKeyboardTypeNumberPad;
+                [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+                    if (LATFCell.TF_title.text.length >= 12) {
+                        LATFCell.TF_title.text = [LATFCell.TF_title.text substringToIndex:11];
+                    }
+
+                }];
+                _phoneTF = LATFCell.TF_title;
+
+                return LATFCell;
+
+            }
         }else if(indexPath.row==2){
             sexCell.sexBlock = ^(NSString *sex) {
 
@@ -146,20 +176,34 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             };
             return sexCell;
         }
-    }else if (indexPath.section==2){
+    }
+
+    if (indexPath.section==2){
         cell.textLabel.text = @"购房意向";
         _yixiangArr.count == 0 ? (cell.detailTextLabel.text = @"请填写购房意向") : (cell.detailTextLabel.text = @"修改购房意向");
 
         return cell;
-    }else if (indexPath.section==3){
+    }
+
+    if (indexPath.section==3){
         _textview =  remarkCell.textView;
         return remarkCell;
-    }else if (indexPath.section==4){
+    }
+
+    if (indexPath.section==4){
         [sureCell.sureBtn setTitle:@"报备" forState:0];
         return sureCell;
     }
-    
+
     return cell;
+}
+
+-(void)deleteBackward {
+    if (kStringIsEmpty(_phone_rightTF.text)) {
+
+        [_phone_leftTF becomeFirstResponder];
+    }
+
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section==0){  // 报备楼盘
@@ -169,7 +213,12 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             _seleArr = selectedBlockArray;
             [_tableView reloadData];
         };
+        VC.phoneTypeBlock = ^(int phoneType) {
+            _phoneType = phoneType;
+            NSLog(@"---%d",phoneType);
+        };
         VC.array = _seleArr;
+        VC.phoneTypeStr = kString(@"%d", _phoneType);
 
         [self.navigationController pushViewController:VC animated:YES];
     }else if(indexPath.section==2){ // 购房意向
@@ -184,7 +233,7 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         };
         VC.valueArray = _yixiangArr;
 
-        
+
         [self.navigationController pushViewController:VC animated:YES];
     }
 }
@@ -212,16 +261,24 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         [_nameTF becomeFirstResponder];
         return;
     }
-    if (kStringIsEmpty(_phoneTF.text)) {
+    if (kStringIsEmpty(_phoneTF.text) && _phoneType != 1) {  // ==2
         [XXProgressHUD showMessage:@"联系方式不能为空"];
         [_phoneTF becomeFirstResponder];
         return;
     }
 
-    if (![XXHelper isNumber:_phoneTF.text]) {
+    if (![XXHelper isNumber:_phoneTF.text] && _phoneType != 1) { // == 2
         [XXProgressHUD showMessage:@"请输入正确的手机号"];
         [_phoneTF becomeFirstResponder];
         return;
+    }
+    if ( _phoneType == 1) {
+        if (kStringIsEmpty(_phone_leftTF.text) || kStringIsEmpty(_phone_rightTF.text)) {
+            [XXProgressHUD showMessage:@"手机号输入有误"];
+            [_phone_rightTF becomeFirstResponder];
+            return;
+        }
+
     }
 
     if (_seleArr.count == 0) {
@@ -229,11 +286,17 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         return;
     }
 
+    if (_phoneType == 1) {
+        _phoneStr = [NSString stringWithFormat:@"%@****%@",_phone_leftTF.text,_phone_rightTF.text];
+    }
+    if (_phoneType != 1) {
+        _phoneStr = _phoneTF.text;
+    }
     NSDictionary * dic = @{
                            kOpt : @"tj_client",
                            kToken : userInfo.token,
                            @"name" : _nameTF.text,
-                           @"phone" : _phoneTF.text,
+                           @"phone" : _phoneStr,
                            @"sex": _sexStr,
                            @"l_id" : [_seleArr componentsJoinedByString:@","],
                            @"min_price_budget" :  _yixiangArr[0],

@@ -10,9 +10,15 @@
 
 typedef void(^SelectedBlock) (NSArray *selectedBlockArray);
 
+typedef void (^PhoneTypeBlock)(int phoneType);
+
 @interface HousesViewController : UIViewController
 
 @property (nonatomic ,copy) SelectedBlock selectedBlock ;
+@property (nonatomic ,copy)  PhoneTypeBlock phoneTypeBlock;
+
+@property (nonatomic ,strong) NSString *phoneTypeStr;
+
 @property (nonatomic ,strong) NSMutableArray *selectedArr;
 
 @property (nonatomic ,strong) NSArray *array;

@@ -218,8 +218,10 @@
                 model.noticeTitle = dic1[@"title"];
                 [self.adsArray addObject:model];
             }
-            [self configAdRollView:_adsArray];
-            [self.adRollView start];
+            if (!kArrayIsEmpty(_adsArray)) {
+                [self configAdRollView:_adsArray];
+                [self.adRollView start];
+            }
 
 
         }

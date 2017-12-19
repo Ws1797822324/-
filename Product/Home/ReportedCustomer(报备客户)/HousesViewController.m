@@ -36,6 +36,9 @@
     self.title = @"报备楼盘";
     self.view.backgroundColor = kRGB_HEX(0xfafafa);
     _selectedArr = [NSMutableArray arrayWithArray:_array];
+    if (_selectedArr.count>1) {
+        _phoneTypeStr = @"2";
+    }
     [self loadRequest];
     
     [self.view addSubview:self.tableView];
@@ -64,6 +67,7 @@
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         if (code==200) {
+            
             self.dataArray = [BBLPListModel mj_objectArrayWithKeyValuesArray:data];
 
             [self.tableView reloadData];
@@ -85,7 +89,18 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
+    if (_selectedArr.count>1) {
+        _phoneTypeStr = @"2";
+    } else {
+        for (BBLPListModel * model in _dataArray) {
+
+            if ([model.ID intValue] == [_selectedArr[0] intValue]) {
+                _phoneTypeStr = model.type;
+            }
+        }
+    }
     self.selectedBlock(_selectedArr);
+    self.phoneTypeBlock([_phoneTypeStr intValue]);
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -100,8 +115,6 @@
 
     ChooseHouseTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ChooseHouseTableViewCell"];
     BBLPListModel * model = self.dataArray[indexPath.row];
-
-
        [ _selectedArr containsObject:model.ID] ? (cell.chooseBtn.selected = YES) : (cell.chooseBtn.selected = NO);
     cell.titleLabel.text = model.name;
 
@@ -115,8 +128,8 @@
     ChooseHouseTableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     if (!cell.chooseBtn.selected) {
 
-        
-           [_selectedArr addObject:[_dataArray[indexPath.row] ID]];
+        BBLPListModel * modelo = _dataArray[indexPath.row];
+           [_selectedArr addObject: modelo.ID];
     } else {
 // MARK: ------ 删除数组中的某个元素 ------
         NSIndexSet *indexSet = [_selectedArr indexesOfObjectsPassingTest:^BOOL(NSString *  _Nonnull var, NSUInteger idx, BOOL * _Nonnull stop) {

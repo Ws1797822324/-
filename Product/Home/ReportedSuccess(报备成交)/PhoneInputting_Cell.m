@@ -14,31 +14,17 @@
     [super awakeFromNib];
 
     [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
-        if (_phone_TF.text.length >= 12) {
-            _phone_TF.text = [_phone_TF.text substringToIndex:11];
 
-        }
-        _background_TF.text = _phone_TF.text;
-
-
-
-        if (_phone_TF.text.length == 4) {
-            _background_TF.text = kString(@"%@*", [_phone_TF.text substringToIndex:3]);
-
-        }
-        if (_phone_TF.text.length == 5) {
-            _background_TF.text = kString(@"%@**", [_phone_TF.text substringToIndex:3]);
-        }
-        if (_phone_TF.text.length == 6) {
-            _background_TF.text = kString(@"%@***", [_phone_TF.text substringToIndex:3]);
-        }
-        if (_phone_TF.text.length == 7) {
-            _background_TF.text = kString(@"%@****", [_phone_TF.text substringToIndex:3]);
-        }
-        if (_phone_TF.text.length > 7) {
-            _background_TF.text = [NSString stringWithFormat:@"%@****%@",[_phone_TF.text substringToIndex:3],[_phone_TF.text substringFromIndex:7]];
+        if (_left_TF.text.length >= 4) {
+            _left_TF.text = [_left_TF.text substringToIndex:3];
         }
 
+        if (_right_TF.text.length >= 5) {
+            _right_TF.text = [_right_TF.text substringToIndex:4];
+        }
+        if (_left_TF.text.length == 3) {
+            [_right_TF becomeFirstResponder];
+        }
 
     }];
 

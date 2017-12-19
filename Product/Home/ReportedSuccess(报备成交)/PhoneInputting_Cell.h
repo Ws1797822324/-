@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KeyInputTextField.h"
+@interface PhoneInputting_Cell : UITableViewCell 
 
-@interface PhoneInputting_Cell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UITextField *left_TF;
+@property (weak, nonatomic) IBOutlet KeyInputTextField *right_TF;
 
-@property (weak, nonatomic) IBOutlet UITextField *background_TF;
-
-@property (weak, nonatomic) IBOutlet UITextField *phone_TF;
-
+@property (weak, nonatomic) IBOutlet UILabel *xingxing_L;
 
 @end

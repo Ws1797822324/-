@@ -114,6 +114,8 @@
 @property (nonatomic, copy) NSString *weixinid;
 @property (nonatomic, copy) NSString *longitude;
 @property (nonatomic, copy) NSString *latitude;
+@property (nonatomic ,copy) NSString *type;
+
 
 
 

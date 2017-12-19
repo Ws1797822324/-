@@ -10,5 +10,7 @@
 
 @interface ReportedPeopleViewController : UIViewController
 
+@property (nonatomic ,assign) int phoneType;
+
 
 @end

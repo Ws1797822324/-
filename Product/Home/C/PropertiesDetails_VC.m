@@ -264,7 +264,7 @@
     [[footView.baoBeiButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
         NSLog(@"详情页面报备客户");
         ReportedPeopleViewController * vc = [[ReportedPeopleViewController alloc]init];
-
+        vc.phoneType = [_PDmodel.type intValue];
         [(YMNavgatinController *)weakSelf.navigationController pushViewController:vc type:YMNavgatinControllerTypeBlue animated:YES];
     }];
 #pragma mark - 跳转微信
