@@ -79,6 +79,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PeopleDetails_Cell * cell = [tableView dequeueReusableCellWithIdentifier:@"PeopleDetails_Cell"];
     cell.model = _model.lpArr[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     kWeakSelf;
     [[cell.qingYong_Btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [weakSelf qingyong_BtnAction:_model.lpArr[indexPath.row]];
@@ -88,7 +89,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     LP *model =  _model.lpArr[indexPath.row];
@@ -97,9 +98,8 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
+}
 
 - (IBAction)message_Btn:(UIButton *)sender {
 

@@ -164,6 +164,8 @@
     if (kkk == 2) {
         NewStayparticularsViewController * vc = [[NewStayparticularsViewController alloc]init];
         vc.ids = model.ID;
+        vc.type = @"1";
+        vc.wsType = @"0";
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (kkk == 1) {

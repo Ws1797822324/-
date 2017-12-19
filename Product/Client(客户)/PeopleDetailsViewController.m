@@ -74,6 +74,7 @@
     
     WorkType_Cell * cell = [tableView dequeueReusableCellWithIdentifier:@"WorkType_Cell_ID"];
     cell.model = _model.lpArr[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [[cell.qingYongButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [weakSelf qingyong_BtnAction:[_model.lpArr[indexPath.row] record_id]];
 

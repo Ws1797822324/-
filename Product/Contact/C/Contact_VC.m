@@ -52,7 +52,7 @@
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"News" withHud:nil withProgressBlock:^(float requestProgress) {
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
-        
+        kInspectSignInType;
         if (code==200) {
             MainNewsModel * actModel = [MainNewsModel mj_objectWithKeyValues:data[@"activity"]];
             MainNewsModel * newsModel = [MainNewsModel mj_objectWithKeyValues:data[@"news"]];

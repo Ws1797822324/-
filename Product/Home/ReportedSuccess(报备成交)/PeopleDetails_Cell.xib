@@ -241,12 +241,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAV-gj-k6q">
-                        <rect key="frame" x="338" y="164.5" width="47" height="25"/>
+                        <rect key="frame" x="323" y="164.5" width="62" height="25"/>
                         <color key="backgroundColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="wro-ar-763"/>
                         </constraints>
-                        <state key="normal" title="  请佣  ">
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal" title="   请佣   ">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>

@@ -100,6 +100,8 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WorkType_Cell * cell =    [tableView dequeueReusableCellWithIdentifier:@"WorkType_Cell_ID"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     cell.qingYongButton.hidden = YES;
     cell.type_L.hidden = YES;
     cell.dixian_ImgV.hidden = YES;
