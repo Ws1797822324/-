@@ -477,9 +477,11 @@
         kInspectSignInType;
         if (code == 200) {
 
-            NSLog(@"tianqi   -- %@",data[@"result"][@"today"]);
 
-            _tianqimodel = [TianQiModel mj_objectWithKeyValues:data[@"result"][@"today"]];
+            NSDictionary * dicc = data[@"result"][@"today"];
+            if (!kDictIsEmpty(dicc)) {
+                _tianqimodel = [TianQiModel mj_objectWithKeyValues:dicc];
+            }
         } else {
             _tianqimodel.weather = @"天气";
             _tianqimodel.temperature = @"20~21°";

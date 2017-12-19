@@ -38,10 +38,6 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     self.navigationController.navigationBar.translucent = NO;
-
-
-
-    _imagesURLStrings = [NSMutableArray array];
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor colorWithPatternImage:kImageNamed(@"background_Nav")] WithScrollView:scrollView AndValue:0.1];
@@ -60,7 +56,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     self.item1Str = @"yiguanzhu";
-    
+    _imagesURLStrings = [NSMutableArray array];
+
     [self configTableview];
     [self requestData];
 
@@ -103,7 +100,7 @@
                 } else {
                     _footeViewHeight = 150 ;
                 }
-                
+                [self.tableview.mj_header endRefreshing];
                 [weakSelf.tableview reloadData];
                 
                 if ([_xqModel.sc_status intValue] == 0) {  // 未关注
@@ -265,7 +262,9 @@
     self.tableview.dataSource = self;
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HouseDetailsOne_Cell class]) bundle:nil]
          forCellReuseIdentifier:@"HouseDetailsOne_Cell_ID"];
-
+    self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self requestData];
+    }];
 }
 
 
