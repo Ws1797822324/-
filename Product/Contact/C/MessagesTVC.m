@@ -48,7 +48,7 @@
     NSDictionary *dic = @{
         kOpt : @"notice",
         kToken : userInfo.token,
-        @"row" : @"10",
+        @"row" : @"20",
         @"page" : kString(@"%d", _page)
     };
     kWeakSelf;

@@ -75,7 +75,7 @@
                            kOpt : @"cj_dz",
                            @"id" :  _khID,
                            kToken : userInfo.token,
-                           @"row" : @"10",
+                           @"row" : @"20",
                            @"page" : kString(@"%d", _page)
                            };
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"CommissionServlet" withHud:@"地址请求中" withProgressBlock:^(float requestProgress) {

@@ -40,7 +40,7 @@
                            kToken : userInfo.token,
                            @"id" : _ID,
                            @"page" : kString(@"%d", _page),
-                           @"row" : @"10"
+                           @"row" : @"20"
                            };
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString: @"Houses" withHud:@"信息刷新" withProgressBlock:^(float requestProgress) {
 

@@ -63,7 +63,7 @@
                            kToken : userInfo.token,
                            @"flow" : _type_vc,
                            @"page" : kString(@"%d", _page),
-                           @"row" : @"10",
+                           @"row" : @"20",
                            @"id" : _kh_ID
                            };
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"ClientServlet" withHud:@"状态加载中..." withProgressBlock:^(float requestProgress) {

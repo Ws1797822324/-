@@ -74,7 +74,7 @@
     NSDictionary * dict = @{
                             kOpt : @"mendian",
                             kToken : userInfo.token,
-                            @"row" : @"10",
+                            @"row" : @"20",
                             @"page" : kString(@"%d", _page)
                             };
     [XXNetWorkManager requestWithMethod:POST withParams:dict withUrlString:@"CommissionServlet" withHud:@"店铺加载..." withProgressBlock:^(float requestProgress) {

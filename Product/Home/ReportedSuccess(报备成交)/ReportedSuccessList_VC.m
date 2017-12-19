@@ -50,7 +50,7 @@
     }
     kUserData;
     NSDictionary * dic = @{
-                           @"row" : @"10",
+                           @"row" : @"20",
                            @"page" : kString(@"%d", _page),
                            kOpt :@"cj_lb",
                            kToken : userInfo.token

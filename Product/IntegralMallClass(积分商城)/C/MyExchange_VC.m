@@ -37,7 +37,7 @@
                            kOpt : @"my_change",
                            kToken : userInfo.token,
                            @"page" : kString(@"%d", _page),
-                           @"row" : @"10"
+                           @"row" : @"20"
                            };
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"OperateServlet" withHud:@"数据请求" withProgressBlock:^(float requestProgress) {
 

@@ -46,7 +46,7 @@
                               kOpt : @"friend",
                               kToken : userInfo.token,
                               @"page" : kString(@"%ld", (long)_page),
-                              @"row" : @"10",
+                              @"row" : @"20",
                               };
     #pragma mark - 我的左伙伴请求
     kWeakSelf;

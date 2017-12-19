@@ -83,7 +83,7 @@
     }
     NSDictionary *params = @{ kOpt : @"shop",
                               kToken : userInfo.token,
-                              @"row" : @"10",
+                              @"row" : @"20",
                               @"page" :kString(@"%ld", _page)
                               };
     [XXNetWorkManager requestWithMethod:POST

@@ -50,7 +50,7 @@
         _dataArr = [NSMutableArray array];
         _page = 0;
     }
-    NSDictionary *dict = @{ @"opt" : @"message", @"page" : kString(@"%ld", (long) _page), @"row" : @"10" };
+    NSDictionary *dict = @{ @"opt" : @"message", @"page" : kString(@"%ld", (long) _page), @"row" : @"20" };
 
     [XXNetWorkManager requestWithMethod:POST
         withParams:dict
