@@ -95,6 +95,7 @@
                 }
                 
                 if (_tjArr.count >1) {
+
                     _footeViewHeight = 150 * _tjArr.count  * 0.5;
                     
                 } else {

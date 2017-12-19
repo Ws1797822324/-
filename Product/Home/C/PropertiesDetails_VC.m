@@ -670,7 +670,14 @@
                     [_mdArr replaceObjectAtIndex:3 withObject:mdmodel];
                 }
             }
-            _footeViewHeight = _PDmodel.tjArr.count * 0.5 * 150;
+//            if (_PDmodel.tjArr.count == 1) {
+//
+//                _footeViewHeight = 150;
+//            } else {
+//                _footeViewHeight = _PDmodel.tjArr.count * 0.5 * 150;
+//
+//            }
+        _footeViewHeight = _PDmodel.tjArr.count /2 * 150;
 
             if ([_PDmodel.sc_status intValue] == 0) {  // 未关注
                 self.item1Str = @"guanzhu";
