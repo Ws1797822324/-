@@ -54,6 +54,7 @@ NSDictionary *dic = @{ @"opt" : @"province", kToken : userInfo.token };
                   }
                    withSuccessBlock:^(id objc, int code, NSString *message, id data) {
                        if (code == 200) {
+                           
                            _dataArr = [City mj_objectArrayWithKeyValuesArray:data];
 
                            for (City * cmodel in _dataArr ) {

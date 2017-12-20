@@ -34,7 +34,10 @@
     }
     _price_L.text = price;
     _name_L.text = model.name;
-    _time_L.text = model.time;
+
+    NSArray * a1 = [model.time componentsSeparatedByString:@"."];
+    _time_L.text = [a1 firstObject];
+
     if ([model.com_status isEqualToString:@"0"]) {
         _type_L.text = @"未结佣";
     } else {

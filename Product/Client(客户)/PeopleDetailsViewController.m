@@ -104,6 +104,7 @@
 }
 
 - (IBAction)phone_Btn:(UIButton *)sender {
+
     [XXHelper makePhoneCallWithTelNumber:self.model.phone];
 }
 #pragma mark --------- 购房意向
