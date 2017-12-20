@@ -89,7 +89,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
-    if (_selectedArr.count>1) {
+    if (_selectedArr.count>1 || _selectedArr.count == 0) {
         _phoneTypeStr = @"2";
     } else {
         for (BBLPListModel * model in _dataArray) {

@@ -211,12 +211,18 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         VC.selectedBlock = ^(NSArray *selectedBlockArray) {
 
             _seleArr = selectedBlockArray;
-            [_tableView reloadData];
+            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:0];
+            [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
         };
+
         VC.phoneTypeBlock = ^(int phoneType) {
             _phoneType = phoneType;
-            NSLog(@"---%d",phoneType);
+            //一个cell刷新
+            NSIndexPath *indexPath=[NSIndexPath indexPathForRow:1 inSection:1];
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+
         };
+
         VC.array = _seleArr;
         VC.phoneTypeStr = kString(@"%d", _phoneType);
 
@@ -250,6 +256,8 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 #pragma mark - 报备客户接口请求
 
 -(void) requestBBKH {
+
+
     kUserData;
 
     if (_yixiangArr.count == 0) {
@@ -263,7 +271,7 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     if (kStringIsEmpty(_phoneTF.text) && _phoneType != 1) {  // ==2
         [XXProgressHUD showMessage:@"联系方式不能为空"];
-        [_phoneTF becomeFirstResponder];
+        [_phone_leftTF becomeFirstResponder];
         return;
     }
 
@@ -306,12 +314,14 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
                            @"nucleus" : _yixiangArr[4],
                            @"remark" : _textview.text,
                            };
+    
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"ClientServlet" withHud:@"客户报备中" withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
 
         kInspectSignInType;
         kShowMessage;
+
         if (code == 200) {
             [XXProgressHUD showMessage:@"报备客户成功"];
         }
