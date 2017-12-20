@@ -86,7 +86,10 @@
 
     self.title = @"房贷计算器";
     _toolView.backgroundColor = [UIColor colorWithPatternImage:kImageNamed(@"background_Nav")];
-    [_lilvTwo centerHorizontallyImageAndTextWithPadding:-20];
+    [_lilvTwo centerHorizontallyImageAndTextWithPadding:-30];
+    [_typeBtn centerHorizontallyImageAndTextWithPadding:-30];
+    [_liLvBtn centerHorizontallyImageAndTextWithPadding:-30];
+
     [self updateUI];
     kWeakSelf;
     [[kNoteCenter rac_addObserverForName:@"doneAction" object:nil]
@@ -120,8 +123,6 @@
     self.BXBtn.selected = YES;
     self.BJBtn.selected = NO;
 
-    [_typeBtn centerHorizontallyImageAndTextWithPadding:-20];
-    [_liLvBtn centerHorizontallyImageAndTextWithPadding:-20];
 
     
 
@@ -143,7 +144,7 @@
             dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideTopBottom];
         kWeakSelf;
         if (Num != _DKType) {
-            [_liLvBtn setTitle:@"0.00" forState:UIControlStateNormal];
+            [_liLvBtn setTitle:@"0.000" forState:UIControlStateNormal];
         }
         _DKType = Num;
         if (Num == 2) {
@@ -178,7 +179,7 @@
     kWeakSelf;
     VC.chooseLiLv = ^(NSString *type, float rate) {
 
-        [self.liLvBtn setTitle:kString(@"%.2f", rate) forState:0];
+        [self.liLvBtn setTitle:kString(@"%.3f", rate) forState:0];
         _rate = rate;
 
         [self.navigationController
@@ -400,7 +401,7 @@
     VC.type = @"1";
     kWeakSelf;
     VC.chooseLiLv = ^(NSString *type, float rate) {
-        [_lilvTwo setTitle:kString(@"%.2f", rate) forState:UIControlStateNormal];
+        [_lilvTwo setTitle:kString(@"%.3f", rate) forState:UIControlStateNormal];
 
         _rateTwo = rate;
         [self.navigationController

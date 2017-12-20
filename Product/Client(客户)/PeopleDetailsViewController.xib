@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PeopleDetailsViewController">
             <connections>
+                <outlet property="message_Btn" destination="6cQ-Et-Yqw" id="pbE-Ye-Rpn"/>
                 <outlet property="name_L" destination="iLO-4y-3lw" id="SsH-8c-IHw"/>
+                <outlet property="phone_Btn" destination="Jdc-mo-UkO" id="4jF-Z3-edt"/>
                 <outlet property="phone_L" destination="7Cc-qR-knc" id="1KT-bZ-4Md"/>
                 <outlet property="tableview" destination="ubi-dy-ZuM" id="cJs-Hl-en5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

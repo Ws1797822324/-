@@ -51,6 +51,10 @@
             self.model = [PeopleDetailsModel mj_objectWithKeyValues:data];
             self.name_L.text = self.model.name;
             self.phone_L.text = self.model.phone;
+            if ([_model.phone containsString:@"****"]) {
+                _phone_Btn.hidden = YES;
+                _message_Btn.hidden = YES;
+            } 
             [self.tableview reloadData];
         }else{
             kShowMessage;

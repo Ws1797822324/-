@@ -22,9 +22,6 @@
         if (_right_TF.text.length >= 5) {
             _right_TF.text = [_right_TF.text substringToIndex:4];
         }
-        if (_left_TF.text.length == 3) {
-            [_right_TF becomeFirstResponder];
-        }
 
     }];
 

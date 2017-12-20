@@ -111,8 +111,11 @@
 	<string>App需要您的同意,才能始终访问位置</string>
 	<key>NSLocationUsageDescription</key>
 	<string>App需要您的同意,才能访问位置</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App需要您的同意,才能在使用期间访问位置</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>App需要您的同意,才能在使用期间访问位置</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>App需要您的同意,才能在使用期间访问位置</string>
+
 	<key>NSMicrophoneUsageDescription</key>
 	<string>App需要您的同意,才能访问麦克风</string>
 	<key>NSPhotoLibraryUsageDescription</key>

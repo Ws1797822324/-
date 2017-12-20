@@ -20,12 +20,9 @@
 - (void)viewDidLoad {
     self.selectIndex = (int)_vcType -1;
     NSLog(@"--- %ld",self.vcType);
-    if (kiPhone6s_7s) {
-        self.viewFrame = CGRectMake(0,0, kScreenWidth, kScreenHeight  );
-    }
-    else {
-        self.viewFrame = CGRectMake(0,kNavHeight, kScreenWidth, kScreenHeight - kNavHeight );
-    }
+    
+    self.viewFrame = CGRectMake(0,kNavHeight, kScreenWidth, kScreenHeight - kNavHeight );
+
 
     self.menuHeight = 60;
     self.menuBGColor = kRGB_HEX(0x61a1d7);

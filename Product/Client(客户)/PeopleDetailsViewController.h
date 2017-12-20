@@ -17,6 +17,8 @@
 
 //短信
 - (IBAction)message_Btn:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *phone_Btn;
+@property (weak, nonatomic) IBOutlet UIButton *message_Btn;
 
 //打电话
 - (IBAction)phone_Btn:(UIButton *)sender;

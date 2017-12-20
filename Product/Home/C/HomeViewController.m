@@ -79,8 +79,6 @@ CLLocationManagerDelegate>
 // 代理方法实现
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 
-
-    
     if ([error code] == kCLErrorDenied) {
         NSLog(@"访问被拒绝");
         _homeHeader.position_L.text = @"定位失败";

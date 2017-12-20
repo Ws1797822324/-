@@ -151,6 +151,13 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
                 cell.right_TF.keyInputDelegate = self;
                 self.phone_rightTF = cell.right_TF;
                 self.phone_leftTF = cell.left_TF;
+                [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+
+                    if (cell.left_TF.text.length == 3) {
+
+                        [self.phone_rightTF becomeFirstResponder];
+                    }
+                }];
                 return cell;
 
             }
@@ -267,6 +274,10 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     if (kStringIsEmpty(_nameTF.text) ) {
         [XXProgressHUD showMessage:@"姓名不能为空"];
         [_nameTF becomeFirstResponder];
+        return;
+    }
+    if ([XXHelper JudgeTheillegalCharacter:_nameTF.text]) {
+        [XXProgressHUD showMessage:@"名字中有非法字符"];
         return;
     }
     if (kStringIsEmpty(_phoneTF.text) && _phoneType != 1) {  // ==2

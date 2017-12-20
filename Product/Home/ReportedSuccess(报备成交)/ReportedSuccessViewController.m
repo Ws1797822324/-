@@ -202,6 +202,10 @@
         [_name_TF becomeFirstResponder];
         return;
     }
+    if ([XXHelper JudgeTheillegalCharacter:_name_TF.text]) {
+        [XXProgressHUD showMessage:@"名字中有非法字符"];
+        return;
+    }
     if (kStringIsEmpty(_sfz_TF.text)) {
         [XXProgressHUD showMessage:@"请输入身份证号码"];
         [_sfz_TF becomeFirstResponder];
