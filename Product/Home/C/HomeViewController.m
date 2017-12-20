@@ -23,8 +23,11 @@
 #import "MainCalculatorsViewController.h"
 #import "SearchViewController.h"
 #import "ReportedSuccessBase_VC.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
-@interface HomeViewController () <UITableViewDelegate,UITableViewDataSource ,SDCycleScrollViewDelegate,UINavigationControllerDelegate,CLLocationManagerDelegate>
+
+@interface HomeViewController () <UITableViewDelegate,UITableViewDataSource ,SDCycleScrollViewDelegate,UINavigationControllerDelegate,
+CLLocationManagerDelegate>
 
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -60,11 +63,10 @@
 
 #pragma mark -------开始定位
 - (void)startLocation {
-    if ([CLLocationManager locationServicesEnabled]) {
 
+    if ([CLLocationManager locationServicesEnabled]) {
         self.locationManager = [[CLLocationManager alloc]init];
         self.locationManager.delegate = self;
-
         self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
         // 总是授权
         [self.locationManager requestAlwaysAuthorization];
@@ -76,6 +78,9 @@
 }
 // 代理方法实现
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+
+
+    
     if ([error code] == kCLErrorDenied) {
         NSLog(@"访问被拒绝");
         _homeHeader.position_L.text = @"定位失败";
@@ -249,6 +254,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
 
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf requestImage];
         [weakSelf requestHouseData];
