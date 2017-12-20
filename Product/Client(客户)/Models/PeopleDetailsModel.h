@@ -40,3 +40,12 @@
 
 
 @end
+@interface FWXQ : NSObject
+@property (nonatomic , copy) NSString              * building_types;
+@property (nonatomic , copy) NSString              * decoration;
+@property (nonatomic , copy) NSString              * age_limit;
+@property (nonatomic , copy) NSString              * price;
+@property (nonatomic , copy) NSString              * building_high;
+@property (nonatomic , copy) NSString              * covered_area;
+@end
+

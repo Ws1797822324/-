@@ -19,14 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ly-XW-otP">
-                        <rect key="frame" x="10" y="12.5" width="37.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等一下" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ly-XW-otP">
+                        <rect key="frame" x="10" y="12.5" width="46" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-ls-IFP">
-                        <rect key="frame" x="111.5" y="13.5" width="37.5" height="18"/>
+                        <rect key="frame" x="141.5" y="13.5" width="37.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,9 +47,11 @@
                     <constraint firstAttribute="trailing" secondItem="njC-xV-BUQ" secondAttribute="trailing" constant="10" id="4rF-rk-j6G"/>
                     <constraint firstItem="9ly-XW-otP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8BG-Hf-6C4"/>
                     <constraint firstAttribute="bottom" secondItem="njC-xV-BUQ" secondAttribute="bottom" id="BcM-fy-oIr"/>
-                    <constraint firstItem="lRf-ls-IFP" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-30" id="F91-vp-i4Q"/>
                     <constraint firstItem="njC-xV-BUQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NI6-u7-9hR"/>
+                    <constraint firstItem="lRf-ls-IFP" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="S8H-l0-ZXO"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lRf-ls-IFP" secondAttribute="trailing" constant="10" id="YIM-IZ-af0"/>
                     <constraint firstItem="9ly-XW-otP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mo6-PB-hIe"/>
+                    <constraint firstItem="lRf-ls-IFP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9ly-XW-otP" secondAttribute="trailing" constant="20" id="s8o-gp-miO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

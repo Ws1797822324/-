@@ -512,7 +512,8 @@
 - (void)createdNavUI
 {
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(40, 30, kWidth - 80, 40)];
-    self.TF_search = [[UITextField alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth - 80, 40)];
+
+    self.TF_search = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 80, 40)];
     self.TF_search.placeholder = @"  请输入小区房或房源编号";
     self.TF_search.userInteractionEnabled = NO;
     self.TF_search.backgroundColor =  kRGBColor(71, 149, 238, 0.8);

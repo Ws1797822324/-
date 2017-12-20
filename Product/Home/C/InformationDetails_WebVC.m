@@ -57,7 +57,7 @@
 
     }
     
-    UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
+    UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:nil];
     self.navigationItem.rightBarButtonItem = item2;
 
     [self.view addSubview:webView];

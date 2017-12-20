@@ -12,6 +12,8 @@
 
 @interface HouseXQ_VC ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic ,strong) FWXQ *model;
+
 @end
 
 @implementation HouseXQ_VC
@@ -41,6 +43,13 @@
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         XXLog(@"fangwi  -- %@",objc);
+        if (code == 200) {
+            NSDictionary * dic = data;
+            if (!kDictIsEmpty(dic)) {
+               _model = [FWXQ mj_objectWithKeyValues:data];
+                [self.tableview cyl_reloadData];
+            }
+        }
     } withFailuerBlock:^(id error) {
 
     }];
@@ -54,7 +63,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HouseXQ_Cell * cell = [tableView dequeueReusableCellWithIdentifier:@"HouseXQ_Cell_ID"];
-    [cell configViewRow:indexPath.row];
+    [cell configViewRow:indexPath.row model:_model];
     return cell;
 }
 

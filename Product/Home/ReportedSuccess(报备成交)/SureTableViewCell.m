@@ -14,6 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     kViewRadius(self.sureBtn, 6);
+    self.sureBtn.mm_acceptEventInterval = 2;
 }
 - (IBAction)sureClick:(id)sender {
 //    self.sureBlock();

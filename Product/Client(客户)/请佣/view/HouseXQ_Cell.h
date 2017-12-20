@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *text_L;
 @property (weak, nonatomic) IBOutlet UILabel *name_L;
 
--(void)configViewRow:(NSInteger)row;
+-(void)configViewRow:(NSInteger)row model:(FWXQ *)model;
 @end

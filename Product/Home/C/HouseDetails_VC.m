@@ -96,7 +96,7 @@
                 
                 if (_tjArr.count >1) {
 
-                    _footeViewHeight = 150 * _tjArr.count  * 0.5;
+                    _tjArr.count %2 == 0 ?  (_footeViewHeight = 150 * _tjArr.count  * 0.5) : (_footeViewHeight = 150 * (_tjArr.count + 1) * 0.5);
                     
                 } else {
                     _footeViewHeight = 150 ;
@@ -107,14 +107,15 @@
                 if ([_xqModel.sc_status intValue] == 0) {  // 未关注
                     self.item1Str = @"guanzhu";
                 }
-                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:@""];
-                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
+                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:nil];
+                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:nil];
                 self.navigationItem.rightBarButtonItems = @[item2,item1];
                 
             }
 
         }
         withFailuerBlock:^(id error){
+            [self.tableview.mj_header endRefreshing];
 
         }];
 }
@@ -134,8 +135,8 @@
             if (code==200) {
                 [XXProgressHUD showSuccess:message];
                 self.item1Str = @"yiguanzhu";
-                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:@""];
-                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
+                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:nil];
+                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:nil];
                 self.navigationItem.rightBarButtonItems = @[item2,item1];
             }else{
                 kShowMessage;
@@ -151,8 +152,8 @@
             if (code==200) {
                 [XXProgressHUD showSuccess:message];
                 self.item1Str = @"guanzhu";
-                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:@""];
-                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
+                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:nil];
+                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:nil];
                 self.navigationItem.rightBarButtonItems = @[item2,item1];
             }else{
                 kShowMessage;

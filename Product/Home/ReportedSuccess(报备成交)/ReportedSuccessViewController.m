@@ -239,14 +239,15 @@
                               @"remark" : _beizhu_TV.text,
                               @"type" : @"2"
                               };
+
     [XXNetWorkManager requestWithMethod:POST withParams:parmas withUrlString:@"ClientServlet" withHud:@"报备客户" withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         NSLog(@"baobeiochenhjiap - %@",objc);
         if (code == 200) {
-            [XXProgressHUD showSuccess:@"客户报备成功"];
+            [XXProgressHUD showSuccess:@"报备成功"];
         } else {
-            [XXProgressHUD showError:@"客户报备失败"];
+            [XXProgressHUD showError:@"报备失败"];
         }
 
     } withFailuerBlock:^(id error) {

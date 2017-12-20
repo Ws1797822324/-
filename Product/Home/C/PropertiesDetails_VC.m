@@ -106,8 +106,8 @@
             if (code==200) {
                 [XXProgressHUD showSuccess:message];
                 self.item1Str = @"yiguanzhu";
-                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:@""];
-                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
+                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:nil];
+                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:nil];
                 self.navigationItem.rightBarButtonItems = @[item2,item1];
             }else{
                 kShowMessage;
@@ -123,8 +123,8 @@
             if (code==200) {
                 [XXProgressHUD showSuccess:message];
                 self.item1Str = @"guanzhu";
-                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:@""];
-                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
+                UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:nil];
+                UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:nil];
                 self.navigationItem.rightBarButtonItems = @[item2,item1];
             }else{
                 kShowMessage;
@@ -670,27 +670,26 @@
                     [_mdArr replaceObjectAtIndex:3 withObject:mdmodel];
                 }
             }
-//            if (_PDmodel.tjArr.count == 1) {
-//
-//                _footeViewHeight = 150;
-//            } else {
-//                _footeViewHeight = _PDmodel.tjArr.count * 0.5 * 150;
-//
-//            }
-        _footeViewHeight = _PDmodel.tjArr.count /2 * 150;
+            if (_PDmodel.tjArr.count >1) {
+
+                _PDmodel.tjArr.count %2 == 0 ?  (_footeViewHeight = 150 * _PDmodel.tjArr.count  * 0.5) : (_footeViewHeight = 150 * (_PDmodel.tjArr.count + 1) * 0.5);
+
+            } else {
+                _footeViewHeight = 150 ;
+            }
 
             if ([_PDmodel.sc_status intValue] == 0) {  // 未关注
                 self.item1Str = @"guanzhu";
             }
-            UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:@""];
-            UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:@""];
+            UIBarButtonItem * item1 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(self.item1Str) highImage:kImageNamed(self.item1Str) target:self action:@selector(itemGButtonAction) withTitle:nil];
+            UIBarButtonItem * item2 = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"fenxiang") highImage:kImageNamed(@"fenxiang") target:self action:@selector(itemFButtonAction) withTitle:nil];
             self.navigationItem.rightBarButtonItems = @[item2,item1];
             [weakSelf.tableview.mj_header endRefreshing];
             [weakSelf.tableview reloadData];
 
         }
     } withFailuerBlock:^(id error) {
-
+        [weakSelf.tableview.mj_header endRefreshing];
     }];
 }
 #pragma mark ---- UICollectionViewDataSource

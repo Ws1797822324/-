@@ -173,12 +173,14 @@
 
 #import "NSArray+LXF.h"
 
+#import "UIButton+time.h"
+
 #pragma mark - Models
 
 #import "HomeModel.h"
 
 #import "MyModels.h"
-
+#import "PeopleDetailsModel.h"
 
 
 

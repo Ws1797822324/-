@@ -35,7 +35,8 @@
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
 
-        if (code == 200) {
+        NSArray * arr = data;
+        if (code == 200 && arr.count>0) {
             _model = [KHGZModel mj_objectWithKeyValues:data[0]];
             XXLog(@"kkkkhhhhh -- %@",_model);
 
@@ -80,7 +81,23 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return [tableView fd_heightForCellWithIdentifier:@"KHGZ_Cell" configuration:^(KHGZ_Cell *cell) {
+        NSArray * arr = @[@"结佣规则",@"带看规则",@"开发商规则"];
+
+        cell.title_L.text = arr[indexPath.row];
+        if(indexPath.row == 0) {
+
+            cell.text_L.text = _model.settle_ac_rule;
+        }
+        if(indexPath.row == 1) {
+
+            cell.text_L.text = _model.look_rule;
+        }
+        if(indexPath.row == 2) {
+
+            cell.text_L.text = _model.developers_rule;
+        }
+    }];
 }
 - (IBAction)confirmBtn:(UIButton *)sender {
     self.clickAction();

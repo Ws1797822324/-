@@ -31,7 +31,7 @@
 @implementation SearchViewController
 - (UITableView *)searchtableView {
     if (!_searchtableView) {
-        _searchtableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight)];
+        _searchtableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight - kNavHeight)];
         _searchtableView.delegate = self;
         _searchtableView.dataSource = self;
         _searchtableView.tableFooterView = [[UIView alloc] init];
@@ -156,7 +156,7 @@
 }
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, kWidth, kHeight - 40)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, kWidth, kHeight - 40 - kNavHeight)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [[UIView alloc] init];

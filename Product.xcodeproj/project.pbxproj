@@ -196,6 +196,7 @@
 		5447928C1FBEDCD300DFB52B /* PromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5447928B1FBEDCD300DFB52B /* PromptView.m */; };
 		5447928E1FBEDCE500DFB52B /* PromptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5447928D1FBEDCE500DFB52B /* PromptView.xib */; };
 		545B80FA1FC17CE3008A253E /* MyPartner_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 545B80F91FC17CE3008A253E /* MyPartner_VC.m */; };
+		5467D9DE1FE9FFFD00947F34 /* UIButton+time.m in Sources */ = {isa = PBXBuildFile; fileRef = 5467D9DC1FE9FFFC00947F34 /* UIButton+time.m */; };
 		546C915B1FE63161005C938F /* UITextField+RYNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C91551FE63161005C938F /* UITextField+RYNumberKeyboard.m */; };
 		546C915C1FE63161005C938F /* RYNumbeKeyboard.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 546C91571FE63161005C938F /* RYNumbeKeyboard.bundle */; };
 		546C915D1FE63161005C938F /* RYNumberKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546C91581FE63161005C938F /* RYNumberKeyboard.xib */; };
@@ -718,6 +719,8 @@
 		5447928F1FBEE98800DFB52B /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		545B80F81FC17CE3008A253E /* MyPartner_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPartner_VC.h; sourceTree = "<group>"; };
 		545B80F91FC17CE3008A253E /* MyPartner_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPartner_VC.m; sourceTree = "<group>"; };
+		5467D9DC1FE9FFFC00947F34 /* UIButton+time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+time.m"; sourceTree = "<group>"; };
+		5467D9DD1FE9FFFC00947F34 /* UIButton+time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+time.h"; sourceTree = "<group>"; };
 		546C91551FE63161005C938F /* UITextField+RYNumberKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+RYNumberKeyboard.m"; sourceTree = "<group>"; };
 		546C91561FE63161005C938F /* RYNumberKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYNumberKeyboard.h; sourceTree = "<group>"; };
 		546C91571FE63161005C938F /* RYNumbeKeyboard.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RYNumbeKeyboard.bundle; sourceTree = "<group>"; };
@@ -2141,6 +2144,8 @@
 			children = (
 				54FF12261F4D6BEC00A2A23D /* XXHelper.h */,
 				54FF12271F4D6BEC00A2A23D /* XXHelper.m */,
+				5467D9DD1FE9FFFC00947F34 /* UIButton+time.h */,
+				5467D9DC1FE9FFFC00947F34 /* UIButton+time.m */,
 				54FF12281F4D6BEC00A2A23D /* XXNetWorkManager.h */,
 				54FF12291F4D6BEC00A2A23D /* XXNetWorkManager.m */,
 				540C4B971FDBE61F003FAB07 /* NSArray+LXF.h */,
@@ -2965,6 +2970,7 @@
 				540A05AE1FBA8069007EB851 /* YYClassInfo.m in Sources */,
 				6711A97D1FB05FB1004425C7 /* ADRollView.m in Sources */,
 				67E5BE201FB3F6AB004AA616 /* AllProperties_VC.m in Sources */,
+				5467D9DE1FE9FFFD00947F34 /* UIButton+time.m in Sources */,
 				54F2248F1FD9079900CA8016 /* MoneyDetails_Cell.m in Sources */,
 				2648EE681FC3C328000A4F19 /* MainCalculatorsViewController.m in Sources */,
 				54C00D861FD6617F00F904F6 /* KeHuXiangQing_VC.m in Sources */,

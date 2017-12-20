@@ -69,7 +69,7 @@ NSDictionary *dic = @{ @"opt" : @"province", kToken : userInfo.token };
 
                    }
                    withFailuerBlock:^(id error){
-
+                       [self.tableview.mj_header endRefreshing];
                    }];
 
 }

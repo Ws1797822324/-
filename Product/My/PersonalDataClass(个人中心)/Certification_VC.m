@@ -147,6 +147,7 @@
                                   userInfo.sfz_f = _imgUrl2;
                                   userInfo.sfz_code = _sfcode_TF.text;
                                   userInfo.sfz_name = _name_TF.text;
+                                  userInfo.attestation = @"1";
                                   [UserInfoTool saveAccount:userInfo];
                                   [XXProgressHUD showMessage:message];
                               } else {
