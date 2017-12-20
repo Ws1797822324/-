@@ -64,20 +64,24 @@
             kInspectSignInType;
             if (code == 200) {
                 _page++;
-                _dataArray = [NSMutableArray array];
 
                 if (type) {
+                    _dataArray = [NSMutableArray array];
                     _dataArray = [NewsModel mj_objectArrayWithKeyValuesArray:data];
+                    [weakSelf.tableview cyl_reloadData];
+
                 } else {
                     NSArray *arr = [NewsModel mj_objectArrayWithKeyValuesArray:data];
                     if (arr.count == 0) {
                         [XXProgressHUD showMessage:@"没有更多的消息了"];
                     }
                     [_dataArray addObjectsFromArray:arr];
+                    [weakSelf.tableview cyl_reloadData];
+
                 }
-                [weakSelf.tableview cyl_reloadData];
 
             }
+
             NSLog(@"通知 %@", data);
 
         }

@@ -115,10 +115,33 @@
 - (IBAction)houseIdea_Btn:(UIButton *)sender {
     BuyHouseIdeasViewController * VC = [[BuyHouseIdeasViewController alloc] init];
     VC.valueBlock = ^(NSArray *valve) {
-
+        [self requestGFYX:valve];
     };
+    VC.valueArray = @[_model.min_price_budget,_model.max_price_budget,_model.min_area,_model.max_area,_model.nucleus];
     [self.navigationController pushViewController:VC animated:YES];
 }
+#pragma mark - 修改购房意向
+-(void)requestGFYX:(NSArray *)arr {
+    kUserData;
+    NSDictionary * dic = @{
+                           kOpt : @"intention",
+                           kToken : userInfo.token,
+                           @"id" : @"",
+                           @"min_price_budget" : kStringIsEmpty(arr[0]) ? @"" : (arr[0]),
+                           @"max_price_budget" : kStringIsEmpty(arr[1]) ? @"" : (arr[1]),
+                           @"min_area" : kStringIsEmpty(arr[2]) ? @"" : (arr[2]),
+                           @"max_area" : kStringIsEmpty(arr[3]) ? @"" : (arr[3]),
+                           @"nucleus" : kStringIsEmpty(arr[4]) ? @"" : (arr[4]),
+                           };
+    [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"ClientServlet" withHud:nil withProgressBlock:^(float requestProgress) {
+
+    } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+
+    } withFailuerBlock:^(id error) {
+
+    }];
+}
+
 #pragma mark - 请佣按钮
 
 

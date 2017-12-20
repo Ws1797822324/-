@@ -15,7 +15,7 @@
 #import "HousesViewController.h"
 #import "PhoneInputting_Cell.h"
 #import "KeyInputTextField.h"
-
+#import "MyPeopleTableViewController.h"
 
 @interface ReportedPeopleViewController ()<UITableViewDelegate,UITableViewDataSource,KeyInputTextFieldDelegate>
     @property (nonatomic, strong) UITableView * tableView;
@@ -335,6 +335,10 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 
         if (code == 200) {
             [XXProgressHUD showMessage:@"报备客户成功"];
+            MyPeopleTableViewController * VC = [[MyPeopleTableViewController alloc] init];
+            VC.title = @"已报备";
+            VC.flag = @"1";
+            [self.navigationController pushViewController:VC animated:YES];
         }
 
 

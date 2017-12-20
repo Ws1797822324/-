@@ -43,6 +43,8 @@
 
 @property (nonatomic ,strong) NSMutableArray *dataArr;
 
+@property (nonatomic ,strong) NSString *cityStr;
+
 
 @end
 
@@ -84,6 +86,7 @@
     _pirce22 = @"";
     _pirce11 = @"";
     _pirce12 = @"";
+    _cityStr = @"";
     _page = 0;
     _pirceType = 1;
     [self requestAllHouseDataIsRefreshType:YES];
@@ -268,9 +271,15 @@
 
         if (indexPath.row == 0) {
             _pirceType = 1;
+            _pirce21 = @"";
+            _pirce22 = @"";
+
         }
         if (indexPath.row == 1) {
             _pirceType =2;
+            _pirce11 = @"";
+            _pirce12 = @"";
+
         }
         if (indexPath.item == 0) {
             _pirce11 = @"";
@@ -299,8 +308,15 @@
         }
     }
     if (indexPath.column == 0) {
-        if (indexPath.row == 0 || indexPath.row == 1) {
+
+        if (indexPath.row == 0) {
             _cityID = @"";
+        } else if(indexPath.row == 1) {
+            kUserData;
+            _cityStr = userInfo.position;
+            
+            [self requestAllHouseDataIsRefreshType:YES];
+
         }
         else
         {
@@ -603,7 +619,7 @@ params = @{
                                   @"row" : @"15",
                                   @"lat" : kStringIsEmpty(userInfo.lat) ? @"32.164575" : userInfo.lat,
                                   @"lng" : kStringIsEmpty(userInfo.lng) ? @"118.691732" : userInfo.lng,
-                                  //                              @"zhoubian" : kString(@"%d", _type),
+                                  @"city" : _cityStr,
                                   @"building_types" : _jzlxID,  /// 建筑类型
                                   @"q_id" : _cityID,    /// 区域 id
                                   @"zshx_id" : _huxingID,  /// 户型 id

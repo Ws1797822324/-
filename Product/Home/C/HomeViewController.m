@@ -316,7 +316,7 @@ CLLocationManagerDelegate>
 
             _homeHeader.nearbyProperties_L.text = [NSString stringWithFormat:@"附近楼盘%@家",data[@"fujin"]];
 
-            [_tableView cyl_reloadData];
+            [_tableView reloadData];
         }
     } withFailuerBlock:^(id error) {
 
@@ -650,16 +650,6 @@ CLLocationManagerDelegate>
 
 }
 
-#pragma mark - CYLTableViewPlaceHolderDelegate
-
--(UIView *)makePlaceHolderView {
-    kWeakSelf
-    PlaceHolderView * placeHolderV = [PlaceHolderView viewFromXib];
-    [[placeHolderV.reloadDataButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [weakSelf.tableView.mj_header beginRefreshing];
-    }];
-    return placeHolderV;
-}
 
 
 

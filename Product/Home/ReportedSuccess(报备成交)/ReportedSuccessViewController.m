@@ -13,6 +13,7 @@
 #import "RemarkTableViewCell.h"
 #import "SFZInputting_Cell.h"
 #import "PhoneInputting_Cell.h"
+#import "ReportedSuccessList_VC.h"
 
 @interface ReportedSuccessViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -250,6 +251,8 @@
         NSLog(@"baobeiochenhjiap - %@",objc);
         if (code == 200) {
             [XXProgressHUD showSuccess:@"报备成功"];
+            ReportedSuccessList_VC * vc = [[ReportedSuccessList_VC alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             [XXProgressHUD showError:@"报备失败"];
         }

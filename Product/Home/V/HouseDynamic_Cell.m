@@ -18,7 +18,8 @@
 }
 -(void)setModel:(YongJinFA *)model {
     _model = model;
-    _text_L.text = model.content;
+        NSAttributedString * attrStr = [[NSAttributedString alloc]initWithData:[model.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType} documentAttributes:nil error:nil];
+    _text_L.attributedText = attrStr;
     _time_L.text = model.time;
 }
 
