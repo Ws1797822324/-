@@ -449,6 +449,8 @@ CLLocationManagerDelegate>
     kModel.extra = model.extra;
     kModel.type = model.type;
     kModel.ID = model.ID;
+    kModel.title = model.title;
+    kModel.pic = model.url;
     InformationDetails_WebVC * vc = [[InformationDetails_WebVC alloc]init];
     vc.navigationItem.title = model.title;
         vc.model =kModel;

@@ -282,6 +282,8 @@
 @property (nonatomic , copy) NSString              * content;
 @property (nonatomic , copy) NSString              * extra;
 @property (nonatomic , copy) NSString              * type;
+@property (nonatomic ,copy) NSString *url;
+
 
 @end
 

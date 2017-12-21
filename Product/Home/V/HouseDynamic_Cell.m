@@ -18,8 +18,11 @@
 }
 -(void)setModel:(YongJinFA *)model {
     _model = model;
-        NSAttributedString * attrStr = [[NSAttributedString alloc]initWithData:[model.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType} documentAttributes:nil error:nil];
+
+    NSAttributedString * attrStr = [[NSAttributedString alloc]initWithData:[model.content dataUsingEncoding:NSUnicodeStringEncoding] options:@{} documentAttributes:nil error:nil];
+
     _text_L.attributedText = attrStr;
+    _text_L.font = kFont(16);
     _time_L.text = model.time;
 }
 
