@@ -227,7 +227,7 @@
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     cell.textLabel.textColor = kRGB_HEX(0x333333);
     if (tableView == self.tableView) {
-        cell.textLabel.text = self.dataArray[indexPath.row];
+        cell.textLabel.text = [[self.dataArray reverseObjectEnumerator] allObjects ][indexPath.row];
     } else if (tableView == self.searchtableView) {
         if ([self.type isEqualToString:@"房屋"]) {
             HomeCell *homecell = [tableView dequeueReusableCellWithIdentifier:@"HomeCell_ID"];
@@ -268,7 +268,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView == self.tableView) {
 
-        NSString *str = self.dataArray[indexPath.row];
+        NSString *str = [[self.dataArray reverseObjectEnumerator] allObjects ][indexPath.row];
         self.TF_search.text = str;
         [self.TF_search becomeFirstResponder];
 
