@@ -117,26 +117,29 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iL-Wc-sEC">
-                    <rect key="frame" x="0.0" y="327" width="400" height="103"/>
+                    <rect key="frame" x="0.0" y="325" width="400" height="110"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Caf-WS-Xcc" userLabel="Button1">
-                            <rect key="frame" x="0.0" y="5" width="76" height="93"/>
+                            <rect key="frame" x="0.0" y="5" width="76" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Caf-WS-Xcc" secondAttribute="height" multiplier="76:100" id="D6Y-az-32k"/>
+                            </constraints>
                             <state key="normal" image="quanbuloupan"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klt-2g-sS3" userLabel="Button2">
-                            <rect key="frame" x="81" y="5" width="76" height="93"/>
+                            <rect key="frame" x="81" y="5" width="76" height="100"/>
                             <state key="normal" image="zhoubianloupan"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMN-8p-u1l" userLabel="Button3">
-                            <rect key="frame" x="162" y="5" width="76" height="93"/>
+                            <rect key="frame" x="162" y="5" width="76" height="100"/>
                             <state key="normal" image="baobeikehu"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0t6-nT-m7I" userLabel="Button4">
-                            <rect key="frame" x="243" y="5" width="76" height="93"/>
+                            <rect key="frame" x="243" y="5" width="76" height="100"/>
                             <state key="normal" image="baobeichengjiao"/>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbv-iQ-Kzj" userLabel="Button5">
-                            <rect key="frame" x="324" y="5" width="76" height="93"/>
+                            <rect key="frame" x="324" y="5" width="76" height="100"/>
                             <state key="normal" image="fangdaijisuanqi"/>
                         </button>
                     </subviews>
@@ -165,7 +168,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5m-4l-QkB">
-                    <rect key="frame" x="0.0" y="430" width="400" height="70"/>
+                    <rect key="frame" x="0.0" y="435" width="400" height="70"/>
                     <subviews>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3e-dh-mk9">
                             <rect key="frame" x="20" y="10" width="47" height="18"/>
@@ -246,7 +249,7 @@
                 <constraint firstItem="mIR-aU-2dw" firstAttribute="top" secondItem="fkT-66-1ZG" secondAttribute="bottom" id="rha-PA-m14"/>
                 <constraint firstAttribute="trailing" secondItem="9iL-Wc-sEC" secondAttribute="trailing" id="wzC-m2-Omf"/>
                 <constraint firstItem="9iL-Wc-sEC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x56-3W-Hbq"/>
-                <constraint firstItem="9iL-Wc-sEC" firstAttribute="top" secondItem="mIR-aU-2dw" secondAttribute="bottom" constant="7" id="xjP-F4-a74"/>
+                <constraint firstItem="9iL-Wc-sEC" firstAttribute="top" secondItem="mIR-aU-2dw" secondAttribute="bottom" constant="5" id="xjP-F4-a74"/>
                 <constraint firstItem="fkT-66-1ZG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zUE-Zv-uc1"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

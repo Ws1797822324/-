@@ -261,7 +261,8 @@ CLLocationManagerDelegate>
         
 
     }];
-    HomeTableViewHeaderView * homeHeader = [[[UINib nibWithNibName:@"HomeTableViewHeaderView" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
+    HomeTableViewHeaderView * homeHeader = [ HomeTableViewHeaderView viewFromXib];
+
     homeHeader.nearbyProperties_L.text = [NSString stringWithFormat:@"附近楼盘0家"];
 
     _tableView.autoresizesSubviews = NO;
@@ -370,7 +371,7 @@ CLLocationManagerDelegate>
     }];
 
     } else {
-
+        [XXProgressHUD showMessage:@"游客不能报备"];
     }
     // 房贷计算器
     [[_homeHeader.FDJSQBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {

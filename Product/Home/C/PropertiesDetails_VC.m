@@ -64,8 +64,9 @@
         _buttonImg.userInteractionEnabled = NO;
         [_buttonImg setImage:kImageNamed(@"background_6") forState:0];
         [_buttonImg sizeToFit];
-        _buttonImg.x = 15;
-        _buttonImg.y = 2;
+        _buttonImg.x = 0;
+        _buttonImg.y = 0;
+
     }
     return _buttonImg;
 }
@@ -463,7 +464,7 @@
     } else if (section == 4) {
         return 85.f;
     } else if (section == 5) {
-        return 100;
+        return 90;
     } else if (section == 1 || section == 2)
     {
         kUserData;

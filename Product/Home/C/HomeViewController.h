@@ -10,6 +10,6 @@
 #import "InformationDetails_WebVC.h"
 
 
-@interface HomeViewController : UIViewController <CYLTableViewPlaceHolderDelegate>
+@interface HomeViewController : UIViewController
 
 @end

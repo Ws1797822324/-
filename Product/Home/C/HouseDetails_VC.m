@@ -404,13 +404,14 @@
     if (section == 1) {
         UIView * v1 = [[UIView alloc]init];
         v1.backgroundColor = [UIColor whiteColor];
-        v1.frame =CGRectMake(0, 0, kWidth, 90);
+        v1.frame =CGRectMake(0, 0, kWidth, 80);
         UIButton *button = [[UIButton alloc] init];
         button.userInteractionEnabled = NO;
         [button setImage:kImageNamed(@"background_14") forState:0];
         [button sizeToFit];
-        button.x = 20;
-        button.y = 15;
+        button.x = 0;
+        button.y = 0;
+        button.width = kWidth;
         [v1 addSubview:button];
         return v1;
     }
@@ -422,7 +423,7 @@
         return 0.001;
     }
     if (section == 1) {
-        return 90;
+        return 83;
     }
     if (section == 2) {
         return 100;
