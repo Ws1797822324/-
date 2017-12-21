@@ -14,6 +14,7 @@
 
 @property (nonatomic ,strong) Tuijian *tuijianModel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *addressLayout;
 
 @property (weak, nonatomic) IBOutlet UIImageView *img_V;
 @property (weak, nonatomic) IBOutlet UILabel *name_L;

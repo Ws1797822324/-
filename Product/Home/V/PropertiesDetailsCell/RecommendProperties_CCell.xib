@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京市玄武区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpJ-av-7Dc">
-                        <rect key="frame" x="74.5" y="121.5" width="80" height="16"/>
+                        <rect key="frame" x="69.5" y="121.5" width="80" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                 <constraint firstAttribute="trailing" secondItem="lcZ-Fe-gRk" secondAttribute="trailing" constant="10" id="H23-bg-YGO"/>
                 <constraint firstItem="lcZ-Fe-gRk" firstAttribute="centerY" secondItem="4G0-V5-kyo" secondAttribute="centerY" id="HQC-zZ-wZn"/>
                 <constraint firstItem="gni-sl-6Aj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="J0N-zu-xgT"/>
-                <constraint firstItem="DpJ-av-7Dc" firstAttribute="leading" secondItem="gYe-cR-H9x" secondAttribute="trailing" constant="15" id="NYd-6s-YUz"/>
+                <constraint firstItem="DpJ-av-7Dc" firstAttribute="leading" secondItem="gYe-cR-H9x" secondAttribute="trailing" constant="10" id="NYd-6s-YUz"/>
                 <constraint firstItem="VlO-mv-tMT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="TVA-pL-kEg"/>
                 <constraint firstItem="VlO-mv-tMT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Vb2-ib-ABH"/>
                 <constraint firstItem="gYe-cR-H9x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cFT-XF-9ey"/>
@@ -75,6 +75,7 @@
             </constraints>
             <size key="customSize" width="217" height="152"/>
             <connections>
+                <outlet property="addressLayout" destination="NYd-6s-YUz" id="fId-zm-EJC"/>
                 <outlet property="address_L" destination="DpJ-av-7Dc" id="C7H-Mh-6PY"/>
                 <outlet property="img_V" destination="VlO-mv-tMT" id="Mm5-sa-RpY"/>
                 <outlet property="name_L" destination="4G0-V5-kyo" id="L6b-I0-r03"/>
