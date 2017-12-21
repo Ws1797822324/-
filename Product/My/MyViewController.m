@@ -23,6 +23,7 @@
 #import "PersonalData_VC.h"
 #import "IntegralMall_VC.h" // 积分商城
 #import "MyConcern_VC.h"    // 我的关注
+#import "ChooseShop.h"
 
 @interface MyViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) MineCollectionView *collectionView;
@@ -157,20 +158,28 @@ static NSString *identifier = @"homeCell";
                                         fontName:@"PingFangSC-Regular"
                                         fontSize:15
                                      defaultText:userInfo.m_name];
-    [imageView addSubview:nameLB];
+    [self.view addSubview:nameLB];
+
 
     [nameLB mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(LogoView.mas_right).offset(5);
         make.centerY.mas_equalTo(LogoView);
     }];
+
+
     UIButton *cccButtion = [[UIButton alloc] init];
     cccButtion.backgroundColor = [UIColor clearColor];
     [cccButtion tapPeformBlock:^{
-        NSLog(@"点击店铺了");
+        NSLog(@"点击店铺了88");
+        ChooseShop * vc = [[ChooseShop alloc]init];
+        kUserData;
+        vc.dianPuNameNow = userInfo.m_name;
+
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.view addSubview:cccButtion];
     cccButtion.sd_layout.leftEqualToView(LogoView)
-        .rightEqualToView(LogoView)
+        .rightEqualToView(nameLB)
         .topEqualToView(nameLB)
         .bottomEqualToView(nameLB);
 

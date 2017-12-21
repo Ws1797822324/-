@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeTableViewHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="499"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="505"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fkT-66-1ZG">
@@ -150,6 +150,7 @@
                         <constraint firstItem="vMN-8p-u1l" firstAttribute="width" secondItem="Caf-WS-Xcc" secondAttribute="width" id="5HP-Eu-4s9"/>
                         <constraint firstItem="Pbv-iQ-Kzj" firstAttribute="width" secondItem="Caf-WS-Xcc" secondAttribute="width" id="AQF-AI-z5z"/>
                         <constraint firstItem="Pbv-iQ-Kzj" firstAttribute="leading" secondItem="0t6-nT-m7I" secondAttribute="trailing" constant="5" id="EZP-eS-MrV"/>
+                        <constraint firstAttribute="width" secondItem="9iL-Wc-sEC" secondAttribute="height" multiplier="40:11" id="G4w-xG-exp"/>
                         <constraint firstItem="0t6-nT-m7I" firstAttribute="centerY" secondItem="9iL-Wc-sEC" secondAttribute="centerY" id="Mof-W8-BA1"/>
                         <constraint firstItem="0t6-nT-m7I" firstAttribute="height" secondItem="Caf-WS-Xcc" secondAttribute="height" id="SpB-Qn-hl8"/>
                         <constraint firstItem="klt-2g-sS3" firstAttribute="leading" secondItem="Caf-WS-Xcc" secondAttribute="trailing" constant="5" id="Uck-7f-vBV"/>
@@ -237,15 +238,14 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="mIR-aU-2dw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5d1-RU-bwN"/>
                 <constraint firstAttribute="trailing" secondItem="fkT-66-1ZG" secondAttribute="trailing" id="Ayq-my-SOe"/>
                 <constraint firstAttribute="trailing" secondItem="mIR-aU-2dw" secondAttribute="trailing" id="EUT-ZH-MtK"/>
                 <constraint firstItem="fkT-66-1ZG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Oic-ex-rnX"/>
-                <constraint firstItem="x5m-4l-QkB" firstAttribute="top" secondItem="9iL-Wc-sEC" secondAttribute="bottom" id="YNd-M6-Sqn"/>
                 <constraint firstAttribute="trailing" secondItem="x5m-4l-QkB" secondAttribute="trailing" id="fyh-1e-NwM"/>
                 <constraint firstItem="x5m-4l-QkB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jSJ-T9-MZ2"/>
+                <constraint firstItem="x5m-4l-QkB" firstAttribute="top" secondItem="9iL-Wc-sEC" secondAttribute="bottom" id="qpV-ei-UJE"/>
                 <constraint firstItem="mIR-aU-2dw" firstAttribute="top" secondItem="fkT-66-1ZG" secondAttribute="bottom" id="rha-PA-m14"/>
                 <constraint firstAttribute="trailing" secondItem="9iL-Wc-sEC" secondAttribute="trailing" id="wzC-m2-Omf"/>
                 <constraint firstItem="9iL-Wc-sEC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x56-3W-Hbq"/>
@@ -272,7 +272,7 @@
                 <outlet property="weather_text" destination="cQ7-dD-lKF" id="wjR-gq-EJQ"/>
                 <outlet property="week_L" destination="Anr-qA-rn0" id="vVu-yW-DSb"/>
             </connections>
-            <point key="canvasLocation" x="-411" y="-220.5"/>
+            <point key="canvasLocation" x="-411" y="-217.5"/>
         </view>
     </objects>
     <resources>

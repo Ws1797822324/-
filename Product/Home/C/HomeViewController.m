@@ -269,7 +269,7 @@ CLLocationManagerDelegate>
     self.tableView.tableHeaderView = homeHeader;
     _homeHeader.position_L.text = userInfo.position;
     
-
+self.automaticallyAdjustsScrollViewInsets = NO;
 
 #pragma mark - 选择城市跳转
     [[homeHeader.chooseCityButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -371,7 +371,14 @@ CLLocationManagerDelegate>
     }];
 
     } else {
+        [[_homeHeader.BBKHBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+
         [XXProgressHUD showMessage:@"游客不能报备"];
+        }];
+        [[_homeHeader.BBCJBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            [XXProgressHUD showMessage:@"游客不能报备"];
+        }];
+
     }
     // 房贷计算器
     [[_homeHeader.FDJSQBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {

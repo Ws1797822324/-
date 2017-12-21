@@ -76,6 +76,12 @@
             // 设置短信内容
             vc.body = kString(@"http://121.43.176.154:8080/h5/newsInfo.html?ids=%@", _model.ID);
 
+            if ([_model.type intValue]== 2) {
+                vc.body = _model.extra;
+
+            }
+
+
             // 设置收件人列表
             vc.recipients = @[];  // 号码数组
             // 设置代理
@@ -100,8 +106,12 @@
           UIImage * shar = [XXHelper compressOriginalImage:bbb.image toSize:CGSizeMake(50, 50)];
 
         UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:_model.title descr:@"资讯信息" thumImage:shar];
+            shareObject.webpageUrl = kString(@"http://121.43.176.154:8080/h5/newsInfo.html?ids=%@", _model.ID);
 
-        shareObject.webpageUrl = kString(@"http://121.43.176.154:8080/h5/newsInfo.html?ids=%@", _model.ID);
+            if ([_model.type intValue]== 2) {
+                shareObject.webpageUrl = _model.extra;
+
+            }
         //分享消息对象设置分享内容对象
         messageObject.shareObject = shareObject;
 
