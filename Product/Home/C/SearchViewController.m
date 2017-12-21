@@ -84,7 +84,13 @@
                   action:@selector(deleAllClick)
         forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-
+    kWeakSelf;
+    [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        if (weakSelf.TF_search.text.length == 0) {
+            [weakSelf getLoadData];
+        }
+    }];
+    
     [self getLoadData];
 }
 - (void)deleAllClick {
@@ -112,17 +118,27 @@
         documentPath = [documents stringByAppendingPathComponent:@"houseList.xml"];
     }
     self.dataArray = [NSMutableArray arrayWithContentsOfFile:documentPath];
+    self.dataArray = [NSMutableArray arrayWithContentsOfFile:documentPath];
+
     if (self.dataArray.count == 0) {
         self.dataArray = (NSMutableArray *) @[ string ];
     } else {
         [self.dataArray addObject:string];
     }
+    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:10];
+    NSArray *arr = [[[XXHelper arrayWithMemberIsOnly:_dataArray] reverseObjectEnumerator] allObjects];
+    [data addObjectsFromArray:arr];
 
+    
     BOOL isyes =
-        [[XXHelper arrayWithMemberIsOnly:_dataArray] writeToFile:documentPath atomically:YES];
+        [arr writeToFile:documentPath atomically:YES];
     NSLog(@"是否保存成功%d resultArray = %@", isyes, self.dataArray);
 }
 - (void)getLoadData {
+
+    self.searchtableView.hidden = YES;
+    self.tableView.hidden = NO;
+
     NSArray *array1 =
         NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documents = [array1 lastObject];
@@ -133,10 +149,11 @@
         documentPath = [documents stringByAppendingPathComponent:@"houseList.xml"];
     }
 
-    self.dataArray = [NSMutableArray arrayWithContentsOfFile:documentPath];
+    self.dataArray = (NSMutableArray *)[[[NSMutableArray arrayWithContentsOfFile:documentPath] reverseObjectEnumerator] allObjects];
     NSLog(@"现有本地resultArray = %@", self.dataArray);
     if (self.dataArray.count == 0) { // 没有数据
         [self.view addSubview:self.tipView];
+
     } else { // 显示数据
         [self.view addSubview:self.tableView];
     }
@@ -250,6 +267,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView == self.tableView) {
+
         NSString *str = self.dataArray[indexPath.row];
         self.TF_search.text = str;
         [self.TF_search becomeFirstResponder];
@@ -354,6 +372,9 @@
 }
 #pragma mark----------- 加载更多
 - (void)loadMorePeopleData {
+    self.searchtableView.hidden = NO;
+    self.tableView.hidden = YES;
+
     self.page = [NSString stringWithFormat:@"%d", [self.page intValue] + 1];
     kUserData;
     NSDictionary *dic = [[NSDictionary alloc]
@@ -383,6 +404,9 @@
     [self.searchtableView.mj_footer endRefreshing];
 }
 - (void)loadPeopleData {
+    self.searchtableView.hidden = NO;
+    self.tableView.hidden = YES;
+
     self.page = @"0";
     kUserData;
     NSDictionary *dic = [[NSDictionary alloc]
@@ -415,6 +439,9 @@
 }
 
 - (void)loadMoreData {
+    self.searchtableView.hidden = NO;
+    self.tableView.hidden = YES;
+
     self.page = [NSString stringWithFormat:@"%d", [self.page intValue] + 1];
     kUserData;
     NSDictionary *dic = @{
@@ -451,10 +478,10 @@
     [self.searchtableView.mj_footer endRefreshing];
 }
 - (void)loadRequest {
-
+    self.searchtableView.hidden = NO;
+    self.tableView.hidden = YES;
     self.page = @"0";
     kUserData;
-
     NSDictionary *dic = @{
         @"lat" : kStringIsEmpty(userInfo.lat) ? @"32.164575" : userInfo.lat,
         @"lng" : kStringIsEmpty(userInfo.lng) ? @"118.691732" : userInfo.lng,
