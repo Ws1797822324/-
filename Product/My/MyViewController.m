@@ -122,9 +122,9 @@ static NSString *identifier = @"homeCell";
     [iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
         make.centerY.mas_equalTo(imageView);
-        make.size.mas_equalTo(CGSizeMake(80, 80));
+        make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
-    kViewRadius(iconButton, 80 / 2);
+    kViewRadius(iconButton, 60 / 2);
     [iconButton addTarget:self
                    action:@selector(iconButtonAction)
          forControlEvents:UIControlEventTouchUpInside];

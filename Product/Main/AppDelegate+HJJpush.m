@@ -115,7 +115,7 @@
     //    5    积分提醒     ->    礼品商城
     //    6    邀请完成    ->    我的伙伴
     //    7   通知
-    //    8
+    //    8   成交详情
 
     if (kkk == 8) {
         WorkType_VC * vc = [[WorkType_VC alloc]init];

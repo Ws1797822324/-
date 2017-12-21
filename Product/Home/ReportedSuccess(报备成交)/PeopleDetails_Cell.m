@@ -37,7 +37,7 @@
     if ([price intValue] == 0) {
         price = @"售价待定";
     }
-    _money_L.text = price;
+    _money_L.text = kString(@"%@元", price);
     _name_L.text = model.name;
     NSArray * a1 = [model.time componentsSeparatedByString:@"."];
     _time_L.text = [a1 firstObject];

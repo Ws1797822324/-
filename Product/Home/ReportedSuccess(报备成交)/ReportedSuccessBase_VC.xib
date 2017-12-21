@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,26 +23,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koj-A8-ZD7">
-                    <rect key="frame" x="212.5" y="70" width="122.5" height="125"/>
+                    <rect key="frame" x="232.5" y="70.5" width="112.5" height="112.5"/>
                     <state key="normal" image="clientB"/>
                     <connections>
                         <action selector="rightButton:" destination="-1" eventType="touchUpInside" id="DQs-cy-n90"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成交" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-Zn-JJV">
-                    <rect key="frame" x="84" y="215" width="35" height="21"/>
+                    <rect key="frame" x="69" y="202.5" width="35" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报备" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blJ-uC-vTU">
-                    <rect key="frame" x="256.5" y="215" width="35" height="21"/>
+                    <rect key="frame" x="271.5" y="203" width="35" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-Q7-oN2">
-                    <rect key="frame" x="40" y="70" width="122.5" height="125"/>
+                    <rect key="frame" x="30" y="70" width="112.5" height="112.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="2dH-Q7-oN2" secondAttribute="height" multiplier="110:110" id="AEE-ye-Wo1"/>
+                    </constraints>
                     <state key="normal" image="组4"/>
                     <connections>
                         <action selector="leftButton:" destination="-1" eventType="touchUpInside" id="6fO-Wp-Phi"/>
@@ -50,16 +55,16 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9f6-Zn-JJV" firstAttribute="top" secondItem="2dH-Q7-oN2" secondAttribute="bottom" constant="20" id="1dA-Pc-66N"/>
+                <constraint firstItem="2dH-Q7-oN2" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="3yk-2M-2HS"/>
                 <constraint firstItem="blJ-uC-vTU" firstAttribute="top" secondItem="koj-A8-ZD7" secondAttribute="bottom" constant="20" id="6u7-tK-dJ5"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="koj-A8-ZD7" secondAttribute="trailing" constant="40" id="DQ3-DO-gTy"/>
-                <constraint firstItem="9f6-Zn-JJV" firstAttribute="centerX" secondItem="2dH-Q7-oN2" secondAttribute="centerX" id="IwA-om-Pno"/>
-                <constraint firstItem="koj-A8-ZD7" firstAttribute="leading" secondItem="2dH-Q7-oN2" secondAttribute="trailing" constant="50" id="K40-n2-Qzo"/>
+                <constraint firstItem="2dH-Q7-oN2" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.3" id="9VK-7r-Coq"/>
+                <constraint firstItem="koj-A8-ZD7" firstAttribute="width" secondItem="2dH-Q7-oN2" secondAttribute="width" id="JOC-43-de2"/>
                 <constraint firstItem="2dH-Q7-oN2" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="50" id="NtI-xU-DdG"/>
-                <constraint firstItem="2dH-Q7-oN2" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="RU7-dx-0ZJ"/>
                 <constraint firstItem="koj-A8-ZD7" firstAttribute="centerY" secondItem="2dH-Q7-oN2" secondAttribute="centerY" id="UFX-j4-ma5"/>
-                <constraint firstItem="koj-A8-ZD7" firstAttribute="height" secondItem="2dH-Q7-oN2" secondAttribute="height" id="W0T-5L-gfn"/>
-                <constraint firstItem="koj-A8-ZD7" firstAttribute="width" secondItem="2dH-Q7-oN2" secondAttribute="width" id="cco-rc-qFa"/>
+                <constraint firstItem="9f6-Zn-JJV" firstAttribute="centerX" secondItem="2dH-Q7-oN2" secondAttribute="centerX" id="UXw-ni-OwO"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="koj-A8-ZD7" secondAttribute="trailing" constant="30" id="YhM-HG-kdX"/>
                 <constraint firstItem="blJ-uC-vTU" firstAttribute="centerX" secondItem="koj-A8-ZD7" secondAttribute="centerX" id="mVC-AC-Hoh"/>
+                <constraint firstItem="koj-A8-ZD7" firstAttribute="height" secondItem="2dH-Q7-oN2" secondAttribute="height" id="phS-fr-fOC"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="31" y="-10"/>

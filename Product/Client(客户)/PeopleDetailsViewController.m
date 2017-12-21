@@ -41,9 +41,9 @@
 - (void)loadRequest
 {
     kUserData;
-    NSString * url = [NSString stringWithFormat:@"%@ClientServlet",kBaseURL];
+
     NSDictionary * dic = [[NSDictionary alloc] initWithObjectsAndKeys:@"xq_client",@"opt",self.ids,@"id",userInfo.token,@"token", nil];
-    [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:url withHud:@"列表加载中..." withProgressBlock:^(float requestProgress) {
+    [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"ClientServlet" withHud:@"列表加载中..." withProgressBlock:^(float requestProgress) {
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         NSLog(@"客户详情 = = %@",objc);
@@ -54,7 +54,8 @@
             if ([_model.phone containsString:@"****"]) {
                 _phone_Btn.hidden = YES;
                 _message_Btn.hidden = YES;
-            } 
+            }
+
             [self.tableview reloadData];
         }else{
             kShowMessage;
@@ -126,13 +127,14 @@
     NSDictionary * dic = @{
                            kOpt : @"intention",
                            kToken : userInfo.token,
-                           @"id" : @"",
+                           @"id" : self.ids,
                            @"min_price_budget" : kStringIsEmpty(arr[0]) ? @"" : (arr[0]),
                            @"max_price_budget" : kStringIsEmpty(arr[1]) ? @"" : (arr[1]),
                            @"min_area" : kStringIsEmpty(arr[2]) ? @"" : (arr[2]),
                            @"max_area" : kStringIsEmpty(arr[3]) ? @"" : (arr[3]),
                            @"nucleus" : kStringIsEmpty(arr[4]) ? @"" : (arr[4]),
                            };
+    
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"ClientServlet" withHud:nil withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {

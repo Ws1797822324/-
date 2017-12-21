@@ -119,10 +119,13 @@
 }
 #pragma mark --------- 购房意向
 - (IBAction)houseIdea_Btn:(UIButton *)sender {
+    
     BuyHouseIdeasViewController * VC = [[BuyHouseIdeasViewController alloc] init];
     VC.valueBlock = ^(NSArray *valve) {
         [self requestGFYX:valve];
     };
+    VC.valueArray = @[_model.min_price_budget,_model.max_price_budget,_model.min_area,_model.max_area,_model.nucleus];
+
     [self.navigationController pushViewController:VC animated:YES];
 }
 
@@ -132,7 +135,7 @@
     NSDictionary * dic = @{
                            kOpt : @"cj_intention",
                            kToken : userInfo.token,
-                           @"id" : @"",
+                           @"id" : _khID,
                            @"min_price_budget" : kStringIsEmpty(arr[0]) ? @"" : (arr[0]),
                            @"max_price_budget" : kStringIsEmpty(arr[1]) ? @"" : (arr[1]),
                            @"min_area" : kStringIsEmpty(arr[2]) ? @"" : (arr[2]),
@@ -142,6 +145,7 @@
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"ClientServlet" withHud:nil withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+
 
     } withFailuerBlock:^(id error) {
 
