@@ -1130,7 +1130,9 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     timeInterval = -timeInterval;
     long temp = 0;
     //    NSString *time;
-    if (timeInterval<60) {
+     if (timeInterval <=0) {
+         return [NSString stringWithFormat:@""];
+     } else if (timeInterval<60) {
         return  [NSString stringWithFormat:@"刚刚"];
     }else if ((temp = timeInterval/60)<60){
         return  [NSString stringWithFormat:@"%ld分钟前",temp];
@@ -1217,3 +1219,4 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 @end
+

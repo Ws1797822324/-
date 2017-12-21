@@ -306,7 +306,7 @@
     self.navigationItem.rightBarButtonItem = item;
 
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 7, kWidth - 100, 33)];
-    self.TF_search = [[UITextField alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth - 120, 33)];
+    self.TF_search = [[UITextField alloc] initWithFrame:CGRectMake(25, 0, kScreenWidth - 120, 33)];
     self.TF_search.placeholder = @"  请输入小区房或房源编号";
     self.TF_search.backgroundColor = kRGBColor(71, 149, 238, 0.8);
     self.TF_search.alpha = 0.5;
@@ -322,7 +322,7 @@
     //创建左侧视图
     UIImage *im = [UIImage imageNamed:@"search"];
     UIImageView *iv = [[UIImageView alloc] initWithImage:im];
-    UIView *lv = [[UIView alloc] initWithFrame:CGRectMake(10, 0, 20, 20)];
+    UIView *lv = [[UIView alloc] initWithFrame:CGRectMake(10, 0, 30, 20)];
     iv.center = lv.center;
     [lv addSubview:iv];
 
