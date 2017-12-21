@@ -34,7 +34,10 @@
     
     
     UILabel *nameLB=[[UILabel alloc]init];
-    nameLB.text = @"卖哪儿版本 1.0";
+   // 先获取当前工程项目版本号
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *currentVersion = infoDic[@"CFBundleShortVersionString"];
+    nameLB.text = kString(@"卖哪儿版本 %@", currentVersion);
     nameLB.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:nameLB];
     [nameLB mas_makeConstraints:^(MASConstraintMaker *make) {

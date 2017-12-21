@@ -142,7 +142,7 @@
 
         if (buttonIdx == 0) {
 // 切换
-            [weakSelf requeseQiehuan:[_dataArray[indexPath.row] ID]];
+            [weakSelf requeseQiehuan:[_dataArray[indexPath.row] ID] shopName:[_dataArray[indexPath.row] name]];
         } else {
 
         }
@@ -150,7 +150,7 @@
 
 }
 #pragma mark - 切换店铺请求
--(void)requeseQiehuan:(NSString *)ID {
+-(void)requeseQiehuan:(NSString *)ID shopName:(NSString *)name {
     kUserData;
     kWeakSelf;
     NSDictionary * dic = @{
@@ -165,7 +165,9 @@
         if (code == 200) {
             [XXProgressHUD showMessage:@"店铺切换成功"];
         [weakSelf.navigationController popViewControllerAnimated:true];
-
+            userInfo.m_name = name;
+            
+            [UserInfoTool saveAccount:userInfo];
         } else {
             [XXProgressHUD showMessage:message];
         }

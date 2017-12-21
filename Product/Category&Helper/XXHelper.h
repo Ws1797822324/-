@@ -369,4 +369,10 @@
 
 #pragma mark - 压缩图片到指定尺寸大小
 +(UIImage *)compressOriginalImage:(UIImage *)image toSize:(CGSize)size;
+
+#pragma mark - 获取当前工程项目版本号
++ (NSString *) ObtainCurrentVersion;
+
+#pragma mark - 获取当前工程App Store版本号
++(NSString *)ObtainAppStoreVersion:(NSString *)appID;
 @end

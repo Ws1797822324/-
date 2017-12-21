@@ -717,8 +717,9 @@
 -(void)clockButton:(NSInteger)index {
     
     _mdType = (int)index-1;
-    NSIndexPath *uu = [NSIndexPath indexPathForRow:0 inSection:4];
-    [self.tableview reloadRowsAtIndexPaths:@[uu] withRowAnimation:UITableViewRowAnimationAutomatic];
-
+//    NSIndexPath *uu = [NSIndexPath indexPathForRow:0 inSection:4];
+//    [self.tableview reloadRowsAtIndexPaths:@[uu] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [self.tableview reloadSections:[[NSIndexSet alloc]initWithIndex:5] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableview reloadData];
 }
 @end

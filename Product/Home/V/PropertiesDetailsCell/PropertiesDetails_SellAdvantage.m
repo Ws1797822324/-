@@ -77,7 +77,7 @@
             [weakSelf.yiliaoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             weakSelf.yiliaoL.backgroundColor = [UIColor blackColor];
 
-            [weakSelf.jiaotongBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [weakSelf.jiaoyuBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             weakSelf.jiaoyuL.backgroundColor = [UIColor blackColor];
             
             break;

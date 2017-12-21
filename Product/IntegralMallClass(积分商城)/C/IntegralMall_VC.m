@@ -48,7 +48,7 @@
     _layout.minimumInteritemSpacing = 0;
     _layout.sectionInset = UIEdgeInsetsMake(10, 5, 5, 5);
 
-    //    _layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+
     self.layout.scrollDirection = UICollectionViewScrollDirectionVertical;
 
     [self.collerctionView registerNib:[UINib nibWithNibName:NSStringFromClass([IntegralMall_CCell class]) bundle:nil]
@@ -105,7 +105,7 @@
                 } else {
                     [_dataArr addObjectsFromArray:[IntegralMall_Model mj_objectArrayWithKeyValuesArray:data]];
                 }
-                [_integralButton setTitle:objc[@"message"] forState:UIControlStateNormal];
+                [_integralButton setTitle:kString(@" 积分 %@", objc[@"message"]) forState:UIControlStateNormal];
             }
             if (_dataArr.count == 0) {
                 UIAlertController * ac = [UIAlertController alertControllerWithTitle:@" sorry 暂时没有可兑换商品" message:@"改天再来" preferredStyle:UIAlertControllerStyleAlert];

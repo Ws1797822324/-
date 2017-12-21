@@ -1177,5 +1177,43 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     UIGraphicsEndImageContext();
     return image;
 }
+#pragma mark - 获取当前工程项目版本号
+
++ (NSString *) ObtainCurrentVersion{
+
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *currentVersion = infoDic[@"CFBundleShortVersionString"];
+    return currentVersion;
+}
+
+#pragma mark - 获取当前工程App Store版本号
++(NSString *)ObtainAppStoreVersion:(NSString *)appID {
+    // 3从网络获取appStore版本号
+    NSError *error;
+    NSData *response = [NSURLConnection
+                        sendSynchronousRequest:
+                        [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString
+                                                                           stringWithFormat:
+                                                                           @"http://itunes.apple.com/cn/lookup?id=%@",
+                                                                           appID]]] returningResponse:nil error:nil];
+
+
+    if (response == nil) {
+        NSLog(@"你没有连接网络哦");
+
+        return @"networkerror";
+    }
+    NSDictionary *appInfoDic = [NSJSONSerialization JSONObjectWithData:response
+                                                               options:NSJSONReadingMutableLeaves
+                                                                 error:&error];
+    if (error) {
+        NSLog(@"hsUpdateAppError:%@", error);
+        return @"error";
+    }
+    NSArray *array = appInfoDic[@"results"];
+    NSDictionary *dic = array[0];
+    NSString *appStoreVersion = dic[@"version"];
+    return appStoreVersion;
+}
 
 @end

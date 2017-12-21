@@ -130,8 +130,7 @@
             [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString
                                                      stringWithFormat:
                                                          @"http://itunes.apple.com/cn/lookup?id=%@",
-                                                         kSTOREAPPID]]]
-             returningResponse:nil
+                                                         kSTOREAPPID]]] returningResponse:nil
                          error:nil];
     if (response == nil) {
         NSLog(@"你没有连接网络哦");

@@ -1,6 +1,10 @@
 //
 //  ViewController.m
 //  经纪人
+/**
+ Certification_VC * vc = [[Certification_VC alloc]init];
+ [self.navigationController pushViewController:vc animated:YES];
+*/
 //
 //  Created by apple on 2017/11/2.
 //  Copyright © 2017年 apple. All rights reserved.
@@ -9,7 +13,7 @@
 #import "MyViewController.h"
 #import "MineCollectionViewCell.h"
 #import "MineCollectionView.h"
-
+#import "Certification_VC.h"
 #import "MainWebViewController.h"
 #import "MyPartner_VC.h"
 #import "MyInvitationViewController.h"
@@ -74,6 +78,7 @@ static NSString *identifier = @"homeCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 
     [self fourView];
     self.navigationController.navigationBar.translucent = NO;
@@ -145,15 +150,13 @@ static NSString *identifier = @"homeCell";
         make.left.mas_equalTo(sbuTitleLB);
         make.bottom.mas_equalTo(iconButton);
     }];
-    NSString *str = @"游客";
 
-    if ([userInfo.status intValue] == 2) {
-        str = @"经纪人";
-    }
+    
+
     UILabel *nameLB = [PosTool labelWithTextColr:@"ffffff"
                                         fontName:@"PingFangSC-Regular"
                                         fontSize:15
-                                     defaultText:str];
+                                     defaultText:userInfo.m_name];
     [imageView addSubview:nameLB];
 
     [nameLB mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -171,7 +174,7 @@ static NSString *identifier = @"homeCell";
         .topEqualToView(nameLB)
         .bottomEqualToView(nameLB);
 
-    UIButton *rechargeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *rechargeBtn = [[UIButton alloc]init];
     if ([userInfo.attestation intValue] == 0) {
 
         [rechargeBtn setImage:[UIImage imageNamed:@"weishiming"] forState:UIControlStateNormal];
@@ -182,10 +185,10 @@ static NSString *identifier = @"homeCell";
     [rechargeBtn addTarget:self
                     action:@selector(rechargeAction)
           forControlEvents:UIControlEventTouchUpInside];
-    [imageView addSubview:rechargeBtn];
+    [self.view addSubview:rechargeBtn];
     [rechargeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-20);
-        make.centerY.mas_equalTo(0);
+        make.centerY.equalTo(cccButtion);
     }];
 }
 
@@ -447,9 +450,14 @@ static NSString *identifier = @"homeCell";
 
 
 
-//已实名认证
+#pragma mark -  实名认证
 -(void)rechargeAction{
-    NSLog(@"888888888888    ;");
+    kUserData;
+    if ([userInfo.attestation intValue] == 0) { // 未认证
+
+    Certification_VC * vc = [[Certification_VC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end
