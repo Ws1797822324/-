@@ -19,6 +19,8 @@
 
 @interface PeopleDetailsViewController ()<UITableViewDelegate,UITableViewDataSource,qingYongProtocol>
 @property (nonatomic, strong) PeopleDetailsModel * model;
+@property (nonatomic ,strong) NSArray *selectArr;
+
 @end
 
 @implementation PeopleDetailsViewController
@@ -123,8 +125,13 @@
     BuyHouseIdeasViewController * VC = [[BuyHouseIdeasViewController alloc] init];
     VC.valueBlock = ^(NSArray *valve) {
         [self requestGFYX:valve];
+        _selectArr = valve;
     };
     VC.valueArray = @[_model.min_price_budget,_model.max_price_budget,_model.min_area,_model.max_area,_model.nucleus];
+    if (!kArrayIsEmpty(_selectArr)) {
+        VC.valueArray = _selectArr;
+    }
+
     [self.navigationController pushViewController:VC animated:YES];
 }
 #pragma mark - 修改购房意向

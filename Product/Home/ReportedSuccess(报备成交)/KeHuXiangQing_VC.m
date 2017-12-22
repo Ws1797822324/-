@@ -16,6 +16,7 @@
 @property (nonatomic ,assign) int page;
 @property (nonatomic ,strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) PeopleDetailsModel * model;
+@property (nonatomic ,strong) NSArray *selectArr;
 
 
 
@@ -37,8 +38,6 @@
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf RequestData:YES];
     }];
-
-
 }
 
 -(void) RequestData:(BOOL)type {
@@ -123,9 +122,13 @@
     BuyHouseIdeasViewController * VC = [[BuyHouseIdeasViewController alloc] init];
     VC.valueBlock = ^(NSArray *valve) {
         [self requestGFYX:valve];
+        _selectArr = valve;
     };
-    VC.valueArray = @[_model.min_price_budget,_model.max_price_budget,_model.min_area,_model.max_area,_model.nucleus];
 
+    VC.valueArray = @[_model.min_price_budget,_model.max_price_budget,_model.min_area,_model.max_area,_model.nucleus];
+    if (!kArrayIsEmpty(_selectArr)) {
+        VC.valueArray = _selectArr;
+    }
     [self.navigationController pushViewController:VC animated:YES];
 }
 
@@ -145,6 +148,7 @@
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"ClientServlet" withHud:nil withProgressBlock:^(float requestProgress) {
 
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+
 
 
     } withFailuerBlock:^(id error) {

@@ -30,8 +30,9 @@
         _name_L.text = @"我";
     }
     _address_L.text = model.product;
-    NSArray * timeArr = [model.time componentsSeparatedByString:@"."];
-    _time_L.text = [timeArr firstObject];
+//    NSArray * timeArr = [model.time componentsSeparatedByString:@"."];
+////    _time_L.text = [timeArr firstObject];
+    _time_L.text = [model.time stringByReplacingOccurrencesOfString:@".0" withString:@""];
     _jifen_L.text =kString(@"+%@", model.integral);
 }
 @end
