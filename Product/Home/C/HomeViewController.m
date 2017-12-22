@@ -257,19 +257,30 @@ CLLocationManagerDelegate>
         [weakSelf requestImage];
         [weakSelf requestHouseData];
         [weakSelf requestTianQi];
-
-        
-
     }];
+
     HomeTableViewHeaderView * homeHeader = [ HomeTableViewHeaderView viewFromXib];
-
     homeHeader.nearbyProperties_L.text = [NSString stringWithFormat:@"附近楼盘0家"];
-
-    _tableView.autoresizesSubviews = NO;
-    self.tableView.tableHeaderView = homeHeader;
+    UIView * tempView = [[UIView alloc]init];
+    tempView.backgroundColor = [UIColor whiteColor];
+    [tempView addSubview:homeHeader];
+    if (kiPhone5s) {
+        homeHeader.frame = CGRectMake(0, 0, kWidth, 430);
+        tempView.frame = CGRectMake(0, 0, kWidth, 430);
+    }
+    if (kiPhone6s_7s) {
+        homeHeader.frame = CGRectMake(0, 0, kWidth, 480);
+        tempView.frame = CGRectMake(0, 0, kWidth, 480);
+    }
+    if (kiPhone6sP_7sP) {
+        homeHeader.frame = CGRectMake(0, 0, kWidth, 520);
+        tempView.frame = CGRectMake(0, 0, kWidth, 520);
+    }
+    self.tableView.tableHeaderView = tempView;
     _homeHeader.position_L.text = userInfo.position;
     
 self.automaticallyAdjustsScrollViewInsets = NO;
+    _tableView.autoresizesSubviews = NO;
 
 #pragma mark - 选择城市跳转
     [[homeHeader.chooseCityButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -616,6 +627,7 @@ self.automaticallyAdjustsScrollViewInsets = NO;
     return cell;
 }
 
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
     
     HouseModel * model = _houseArr[indexPath.row];
@@ -644,6 +656,10 @@ self.automaticallyAdjustsScrollViewInsets = NO;
     [(YMNavgatinController*)self.navigationController pushViewController:propertiesDetails type:YMNavgatinControllerTypeClear animated:YES];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.01;
+}
 
 -(void)chooseCityAction {
     kUserData;

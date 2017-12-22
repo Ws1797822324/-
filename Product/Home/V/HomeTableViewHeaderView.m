@@ -18,7 +18,8 @@
 
 -(void)awakeFromNib {
     
-    [super awakeFromNib];    
+    [super awakeFromNib];
+        self.autoresizingMask = UIViewAutoresizingNone;
     NSString * str1 = [[XXHelper currentTime] stringByReplacingCharactersInRange:NSMakeRange(4, 1) withString:@"年"];
     NSString * str2 = [str1 stringByReplacingCharactersInRange:NSMakeRange(7, 1) withString:@"月"];
     _date_L.text = [str2 stringByReplacingCharactersInRange:NSMakeRange(10, 9) withString:@"日"];
