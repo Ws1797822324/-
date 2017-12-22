@@ -56,9 +56,21 @@
                             <action selector="nvClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="azU-me-HSt"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-Ub-KDZ">
+                        <rect key="frame" x="20" y="42.5" width="280" height="1"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="28x-ND-5Ps"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="bg9-Ub-KDZ" secondAttribute="bottom" id="3Zf-e1-f6J"/>
                     <constraint firstAttribute="bottom" secondItem="0Go-rn-s7y" secondAttribute="bottom" id="5xP-RD-sTx"/>
+                    <constraint firstItem="bg9-Ub-KDZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="E9f-Yi-2pK"/>
                     <constraint firstItem="lNE-BH-K0F" firstAttribute="leading" secondItem="0Go-rn-s7y" secondAttribute="trailing" constant="1" id="FQI-Hb-2JT"/>
                     <constraint firstItem="lNE-BH-K0F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gbh-bX-gqY"/>
                     <constraint firstItem="yn9-Fw-93b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NJl-X9-khc"/>
@@ -67,6 +79,7 @@
                     <constraint firstItem="0Go-rn-s7y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jlH-O2-ztt"/>
                     <constraint firstAttribute="bottom" secondItem="yn9-Fw-93b" secondAttribute="bottom" id="k00-Ef-KYX"/>
                     <constraint firstItem="yn9-Fw-93b" firstAttribute="leading" secondItem="lNE-BH-K0F" secondAttribute="trailing" constant="30" id="nRf-n7-FJo"/>
+                    <constraint firstAttribute="trailing" secondItem="bg9-Ub-KDZ" secondAttribute="trailing" constant="20" id="pIQ-nZ-pEk"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

@@ -220,6 +220,8 @@
 		5495324D1FBD72E700BB959D /* MyExchange_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5495324B1FBD72E700BB959D /* MyExchange_Cell.xib */; };
 		54996D2A1FD7891A006BD693 /* ApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54996D281FD7891A006BD693 /* ApplyViewController.m */; };
 		54996D2B1FD7891A006BD693 /* ApplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54996D291FD7891A006BD693 /* ApplyViewController.xib */; };
+		54A0CA3C1FECF78200BED9FE /* PropertiesDetails_AddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A0CA3A1FECF78200BED9FE /* PropertiesDetails_AddressCell.m */; };
+		54A0CA3D1FECF78200BED9FE /* PropertiesDetails_AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A0CA3B1FECF78200BED9FE /* PropertiesDetails_AddressCell.xib */; };
 		54A662CC1FBBCFD300CC9A65 /* Personal_introduction_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A662CA1FBBCFD300CC9A65 /* Personal_introduction_VC.m */; };
 		54A662CD1FBBCFD300CC9A65 /* Personal_introduction_VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A662CB1FBBCFD300CC9A65 /* Personal_introduction_VC.xib */; };
 		54A662D01FBC182900CC9A65 /* XXDeleteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A662CF1FBC182900CC9A65 /* XXDeleteButton.m */; };
@@ -762,6 +764,9 @@
 		54996D271FD7891A006BD693 /* ApplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyViewController.h; sourceTree = "<group>"; };
 		54996D281FD7891A006BD693 /* ApplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyViewController.m; sourceTree = "<group>"; };
 		54996D291FD7891A006BD693 /* ApplyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyViewController.xib; sourceTree = "<group>"; };
+		54A0CA391FECF78200BED9FE /* PropertiesDetails_AddressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertiesDetails_AddressCell.h; sourceTree = "<group>"; };
+		54A0CA3A1FECF78200BED9FE /* PropertiesDetails_AddressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertiesDetails_AddressCell.m; sourceTree = "<group>"; };
+		54A0CA3B1FECF78200BED9FE /* PropertiesDetails_AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesDetails_AddressCell.xib; sourceTree = "<group>"; };
 		54A662C91FBBCFD300CC9A65 /* Personal_introduction_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Personal_introduction_VC.h; sourceTree = "<group>"; };
 		54A662CA1FBBCFD300CC9A65 /* Personal_introduction_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Personal_introduction_VC.m; sourceTree = "<group>"; };
 		54A662CB1FBBCFD300CC9A65 /* Personal_introduction_VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Personal_introduction_VC.xib; sourceTree = "<group>"; };
@@ -2376,6 +2381,9 @@
 				67252A6E1FB54B0700C42A2D /* PropertiesDetails_HeaderTimeCell.h */,
 				67252A6F1FB54B0700C42A2D /* PropertiesDetails_HeaderTimeCell.m */,
 				67252A701FB54B0700C42A2D /* PropertiesDetails_HeaderTimeCell.xib */,
+				54A0CA391FECF78200BED9FE /* PropertiesDetails_AddressCell.h */,
+				54A0CA3A1FECF78200BED9FE /* PropertiesDetails_AddressCell.m */,
+				54A0CA3B1FECF78200BED9FE /* PropertiesDetails_AddressCell.xib */,
 				67252A751FB54CF100C42A2D /* PropertiesDetails_ChoiceCell.h */,
 				67252A761FB54CF100C42A2D /* PropertiesDetails_ChoiceCell.m */,
 				67252A771FB54CF100C42A2D /* PropertiesDetails_ChoiceCell.xib */,
@@ -2610,6 +2618,7 @@
 				2648EEAD1FC5670A000A4F19 /* PeopleDetailsViewController.xib in Resources */,
 				268271011FC6C666006FE8F9 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				5442F4711FC544930022E84B /* PropertiesDetails_FootView.xib in Resources */,
+				54A0CA3D1FECF78200BED9FE /* PropertiesDetails_AddressCell.xib in Resources */,
 				2648EEA81FC564FE000A4F19 /* MyPeopleTableViewCell.xib in Resources */,
 				543C0E581FD0E28700204DA6 /* BankPopupView.xib in Resources */,
 				54ACC9231FE51C0900EB88E7 /* PhoneInputting_Cell.xib in Resources */,
@@ -3017,6 +3026,7 @@
 				540A058E1FBA7B73007EB851 /* MyModels.m in Sources */,
 				545B80FA1FC17CE3008A253E /* MyPartner_VC.m in Sources */,
 				54FF11B51F4D6A0C00A2A23D /* MYPresentAnimationManager.m in Sources */,
+				54A0CA3C1FECF78200BED9FE /* PropertiesDetails_AddressCell.m in Sources */,
 				54388E7A1FBE8D390040EE6A /* PersonalDataSecond_Cell.m in Sources */,
 				541452B51FC3B537007070BC /* WorkType_VC.m in Sources */,
 				546C91611FE63854005C938F /* TKPhoneTextField.m in Sources */,

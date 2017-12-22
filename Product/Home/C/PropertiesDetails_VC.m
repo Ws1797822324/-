@@ -21,6 +21,7 @@
 #import "HouseDetails_VC.h"
 #import "MD_Cell.h"
 #import <MessageUI/MessageUI.h>
+#import "PropertiesDetails_AddressCell.h"
 
 #import "BrokeragePlan_VC.h" /// 佣金方案
 #import "HouseDynamic_TVC.h"  /// 楼盘动态
@@ -292,6 +293,7 @@
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([PropertiesDetails_ChoiceCell class]) bundle:nil] forCellReuseIdentifier:@"PropertiesDetails_ChoiceCell_ID"];
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([PropertiesDetails_ImportantCell class]) bundle:nil] forCellReuseIdentifier:@"PropertiesDetails_ImportantCell_ID"];
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([MD_Cell class]) bundle:nil] forCellReuseIdentifier:@"MDCell_ID"];
+    [self.tableview registerNib:[PropertiesDetails_AddressCell nib] forCellReuseIdentifier:@"PropertiesDetails_AddressCell"];
 
     
 }
@@ -384,7 +386,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
-        return 2;
+        return 3;
     } else if(section == 1 || section == 2) {
     
         return 1;
@@ -409,22 +411,24 @@
 
             [_PDmodel.price_min_s intValue ] == 0 ? (str1 = @"价格待定") : (str1 = kString(@"%@元左右/㎡", _PDmodel.price_min_s));
 
-
             cell.price_L.text = str1;
             [cell cinfigTagsView:_tagsArr];
             [self configImageView:cell.imageViewTool];
             
             return cell;
    
-        } else {
+        } else if(indexPath.row == 1) {
+            PropertiesDetails_AddressCell * cell = [PropertiesDetails_AddressCell loadCellFromNib:tableView];
+            cell.address_L.text = _PDmodel.address;
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            return cell;
+        }
+        else  {
 
             PropertiesDetails_HeaderTimeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"PropertiesDetails_HeaderTimeCell_ID"];
             
-            cell.address_L.text = _PDmodel.address;
             cell.open_Time_L.text = kStringIsEmpty(_PDmodel.open_time) ? @"待定" : _PDmodel.open_time;
-            XXLog(@"kkkkkl - %@",_PDmodel.open_time);
-            XXLog(@"kkkkkl  2 - %@",_PDmodel.he_time);
-            XXLog(@"kkkkkl  3 - %@",_PDmodel.end_time);
+
             NSString * str1 = _PDmodel.he_time;
             NSString * str2 = _PDmodel.end_time;
             if (kStringIsEmpty(str1) || (kStringIsEmpty(str2))) {
@@ -570,9 +574,13 @@
        CGFloat tagsH =  [SQButtonTagView returnViewHeightWithTagTexts:_tagsArr viewWidth:kWidth - 40 eachNum:0 Hmargin:10 Vmargin:5 tagHeight:20 tagTextFont:kBoldFont(12)];
         return 245 + 10 + tagsH;
     }
-    
+
     if (indexPath.section == 0 && indexPath.row == 1) {
-        return 110;
+        return 45;
+    }
+
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        return 60;
     }
     if (indexPath.section == 1 || indexPath.section == 2) {
         kUserData;
@@ -598,6 +606,7 @@
     NSLog(@"%ld - %ld",indexPath.section , indexPath.row);
 
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
     if (indexPath.section == 0 && indexPath.row == 0) {
         HouseData_TVC * tvc = [[HouseData_TVC alloc]init];
         tvc.houseID = self.houseID;

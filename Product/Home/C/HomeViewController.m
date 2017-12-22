@@ -24,6 +24,7 @@
 #import "SearchViewController.h"
 #import "ReportedSuccessBase_VC.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import "ApplyViewController.h"
 
 
 @interface HomeViewController () <UITableViewDelegate,UITableViewDataSource ,SDCycleScrollViewDelegate,UINavigationControllerDelegate,
@@ -384,10 +385,14 @@ self.automaticallyAdjustsScrollViewInsets = NO;
     } else {
         [[_homeHeader.BBKHBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
 
-        [XXProgressHUD showMessage:@"游客不能报备"];
+            ApplyViewController * VC = [ApplyViewController viewControllerFromNib];
+            [(YMNavgatinController *)weakSelf.navigationController pushViewController:VC type:YMNavgatinControllerTypeBlue animated:YES];
+
+
         }];
         [[_homeHeader.BBCJBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            [XXProgressHUD showMessage:@"游客不能报备"];
+            ApplyViewController * VC = [ApplyViewController viewControllerFromNib];
+            [(YMNavgatinController *)weakSelf.navigationController pushViewController:VC type:YMNavgatinControllerTypeBlue animated:YES];
         }];
 
     }

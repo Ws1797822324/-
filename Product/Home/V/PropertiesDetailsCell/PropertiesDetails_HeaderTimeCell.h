@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *open_Time_L;
 
 @property (weak, nonatomic) IBOutlet UILabel *teamwork_Time;
-@property (weak, nonatomic) IBOutlet UILabel *address_L;
+
 @end

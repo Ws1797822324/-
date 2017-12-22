@@ -178,7 +178,14 @@ static NSString *identifier = @"homeCell";
         make.left.mas_equalTo(LogoView.mas_right).offset(5);
         make.centerY.mas_equalTo(LogoView);
     }];
+    if ([userInfo.status intValue] == 1) { /// 游客
+        LogoView.hidden = YES;
+        nameLB.hidden = YES;
+    } else {
+        LogoView.hidden = NO;
+        nameLB.hidden = NO;
 
+    }
 
     UIButton *cccButtion = [[UIButton alloc] init];
     cccButtion.backgroundColor = [UIColor clearColor];
@@ -474,18 +481,12 @@ static NSString *identifier = @"homeCell";
     }
 
 }
-
-
-
-
 #pragma mark -  实名认证
 -(void)rechargeAction{
-    kUserData;
-    if ([userInfo.attestation intValue] == 0) { // 未认证
+
 
     Certification_VC * vc = [[Certification_VC alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
-    }
 }
 
 @end
