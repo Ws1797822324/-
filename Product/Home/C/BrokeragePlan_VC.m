@@ -35,15 +35,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"佣金方案";
-//    if (@available(iOS 11.0, *)) {
-//        self.tableview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
-//
-//    } else {
-//        self.automaticallyAdjustsScrollViewInsets = false;
-//    }
+    if (@available(iOS 11.0, *)) {
+        self.tableview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = false;
+    }
     [self.view addSubview: self.tableview];
     self.tableview.sd_layout
-    .spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+    .spaceToSuperView(UIEdgeInsetsMake(kNavHeight, 0, 0, 0));
+    self.tableview.backgroundColor = [UIColor redColor];
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([BrokeragePlan_Cell class]) bundle:nil] forCellReuseIdentifier:@"BrokeragePlan_Cell_ID"];
 
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem rightbarButtonItemWithNorImage:kImageNamed(@"客户规则") highImage:kImageNamed(@"客户规则") target:self action:@selector(kehuguize) withTitle:nil];
