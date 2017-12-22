@@ -29,6 +29,7 @@
 -(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    
 }
 
 - (void)viewDidLoad {

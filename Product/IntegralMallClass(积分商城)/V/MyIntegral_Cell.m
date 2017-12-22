@@ -25,9 +25,13 @@
     _model = model;
     _name_L.text = model.client;
     _title_L.text = model.type;
+
+    if ([model.type isEqualToString:@"每日签到"] || [model.type isEqualToString:@"实名认证"]) {
+        _name_L.text = @"我";
+    }
     _address_L.text = model.product;
     NSArray * timeArr = [model.time componentsSeparatedByString:@"."];
-    _title_L.text = [timeArr firstObject];
+    _time_L.text = [timeArr firstObject];
     _jifen_L.text =kString(@"+%@", model.integral);
 }
 @end

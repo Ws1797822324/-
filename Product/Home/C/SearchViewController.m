@@ -34,7 +34,7 @@
 @implementation SearchViewController
 - (UITableView *)searchtableView {
     if (!_searchtableView) {
-        _searchtableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight - kNavHeight)];
+        _searchtableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavHeight, kWidth, kHeight - kNavHeight)];
         _searchtableView.delegate = self;
         _searchtableView.dataSource = self;
         _searchtableView.tableFooterView = [[UIView alloc] init];
@@ -59,6 +59,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+
     [self.navigationController.navigationBar lt_setBackgroundColor:kRGB_HEX(0x66a8fc)];
 }
 -(void)viewDidDisappear:(BOOL)animated {
@@ -88,12 +90,12 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     self.rows = @"10";
-    self.topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kWidth, 40)];
+    self.topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kNavHeight, kWidth, 40)];
     self.topLabel.backgroundColor = kRGB_HEX(0xfafafa);
     self.topLabel.text = @"  搜索历史";
     self.topLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:self.topLabel];
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth - 40 - 20, 0, 40, 40)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth - 40 - 20, kNavHeight, 40, 40)];
     [btn setImage:[UIImage imageNamed:@"delete_icon"] forState:0];
     [btn addTarget:self
                   action:@selector(deleAllClick)
@@ -163,7 +165,7 @@
 }
 - (UIView *)tipView {
     if (!_tipView) {
-        _tipView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kWidth, kHeight - 40)];
+        _tipView = [[UIView alloc] initWithFrame:CGRectMake(0, kNavHeight + 40, kWidth, kHeight - 40)];
         UILabel *label =
             [[UILabel alloc] initWithFrame:CGRectMake(0, (kHeight - 80) / 2, kWidth, 40)];
         [_tipView addSubview:label];
@@ -176,7 +178,7 @@
 }
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, kWidth, kHeight - 40 - kNavHeight)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavHeight + 40, kWidth, kHeight - 40 - kNavHeight)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [[UIView alloc] init];
