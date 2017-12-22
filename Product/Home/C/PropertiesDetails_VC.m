@@ -464,7 +464,7 @@
     } else if (section == 4) {
         return 85.f;
     } else if (section == 5) {
-        return 90;
+        return 55;
     } else if (section == 1 || section == 2)
     {
         kUserData;

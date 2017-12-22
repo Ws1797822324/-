@@ -53,6 +53,7 @@
 
 @property (nonatomic ,strong) NSDictionary *jisuanqiDic; // 计算器
 
+@property (nonatomic ,strong) NSString *kefuPhone;
 
 
 @end

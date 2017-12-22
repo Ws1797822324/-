@@ -112,6 +112,11 @@
                 shareObject.webpageUrl = _model.extra;
 
             }
+
+            if ([_model.type intValue] == 1) {
+                shareObject.webpageUrl = [NSString stringWithFormat:@"http://121.43.176.154:8080/h5/bannerContext.html?ids=%@",_model.ID];
+            }
+
         //分享消息对象设置分享内容对象
         messageObject.shareObject = shareObject;
 

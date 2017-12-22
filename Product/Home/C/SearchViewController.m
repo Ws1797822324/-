@@ -61,6 +61,11 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar lt_setBackgroundColor:kRGB_HEX(0x66a8fc)];
 }
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     JQFMDB *db =  [JQFMDB shareDatabase];  // 创建数据库
@@ -141,7 +146,6 @@
 
     if ([self.type isEqualToString:@"人"]){
         _dataArray = [_db jq_lookupTable:kPersen dicOrModel:[DataModel class] whereFormat:nil];
-
     } else {
         _dataArray =  [_db jq_lookupTable:kHouse dicOrModel:[DataModel class] whereFormat:nil];
 
@@ -182,7 +186,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.tableView) {
+        if (_dataArray.count >=10) {
+            return 10;
+        } else {
         return self.dataArray.count;
+        }
     } else if (tableView == self.searchtableView) {
         return self.searchDataArray.count;
     }

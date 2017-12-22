@@ -28,11 +28,12 @@
 {
     kUserData;
 
-    NSDictionary * dic = [[NSDictionary alloc] initWithObjectsAndKeys:@"Commissioninfo",@"opt",self.ids,@"id",userInfo.token,@"token", nil];
+    NSDictionary * dic = [[NSDictionary alloc] initWithObjectsAndKeys:@"Commissioninfo",@"opt",self.ids,@"id",userInfo.token,@"token",self.type,@"type", nil];
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"Commission" withHud:nil withProgressBlock:^(float requestProgress) {
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
         if (code==200) {
+
             self.model = [CommissionDetailsModel mj_objectWithKeyValues:data];
             [self.tableView cyl_reloadData];
         }else{

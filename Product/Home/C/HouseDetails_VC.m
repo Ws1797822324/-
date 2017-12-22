@@ -404,7 +404,7 @@
     if (section == 1) {
         UIView * v1 = [[UIView alloc]init];
         v1.backgroundColor = [UIColor whiteColor];
-        v1.frame =CGRectMake(0, 0, kWidth, 80);
+        v1.frame =CGRectMake(0, 0, kWidth, 50);
         UIButton *button = [[UIButton alloc] init];
         button.userInteractionEnabled = NO;
         [button setImage:kImageNamed(@"background_14") forState:0];
@@ -423,7 +423,7 @@
         return 0.001;
     }
     if (section == 1) {
-        return 83;
+        return 50;
     }
     if (section == 2) {
         return 100;

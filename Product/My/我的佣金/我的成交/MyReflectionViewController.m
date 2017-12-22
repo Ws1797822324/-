@@ -31,6 +31,7 @@
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"Commission" withHud:nil withProgressBlock:^(float requestProgress) {
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+        
         if (code==200) {
             self.titleview.dMoney_L.text = [NSString stringWithFormat:@"%@",data[@"nodeal"]];
             self.titleview.yMoney_L.text = [NSString stringWithFormat:@"%@",data[@"deal"]];

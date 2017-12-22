@@ -38,8 +38,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ep-6b-Ug6">
-                    <rect key="frame" x="40" y="256" width="295" height="45"/>
+                    <rect key="frame" x="127.5" y="256" width="120" height="45"/>
                     <color key="backgroundColor" red="0.058823529409999999" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="8IZ-lS-YBg"/>
+                    </constraints>
                     <state key="normal" title="确定" backgroundImage="background_3">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -70,20 +73,19 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Gge-4J-0RG" secondAttribute="trailing" id="5Lh-L7-FpK"/>
                 <constraint firstAttribute="trailing" secondItem="WGH-XG-BGJ" secondAttribute="trailing" constant="20" id="7j1-Rb-GWC"/>
                 <constraint firstItem="Pwi-UG-CDy" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="8bn-wT-NM9"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="4ep-6b-Ug6" secondAttribute="trailing" constant="40" id="BZs-EL-krR"/>
                 <constraint firstItem="WGH-XG-BGJ" firstAttribute="top" secondItem="Pwi-UG-CDy" secondAttribute="bottom" constant="10" id="Cgt-eb-pJi"/>
-                <constraint firstItem="4ep-6b-Ug6" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="Eh5-eu-Wak"/>
                 <constraint firstItem="3lp-a3-PsP" firstAttribute="top" secondItem="WGH-XG-BGJ" secondAttribute="bottom" constant="10" id="IyF-F0-YQT"/>
                 <constraint firstItem="4ep-6b-Ug6" firstAttribute="top" secondItem="Gge-4J-0RG" secondAttribute="bottom" constant="10" id="Ozc-91-KV9"/>
                 <constraint firstAttribute="bottom" secondItem="4ep-6b-Ug6" secondAttribute="bottom" constant="20" id="Ttl-Mw-ilu"/>
                 <constraint firstItem="3lp-a3-PsP" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dIN-Yx-bz6"/>
                 <constraint firstItem="Gge-4J-0RG" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hBf-0m-69J"/>
+                <constraint firstItem="4ep-6b-Ug6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nfC-2c-XfU"/>
                 <constraint firstItem="WGH-XG-BGJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="pQL-eg-HyU"/>
                 <constraint firstItem="Gge-4J-0RG" firstAttribute="top" secondItem="3lp-a3-PsP" secondAttribute="bottom" constant="10" id="rvl-dR-QdW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-65.5" y="-636.5"/>
+            <point key="canvasLocation" x="-213" y="-590"/>
         </view>
     </objects>
     <resources>

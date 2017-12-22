@@ -15,6 +15,7 @@
 #import "QingYongFourth_Cell.h"
 #import "HouseXQ_VC.h"
 #import "PushTypeViewController.h"
+#import "MyReflectionViewController.h"
 @interface QingYong_VC ()<UITableViewDataSource,UITableViewDelegate,reloadSectionsDelegate>
 
 @property (nonatomic ,assign) NSInteger cellNum;
@@ -97,6 +98,10 @@
         [XXProgressHUD showMessage:@"请输入姓名"];
         return;
     }
+    if ([XXHelper JudgeTheillegalCharacter:_name_TF.text]) {
+        [XXProgressHUD showMessage:@"名字中有非法字符"];
+        return;
+    }
     if (kStringIsEmpty(_phone_TF.text)) {
         [XXProgressHUD showMessage:@"请输入联系方式"];
         return;
@@ -108,6 +113,11 @@
     }
     if (kStringIsEmpty(_l_id)) {
         [XXProgressHUD showMessage:@"请选择一个地址"];
+        return;
+    }
+    if (kStringIsEmpty(_price_TF.text)) {
+        [XXProgressHUD showMessage:@"请输入佣金"];
+        [_price_TF becomeFirstResponder];
         return;
     }
     kUserData;
@@ -127,8 +137,10 @@
                            @"loans_type" : _dkType,  // 贷款类型
                            @"money" : _priceDK_TF.text , // 贷款金额
                            @"l_id" : _l_id, // 楼盘 ID
-                           @"type" : @"1",   //  报备
-                           @"report" : _fwID
+                           @"type" : _yingjinType,   //  报备
+                           @"report" : _fwID,
+                           @"name" : _name_TF.text,
+                           @"phone" : _phone_TF.text
                            };
     NSLog(@"%@",dic);
 
@@ -140,6 +152,8 @@
         kInspectSignInType;
         if (code == 200) {
             [XXProgressHUD showSuccess:@"请佣成功"];
+            MyReflectionViewController *vc=[[MyReflectionViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             [XXProgressHUD showError:@"申请佣金失败"];
         }

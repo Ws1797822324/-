@@ -38,6 +38,12 @@
     [self loadRequest];
     
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadRequest];
+
+}
 - (void)loadRequest
 {
     kUserData;
@@ -171,6 +177,7 @@
 
     } else {
         QingYong_VC * vc= [[QingYong_VC alloc]init];
+        vc.yingjinType = @"1";
         [self.navigationController pushViewController:vc animated:true];
         vc.khID = _ids;
         vc.baoBeiType = self.baibeiType;

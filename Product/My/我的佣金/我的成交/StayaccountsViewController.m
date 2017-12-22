@@ -39,6 +39,7 @@
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"Commission" withHud:nil withProgressBlock:^(float requestProgress) {
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+
         if (code==200) {
             self.dataArray = [CommissionListModel mj_objectArrayWithKeyValuesArray:data];
             [self.tableview cyl_reloadData];
@@ -59,6 +60,7 @@
     [XXNetWorkManager requestWithMethod:POST withParams:dic withUrlString:@"Commission" withHud:nil withProgressBlock:^(float requestProgress) {
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+        
         if (code==200) {
             NSArray * array = [CommissionListModel mj_objectArrayWithKeyValuesArray:data];
             if (array.count==0) {

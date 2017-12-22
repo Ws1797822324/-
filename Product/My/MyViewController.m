@@ -103,6 +103,19 @@ static NSString *identifier = @"homeCell";
     attendbutton1.titleLabel.font = [UIFont systemFontOfSize:14];
     self.navigationItem.rightBarButtonItem =
         [[UIBarButtonItem alloc] initWithCustomView:attendbutton1];
+    [XXNetWorkManager requestWithMethod:POST withParams:@{kOpt : @"kefu"} withUrlString:@"UserServlet" withHud:nil withProgressBlock:^(float requestProgress) {
+
+    } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+        if (code == 200 && !kStringIsEmpty(data)) {
+            kUserData;
+            userInfo.kefuPhone = kString(@"%@", data);
+            [UserInfoTool saveAccount:userInfo];
+
+
+        }
+    } withFailuerBlock:^(id error) {
+
+    }];
 }
 
 - (void)setUI {
@@ -170,7 +183,7 @@ static NSString *identifier = @"homeCell";
     UIButton *cccButtion = [[UIButton alloc] init];
     cccButtion.backgroundColor = [UIColor clearColor];
     [cccButtion tapPeformBlock:^{
-        NSLog(@"点击店铺了88");
+
         ChooseShop * vc = [[ChooseShop alloc]init];
         kUserData;
         vc.dianPuNameNow = userInfo.m_name;
@@ -445,7 +458,12 @@ static NSString *identifier = @"homeCell";
 
     } else if (yyy == 5) {
         // MARK: ------ 联系客服 ------
-        [XXHelper makePhoneCallWithTelNumber:@"10010"];
+        kUserData
+        if (!kStringIsEmpty(userInfo.kefuPhone)) {
+            [XXHelper makePhoneCallWithTelNumber:userInfo.kefuPhone];
+        } else {
+            [XXProgressHUD showMessage:@"客服小妹请假啦"];
+        }
     }else{
             vc = [[AdviceViewController alloc] init];
     }
@@ -456,6 +474,7 @@ static NSString *identifier = @"homeCell";
     }
 
 }
+
 
 
 

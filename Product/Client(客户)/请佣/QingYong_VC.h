@@ -16,5 +16,8 @@
 
 @property (nonatomic ,strong) NSString * baoBeiType;
 
+@property (nonatomic ,strong) NSString *yingjinType;
+
+
 
 @end

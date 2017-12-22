@@ -153,7 +153,7 @@ if ( kkk == 7) {
         vc.ids = ID;
         vc.type = @"1";
         vc.wsType = @"0";
-        [(YMNavgatinController *)[self topViewController:kkk].navigationController  pushViewController:vc type:YMNavgatinControllerTypeBlue animated:YES];
+        [[self topViewController:kkk].navigationController  pushViewController:vc animated:YES];
     }
     if (kkk == 1) {
         PeopleDetailsViewController *vc = [[PeopleDetailsViewController alloc] init];
@@ -234,7 +234,7 @@ if ( kkk == 7) {
     }
     else if ([rootViewController isKindOfClass:[UINavigationController class]])
     {
-        if (index == 1 || index == 4 ) {
+        if (index == 1 || index == 4  || index == 2) {
             MainNavViewController* navigationController = (MainNavViewController*)rootViewController;
             return [self topViewControllerWithRootViewController:navigationController.visibleViewController Index:index];
         }

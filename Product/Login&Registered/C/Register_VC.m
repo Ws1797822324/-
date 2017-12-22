@@ -15,6 +15,7 @@
 @interface Register_VC () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *touristBtn;  // 游客
+- (IBAction)kefuButton:(UIButton *)sender;
 
 - (IBAction)touristButton:(UIButton *)sender;
 
@@ -84,6 +85,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [XXNetWorkManager requestWithMethod:POST withParams:@{kOpt : @"kefu"} withUrlString:@"UserServlet" withHud:nil withProgressBlock:^(float requestProgress) {
+
+    } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+        if (code == 200 && !kStringIsEmpty(data)) {
+            kUserData;
+            userInfo.kefuPhone = kString(@"%@", data);
+            [UserInfoTool saveAccount:userInfo];
+
+
+        }
+    } withFailuerBlock:^(id error) {
+
+    }];
     self.navigationItem.title = @"注册";
     self.arrowImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"sanjiaoxing"]];
     [_backgroundImageView addSubview: _arrowImg];
@@ -180,7 +195,18 @@
     self.protocolViewLayout.constant = 45;
     self.type = @"2";
 }
+- (IBAction)kefuButton:(UIButton *)sender {
+
+    // MARK: ------ 联系客服 ------
+    kUserData
+    if (!kStringIsEmpty(userInfo.kefuPhone)) {
+        [XXHelper makePhoneCallWithTelNumber:userInfo.kefuPhone];
+    } else {
+        [XXProgressHUD showMessage:@"客服小妹请假啦"];
+    }
+}
 #pragma mark  - 游客
+
 - (IBAction)touristButton:(UIButton *)sender {
   
 

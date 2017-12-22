@@ -108,21 +108,22 @@
                 [_integralButton setTitle:kString(@" 积分 %@", objc[@"message"]) forState:UIControlStateNormal];
             }
             if (_dataArr.count == 0) {
-                UIAlertController * ac = [UIAlertController alertControllerWithTitle:@" sorry 暂时没有可兑换商品" message:@"改天再来" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction * a1 = [UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-                    [weakSelf.navigationController popViewControllerAnimated:true];
-                }];
-                UIAlertAction * a2 = [UIAlertAction actionWithTitle:@"刷新页面" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    [weakSelf.collerctionView reloadData];
-                }];
+                [XXProgressHUD showMessage:@"老板还没有上架商品!"];
+//                UIAlertController * ac = [UIAlertController alertControllerWithTitle:@" sorry 暂时没有可兑换商品" message:@"改天再来" preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction * a1 = [UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//                    [weakSelf.navigationController popViewControllerAnimated:true];
+//                }];
+//                UIAlertAction * a2 = [UIAlertAction actionWithTitle:@"刷新页面" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//                    [weakSelf.collerctionView reloadData];
+//                }];
+//
+//                [ac addAction:a1];
+//                [ac addAction:a2];
+//
+//                [weakSelf presentViewController:ac animated:YES completion:^{
+//
+//                }];
 
-                [ac addAction:a1];
-                [ac addAction:a2];
-                
-                [weakSelf presentViewController:ac animated:YES completion:^{
-                    
-                }];
-                                      
             }
             [weakSelf.collerctionView reloadData];
             NSLog(@"积分商城请求-- \n%@", objc);

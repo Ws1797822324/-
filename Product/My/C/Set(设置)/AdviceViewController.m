@@ -27,6 +27,13 @@
     [super viewDidLoad];
     [self setTitle:@"用户反馈"];
     [self setUI];
+
+    [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil]subscribeNext:^(NSNotification * _Nullable x) {
+        if (phoneTextField.text.length>=21) {
+            phoneTextField.text = [phoneTextField.text substringToIndex:20];
+        }
+    }];
+    phoneTextField.clearButtonMode = UITextFieldViewModeAlways;
 }
 -(void)setUI{
     self.view.backgroundColor = colorWithRGB(246, 247, 248);
@@ -89,20 +96,7 @@
         make.height.mas_equalTo(1);
     }];
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.backgroundColor = colorWithRGB(54, 157, 252);
@@ -163,13 +157,16 @@
                              @"time" : [XXHelper currentTime],
         
     };
-    
+    kWeakSelf;
     [XXNetWorkManager requestWithMethod:POST withParams:params withUrlString:kPersonalServlet withHud:@"反馈信息提交..." withProgressBlock:^(float requestProgress) {
         
     } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
 
         if (code == 200) {
             [XXProgressHUD showSuccess:message];
+            [[RACScheduler mainThreadScheduler] afterDelay:2 schedule:^{
+                [weakSelf.navigationController popViewControllerAnimated:true];
+            }];
         } else {
             [XXProgressHUD showError:message];
 

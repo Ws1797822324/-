@@ -250,6 +250,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzl-Xp-NG3">
                     <rect key="frame" x="135" y="617" width="106" height="30"/>
                     <state key="normal" backgroundImage="lianxikefu"/>
+                    <connections>
+                        <action selector="kefuButton:" destination="-1" eventType="touchUpInside" id="3rB-1t-yZ0"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

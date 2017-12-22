@@ -173,7 +173,7 @@
 
     } else {
         QingYong_VC * vc= [[QingYong_VC alloc]init];
-
+        vc.yingjinType = @"2";
         [self.navigationController pushViewController:vc animated:true];
         vc.khID = _khID;
         vc.baoBeiType = @"2";

@@ -23,9 +23,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _page = 0;
-    _dataArray = [NSMutableArray array];
-    [self requestDataRefreshType:YES];
 }
 
 
@@ -69,12 +66,22 @@
     }];
     [self.tableview.mj_footer endRefreshing];
     [self.tableview.mj_header endRefreshing];
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     kWeakSelf;
     self.navigationItem.title = @"楼盘动态";
-    [self.view addSubview: self.tableview];
+    [self.view addSubview: weakSelf.tableview];
+    _page = 0;
+
+    [self requestDataRefreshType:YES];
+    if (@available(iOS 11.0, *)) {
+        self.tableview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = false;
+    }
     self.tableview.sd_layout
     .spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HouseDynamic_Cell class]) bundle:nil] forCellReuseIdentifier:@"HouseDynamic_Cell_ID"];

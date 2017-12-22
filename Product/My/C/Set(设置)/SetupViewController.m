@@ -263,7 +263,12 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         }else if (indexPath.row==1){
-            [XXHelper makePhoneCallWithTelNumber:@"10086"];
+            kUserData
+            if (!kStringIsEmpty(userInfo.kefuPhone)) {
+                [XXHelper makePhoneCallWithTelNumber:userInfo.kefuPhone];
+            } else {
+                [XXProgressHUD showMessage:@"客服小妹请假啦"];
+            }
         }else{
             
             AdviceViewController *vc=[[AdviceViewController alloc]init];

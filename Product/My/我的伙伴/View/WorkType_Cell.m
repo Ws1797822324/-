@@ -31,8 +31,10 @@
     NSString * price = model.price;
     if ([price intValue] == 0) {
         price = @"售价待定";
-    }
+        _price_L.text =price;
+    } else {
     _price_L.text = kString(@"%@元", price);
+    }
     _name_L.text = model.name;
 
     NSArray * a1 = [model.time componentsSeparatedByString:@"."];
@@ -40,8 +42,11 @@
 
     if ([model.com_status isEqualToString:@"0"]) {
         _type_L.text = @"未结佣";
+        _type_L.textColor = kRGB_HEX(0x5E5E5E);
+
     } else {
         _type_L.text = @"已结佣";
+        _type_L.textColor = [UIColor redColor];
 
     }
 

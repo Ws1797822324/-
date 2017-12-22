@@ -17,12 +17,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"客户详情";
+    [XXNetWorkManager requestWithMethod:POST withParams:@{kOpt : @"kefu"} withUrlString:@"UserServlet" withHud:nil withProgressBlock:^(float requestProgress) {
+
+    } withSuccessBlock:^(id objc, int code, NSString *message, id data) {
+        if (code == 200 && !kStringIsEmpty(data)) {
+            kUserData;
+            userInfo.kefuPhone = kString(@"%@", data);
+            [UserInfoTool saveAccount:userInfo];
+
+
+        }
+    } withFailuerBlock:^(id error) {
+
+    }];
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)shenqing:(UIButton *)sender {
 
-    [XXHelper makePhoneCallWithTelNumber:@"10010"];
-}
+    // MARK: ------ 联系客服 ------
+    kUserData
+    if (!kStringIsEmpty(userInfo.kefuPhone)) {
+        [XXHelper makePhoneCallWithTelNumber:userInfo.kefuPhone];
+    } else {
+        [XXProgressHUD showMessage:@"客服小妹请假啦"];
+    }}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
