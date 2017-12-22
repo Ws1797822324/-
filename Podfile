@@ -44,6 +44,10 @@ pod 'AMapNavi', '~> 5.3.0'
 
 pod 'UMengUShare/UI’
 
+pod 'JQFMDB', '~> 1.1.6'
+
+pod 'PYSearch', '~> 0.8.7'
+
 # 集成微信(完整版14.4M)
 pod 'UMengUShare/Social/WeChat'
 

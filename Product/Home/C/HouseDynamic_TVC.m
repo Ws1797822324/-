@@ -49,13 +49,14 @@
         NSLog(@"pppp %@",objc);
         if (code == 200) {
             _page ++;
-            _dataArray = [NSMutableArray array];
             if (type) {
+                _dataArray = [NSMutableArray array];
                 _dataArray =[YongJinFA mj_objectArrayWithKeyValuesArray:data];
+
             } else {
                 NSArray * arr = [YongJinFA mj_objectArrayWithKeyValuesArray:data];
                 if (arr.count == 0) {
-                    [XXProgressHUD showError:@"没有更多数据啦"];
+                    [XXProgressHUD  showMessage:@"没有更多动态了"];
                 }
             [_dataArray addObjectsFromArray:arr];
             }

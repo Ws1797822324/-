@@ -159,6 +159,8 @@
 
 #import "PosTool.h"
 
+#import <JQFMDB/JQFMDB.h>
+#import <PYSearch.h>
 
 
 #import "UITableViewCell+XX.h"

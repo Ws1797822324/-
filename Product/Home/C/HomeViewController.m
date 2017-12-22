@@ -27,7 +27,7 @@
 
 
 @interface HomeViewController () <UITableViewDelegate,UITableViewDataSource ,SDCycleScrollViewDelegate,UINavigationControllerDelegate,
-CLLocationManagerDelegate>
+CLLocationManagerDelegate,PYSearchViewControllerDelegate>
 
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -571,10 +571,14 @@ self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 
+
 -(void)searchCar {
+
     SearchViewController * VC = [[SearchViewController alloc] init];
     VC.type = @"房屋";
     [(YMNavgatinController *)self.navigationController pushViewController:VC type:YMNavgatinControllerTypeBlue animated:YES];
+
+
 }
 
 

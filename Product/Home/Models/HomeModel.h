@@ -287,6 +287,10 @@
 
 @end
 
+@interface DataModel : NSObject
 
+@property (nonatomic ,copy) NSString *name;
+
+@end
 
 

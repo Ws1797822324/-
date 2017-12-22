@@ -93,11 +93,6 @@
         self.window.rootViewController = tabBarControllerConfig.tabBarController;
 
     }
-
-    /// 存储版本号
-    [kUserDefaults setObject: currentVersion[@"CFBundleShortVersionString"] forKey:@"productVersion"];
-    
-    
     tabBarController.delegate = self;
 
     

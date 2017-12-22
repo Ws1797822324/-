@@ -15,17 +15,20 @@
 #import "PeopleDetailsViewController.h"
 
 
-
+#define kHouse @"house"
+#define kPersen @"persenuuuuu"
 @interface SearchViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (nonatomic, strong) UITextField *TF_search;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UITableView *searchtableView;
 @property (nonatomic, strong) UIView *tipView;
-@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) UILabel *topLabel;
 @property (nonatomic, strong) NSMutableArray *searchDataArray;
 @property (nonatomic, strong) NSString *page;
 @property (nonatomic, strong) NSString *rows;
+@property (nonatomic ,strong) JQFMDB *db;
+
 @end
 
 @implementation SearchViewController
@@ -60,6 +63,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    JQFMDB *db =  [JQFMDB shareDatabase];  // 创建数据库
+
+    [db jq_createTable:kHouse dicOrModel:[DataModel class]];
+   [db jq_createTable:kPersen dicOrModel:[DataModel class]];
+
+    _db = db;
+
     [self createdNavUI];
     self.navigationController.navigationBar.translucent = NO;
 
@@ -94,68 +104,57 @@
     [self getLoadData];
 }
 - (void)deleAllClick {
-    NSArray *array1 =
-        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documents = [array1 lastObject];
-    NSString *documentPath;
-    if ([self.type isEqualToString:@"人"]) {
-        documentPath = [documents stringByAppendingPathComponent:@"peopleList.xml"];
+
+    if ([self.type isEqualToString:@"人"]){
+        [_db jq_deleteAllDataFromTable:kPersen];
+        _dataArray = [_db jq_lookupTable:kPersen dicOrModel:[DataModel class] whereFormat:nil];
+
     } else {
-        documentPath = [documents stringByAppendingPathComponent:@"houseList.xml"];
+        [_db jq_deleteAllDataFromTable:kHouse];
+        _dataArray = [_db jq_lookupTable:kHouse dicOrModel:[DataModel class] whereFormat:nil];
+
     }
-    self.dataArray = (NSMutableArray *) @[];
-    [self.dataArray writeToFile:documentPath atomically:YES];
+
     [self.tableView reloadData];
 }
+
+#pragma mark - 添加
 - (void)saveStringWith:(NSString *)string {
-    NSArray *array1 =
-        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documents = [array1 lastObject];
-    NSString *documentPath;
-    if ([self.type isEqualToString:@"人"]) {
-        documentPath = [documents stringByAppendingPathComponent:@"peopleList.xml"];
-    } else {
-        documentPath = [documents stringByAppendingPathComponent:@"houseList.xml"];
-    }
-    self.dataArray = [NSMutableArray arrayWithContentsOfFile:documentPath];
-    self.dataArray = [NSMutableArray arrayWithContentsOfFile:documentPath];
+    if ([self.type isEqualToString:@"人"]){
+        [_db jq_deleteTable:kPersen whereFormat:kString(@"where name = '%@'", string)];
+        DataModel * model = [[DataModel alloc]init];
+        model.name = string;
+        [_db jq_insertTable:kPersen dicOrModel:model];
 
-    if (self.dataArray.count == 0) {
-        self.dataArray = (NSMutableArray *) @[ string ];
-    } else {
-        [self.dataArray addObject:string];
-    }
-    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:10];
-    NSArray *arr = [[[XXHelper arrayWithMemberIsOnly:_dataArray] reverseObjectEnumerator] allObjects];
-    [data addObjectsFromArray:arr];
+    }else {
 
-    
-    BOOL isyes =
-        [arr writeToFile:documentPath atomically:YES];
-    NSLog(@"是否保存成功%d resultArray = %@", isyes, self.dataArray);
+    [_db jq_deleteTable:kHouse whereFormat:kString(@"where name = '%@'", string)];
+    DataModel * model = [[DataModel alloc]init];
+    model.name = string;
+   [_db jq_insertTable:kHouse dicOrModel:model];
+    }
 }
 - (void)getLoadData {
 
     self.searchtableView.hidden = YES;
     self.tableView.hidden = NO;
 
-    NSArray *array1 =
-        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documents = [array1 lastObject];
-    NSString *documentPath;
-    if ([self.type isEqualToString:@"人"]) {
-        documentPath = [documents stringByAppendingPathComponent:@"peopleList.xml"];
+    if ([self.type isEqualToString:@"人"]){
+        _dataArray = [_db jq_lookupTable:kPersen dicOrModel:[DataModel class] whereFormat:nil];
+
     } else {
-        documentPath = [documents stringByAppendingPathComponent:@"houseList.xml"];
+        _dataArray =  [_db jq_lookupTable:kHouse dicOrModel:[DataModel class] whereFormat:nil];
+
     }
 
-    self.dataArray = (NSMutableArray *)[[[NSMutableArray arrayWithContentsOfFile:documentPath] reverseObjectEnumerator] allObjects];
-    NSLog(@"现有本地resultArray = %@", self.dataArray);
+    NSLog(@"tfb = %@",_dataArray);
+
     if (self.dataArray.count == 0) { // 没有数据
         [self.view addSubview:self.tipView];
 
     } else { // 显示数据
         [self.view addSubview:self.tableView];
+        [self.tableView reloadData];
     }
 }
 - (UIView *)tipView {
@@ -227,7 +226,13 @@
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     cell.textLabel.textColor = kRGB_HEX(0x333333);
     if (tableView == self.tableView) {
-        cell.textLabel.text = [[self.dataArray reverseObjectEnumerator] allObjects ][indexPath.row];
+        NSArray * arr = [[_dataArray reverseObjectEnumerator] allObjects];
+        if ([self.type isEqualToString:@"房屋"]) {
+            cell.textLabel.text = [arr[indexPath.row] name];
+        } else {
+            cell.textLabel.text = [arr[indexPath.row] name];
+
+        }
     } else if (tableView == self.searchtableView) {
         if ([self.type isEqualToString:@"房屋"]) {
             HomeCell *homecell = [tableView dequeueReusableCellWithIdentifier:@"HomeCell_ID"];
@@ -267,11 +272,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView == self.tableView) {
-
-        NSString *str = [[self.dataArray reverseObjectEnumerator] allObjects ][indexPath.row];
+        NSArray * arr = [[_dataArray reverseObjectEnumerator] allObjects];
+        NSString *str = [arr[indexPath.row] name];
+        if ([_type isEqualToString:@"房屋"]) {
+        str = [arr[indexPath.row] name];
+        }
         self.TF_search.text = str;
         [self.TF_search becomeFirstResponder];
-
+        [self saveStringWith:str];
         if ([_type isEqualToString:@"房屋"]) {
             [self loadRequest];
         }

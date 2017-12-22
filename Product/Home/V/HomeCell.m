@@ -60,7 +60,7 @@
         self.tagsView = [[SQButtonTagView alloc] initWithTotalTagsNum:3
                                                             viewWidth:kWidth - 170
                                                               eachNum:0
-                                                              Hmargin:10
+                                                              Hmargin:6
                                                               Vmargin:5
                                                             tagHeight:20
                                                           tagTextFont:kBoldFont(12)
@@ -77,10 +77,11 @@
         _tagsView_H.constant = [SQButtonTagView returnViewHeightWithTagTexts:mArr
                                                                    viewWidth:kWidth - 170
                                                                      eachNum:0
-                                                                     Hmargin:10
+                                                                     Hmargin:6
                                                                      Vmargin:5
                                                                    tagHeight:20
                                                                  tagTextFont:kBoldFont(12)];
+        
     }
 }
 
