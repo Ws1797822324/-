@@ -430,7 +430,7 @@
             if (kStringIsEmpty(str1) || (kStringIsEmpty(str2))) {
                 cell.teamwork_Time.text = @"待定";
             } else {
-                cell.teamwork_Time.text =[NSString stringWithFormat:@"%@-%@",str1,str2];;
+                cell.teamwork_Time.text =[NSString stringWithFormat:@"%@至%@",str1,str2];;
             }
             return cell;
         }

@@ -228,13 +228,15 @@ static NSString *identifier = @"homeCell";
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(50);
     }];
+    NSString * tuijianma = userInfo.zjyqm;
 
+    kStringIsEmpty(tuijianma) ? (tuijianma = @"暂无") : (tuijianma = userInfo.zjyqm);
     UILabel *recommendLB =
         [PosTool labelWithTextColr:@"000000"
                           fontName:@"PingFangSC-Regular"
                           fontSize:15
                        defaultText:[NSString stringWithFormat:@"个人推荐码:%@",
-                                                              userInfo.zjyqm]];
+                                                              tuijianma]];
 
     [_senView addSubview:recommendLB];
     [recommendLB mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -422,9 +424,7 @@ static NSString *identifier = @"homeCell";
 
     if ([userInfo.status intValue] == 1) { /// 游客
         imageNameArray = @[ @"积分商城", @"我的关注", @"我的邀请", @"联系客服", @"帮助反馈" ];
-        titleArray = @[ @"积分商城", @"我的关注", @"我的邀请", @"联系客服", @"帮"
-                                                                                            @"助反"
-                                                                                            @"馈" ];
+        titleArray = @[ @"积分商城", @"我的关注", @"我的邀请", @"联系客服", @"帮助反馈"];
     }
     [cell setupWithImageName:imageNameArray[indexPath.item] title:titleArray[indexPath.item]];
 

@@ -170,7 +170,7 @@
                 messageObject.shareObject = shareObject;
 
                 //调用分享接口
-                [[UMSocialManager defaultManager] shareToPlatform:4 messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+                [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_QQ messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
                     if (error) {
                         UMSocialLogInfo(@"************Share fail with error %@*********",error);
                     }else{
@@ -205,7 +205,7 @@
         messageObject.shareObject = shareObject;
 
         //调用分享接口
-        [[UMSocialManager defaultManager] shareToPlatform:4 messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_WechatSession messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
             if (error) {
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
             }else{
