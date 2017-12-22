@@ -76,12 +76,12 @@
     _page = 0;
 
     [self requestDataRefreshType:YES];
-    if (@available(iOS 11.0, *)) {
-        self.tableview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
-
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = false;
-    }
+//    if (@available(iOS 11.0, *)) {
+//        self.tableview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+//
+//    } else {
+//        self.automaticallyAdjustsScrollViewInsets = false;
+//    }
     self.tableview.sd_layout
     .spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HouseDynamic_Cell class]) bundle:nil] forCellReuseIdentifier:@"HouseDynamic_Cell_ID"];

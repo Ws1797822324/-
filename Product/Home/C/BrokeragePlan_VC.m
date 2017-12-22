@@ -34,12 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"佣金方案";
-    if (@available(iOS 11.0, *)) {
-        self.tableview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
-
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = false;
-    }
+//    if (@available(iOS 11.0, *)) {
+//        self.tableview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+//
+//    } else {
+//        self.automaticallyAdjustsScrollViewInsets = false;
+//    }
     [self.view addSubview: self.tableview];
     self.tableview.sd_layout
     .spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
