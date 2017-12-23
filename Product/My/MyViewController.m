@@ -24,7 +24,7 @@
 #import "IntegralMall_VC.h" // 积分商城
 #import "MyConcern_VC.h"    // 我的关注
 #import "ChooseShop.h"
-
+#import "MySecondToolView.h"
 @interface MyViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) MineCollectionView *collectionView;
 
@@ -67,7 +67,7 @@ static NSString *identifier = @"homeCell";
                 self.jifen = [NSString stringWithFormat:@"%@", data[@"jifen"][@"integral"]];
                 self.GGPic = [NSString stringWithFormat:@"%@", data[@"pic"][@"pic"]];
                 self.GGUrl = [NSString stringWithFormat:@"%@", data[@"pic"][@"url"]];
-                [self sendView];
+                [self configIntegralView];
                 [self threeView];
             } else {
                 kShowMessage;
@@ -225,115 +225,26 @@ static NSString *identifier = @"homeCell";
     PersonalData_VC *personalDataVC = [[PersonalData_VC alloc] init];
     [self.navigationController pushViewController:personalDataVC animated:YES];
 }
-- (void)sendView {
+
+-(void)configIntegralView {
     kUserData;
-    UIView *_senView = [[UIView alloc] init];
-    _senView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_senView];
-    [_senView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(120);
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(50);
-    }];
+    kWeakSelf;
+    MySecondToolView * integralView = [MySecondToolView viewFromXib];
+    integralView.frame = CGRectMake(0, 120, kWidth, 40);
+    [self.view addSubview:integralView];
+    integralView.integral_L.text = self.jifen;
     NSString * tuijianma = userInfo.zjyqm;
 
     kStringIsEmpty(tuijianma) ? (tuijianma = @"暂无") : (tuijianma = userInfo.zjyqm);
-    UILabel *recommendLB =
-        [PosTool labelWithTextColr:@"000000"
-                          fontName:@"PingFangSC-Regular"
-                          fontSize:15
-                       defaultText:[NSString stringWithFormat:@"个人推荐码:%@",
-                                                              tuijianma]];
+    integralView.invitationCode_L.text = [NSString stringWithFormat:@"个人推荐码:%@",
+                                          tuijianma];
+    [[integralView.integral_Btn rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(__kindof UIControl *_Nullable x) {
 
-    [_senView addSubview:recommendLB];
-    [recommendLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(10);
-        make.centerY.mas_equalTo(0);
-    }];
+         IntegralMall_VC *vc = [IntegralMall_VC viewControllerFromNib];
 
-    UIImageView *JUImageView = [PosTool imageViewWithImageName:@"矩形4"];
-    [_senView addSubview:JUImageView];
-
-
-    UILabel *integralLB = [PosTool labelWithTextColr:@"000000"
-                                            fontName:@"PingFangSC-Regular"
-                                            fontSize:15
-                                         defaultText:@"积分"];
-    [_senView addSubview:integralLB];
-
-
-    UIButton *numBT = [UIButton buttonWithType:UIButtonTypeCustom];
-    [numBT setImage:[UIImage imageNamed:@"youjiantou"] forState:UIControlStateNormal];
-    [numBT addTarget:self
-                  action:@selector(rechargeAction)
-        forControlEvents:UIControlEventTouchUpInside];
-    [_senView addSubview:numBT];
-
-
-    UILabel *jfLB = [PosTool labelWithTextColr:@"000000"
-                                      fontName:@"PingFangSC-Regular"
-                                      fontSize:15
-                                   defaultText:self.jifen];
-    [_senView addSubview:jfLB];
-
-    
-
-    UIImageView *numImage1 = [PosTool imageViewWithImageName:@"Integral"];
-    [_senView addSubview:numImage1];
-    [numBT mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-10);
-        make.centerY.mas_equalTo(0);
-        make.width.offset(15);
-    }];
-    [numImage1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(jfLB.mas_left).offset(-5);
-        make.centerY.mas_equalTo(0);
-        make.width.offset(23);
-
-    }];
-
-    [integralLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(numImage1.mas_left).offset(-5);
-        make.centerY.mas_equalTo(0);
-        make.width.offset(30);
-    }];
-    [jfLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(numBT.mas_left).offset(-10);
-        make.centerY.mas_equalTo(0);
-        make.width.offset([XXHelper widthForLabel:self.jifen fontSize:15]);
-    }];
-
-
-    [JUImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(0);
-        make.right.mas_equalTo(integralLB.mas_left).offset(-4);
-        make.width.offset(2);
-
-    }];
-
-    
-    UIButton *pushButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_senView addSubview:pushButton];
-
-    [pushButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(numImage1);
-        make.right.equalTo(_senView);
-        make.height.equalTo(@50);
-        make.centerY.equalTo(numImage1);
-    }];
-    kWeakSelf;
-    [[pushButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-        subscribeNext:^(__kindof UIControl *_Nullable x) {
-
-            IntegralMall_VC *vc = [IntegralMall_VC viewControllerFromNib];
-
-            [weakSelf.navigationController pushViewController:vc animated:YES];
-        }];
-    UIImageView *numImage = [PosTool imageViewWithImageName:@"矩形4"];
-    [_senView addSubview:numImage];
-    [numImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(0);
-    }];
+         [weakSelf.navigationController pushViewController:vc animated:YES];
+     }];
 }
 
 - (void)threeView {
@@ -341,7 +252,7 @@ static NSString *identifier = @"homeCell";
     UIButton *threeimage = [[UIButton alloc] init];
     [self.view addSubview:threeimage];
     [threeimage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(170);
+        make.top.mas_equalTo(160);
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(75);
     }];

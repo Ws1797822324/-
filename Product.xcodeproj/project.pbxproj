@@ -203,6 +203,8 @@
 		546C915E1FE63161005C938F /* RYNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C915A1FE63161005C938F /* RYNumberKeyboard.m */; };
 		546C91611FE63854005C938F /* TKPhoneTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C91601FE63854005C938F /* TKPhoneTextField.m */; };
 		546C91671FE65405005C938F /* WLCardNoFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 546C91661FE65404005C938F /* WLCardNoFormatter.m */; };
+		54724EBD1FEE2F010012ECA9 /* MySecondToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54724EBC1FEE2F010012ECA9 /* MySecondToolView.m */; };
+		54724EBF1FEE2F0C0012ECA9 /* MySecondToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54724EBE1FEE2F0C0012ECA9 /* MySecondToolView.xib */; };
 		547E460A1FD3E14100FB3941 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547E46091FD3E14100FB3941 /* MapViewController.m */; };
 		547E460D1FD510F900FB3941 /* MoneyDetails_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 547E460C1FD510F900FB3941 /* MoneyDetails_VC.m */; };
 		547E46101FD5128700FB3941 /* MoneyDetailsA_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 547E460F1FD5128700FB3941 /* MoneyDetailsA_VC.m */; };
@@ -733,6 +735,9 @@
 		546C91601FE63854005C938F /* TKPhoneTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPhoneTextField.m; sourceTree = "<group>"; };
 		546C91651FE65404005C938F /* WLCardNoFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCardNoFormatter.h; sourceTree = "<group>"; };
 		546C91661FE65404005C938F /* WLCardNoFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCardNoFormatter.m; sourceTree = "<group>"; };
+		54724EBB1FEE2F010012ECA9 /* MySecondToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySecondToolView.h; sourceTree = "<group>"; };
+		54724EBC1FEE2F010012ECA9 /* MySecondToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySecondToolView.m; sourceTree = "<group>"; };
+		54724EBE1FEE2F0C0012ECA9 /* MySecondToolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySecondToolView.xib; sourceTree = "<group>"; };
 		547E46091FD3E14100FB3941 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		547E460B1FD510F900FB3941 /* MoneyDetails_VC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyDetails_VC.h; sourceTree = "<group>"; };
 		547E460C1FD510F900FB3941 /* MoneyDetails_VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyDetails_VC.m; sourceTree = "<group>"; };
@@ -1328,6 +1333,9 @@
 			children = (
 				67252A261FB538C400C42A2D /* MyViewController.h */,
 				67252A271FB538C400C42A2D /* MyViewController.m */,
+				54724EBB1FEE2F010012ECA9 /* MySecondToolView.h */,
+				54724EBC1FEE2F010012ECA9 /* MySecondToolView.m */,
+				54724EBE1FEE2F0C0012ECA9 /* MySecondToolView.xib */,
 				2603846B1FCF9EA20067EAEB /* MainWebViewController.h */,
 				2603846C1FCF9EA20067EAEB /* MainWebViewController.m */,
 				67252A001FB538C400C42A2D /* MineCollectionView.h */,
@@ -2656,6 +2664,7 @@
 				670F8AF71FAC54D7009D596C /* ForgotPassword_VC.xib in Resources */,
 				5440431E1F1C880E00AFA9A7 /* LoginViewController.xib in Resources */,
 				6787FA931FB5790B00EFC1D2 /* PropertiesDetails_SellAdvantage.xib in Resources */,
+				54724EBF1FEE2F0C0012ECA9 /* MySecondToolView.xib in Resources */,
 				54F2247E1FD9026A00CA8016 /* IQKeyboardManager.bundle in Resources */,
 				540A05B61FBA9147007EB851 /* ConfigNameDate_VC.xib in Resources */,
 				268271181FC6D403006FE8F9 /* AddBankCardViewController.xib in Resources */,
@@ -2947,6 +2956,7 @@
 				2648EEA71FC564FE000A4F19 /* MyPeopleTableViewCell.m in Sources */,
 				2648EEB01FC5704C000A4F19 /* SearchViewController.m in Sources */,
 				260384771FD132DF0067EAEB /* AppDelegate+HJJpush.m in Sources */,
+				54724EBD1FEE2F010012ECA9 /* MySecondToolView.m in Sources */,
 				67252A511FB538C400C42A2D /* SetupViewController.m in Sources */,
 				67252A711FB54B0700C42A2D /* PropertiesDetails_HeaderCell.m in Sources */,
 				54388E7B1FBE8D390040EE6A /* PersonalDataHeader_Cell.m in Sources */,
