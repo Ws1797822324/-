@@ -253,19 +253,14 @@ static NSString *identifier = @"homeCell";
 
     UIImageView *JUImageView = [PosTool imageViewWithImageName:@"矩形4"];
     [_senView addSubview:JUImageView];
-    [JUImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(0);
-    }];
+
 
     UILabel *integralLB = [PosTool labelWithTextColr:@"000000"
                                             fontName:@"PingFangSC-Regular"
                                             fontSize:15
                                          defaultText:@"积分"];
     [_senView addSubview:integralLB];
-    [integralLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(JUImageView.mas_right).offset(5);
-        make.centerY.mas_equalTo(0);
-    }];
+
 
     UIButton *numBT = [UIButton buttonWithType:UIButtonTypeCustom];
     [numBT setImage:[UIImage imageNamed:@"youjiantou"] forState:UIControlStateNormal];
@@ -273,28 +268,50 @@ static NSString *identifier = @"homeCell";
                   action:@selector(rechargeAction)
         forControlEvents:UIControlEventTouchUpInside];
     [_senView addSubview:numBT];
-    [numBT mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-20);
-        make.centerY.mas_equalTo(0);
-    }];
+
 
     UILabel *jfLB = [PosTool labelWithTextColr:@"000000"
                                       fontName:@"PingFangSC-Regular"
                                       fontSize:15
                                    defaultText:self.jifen];
     [_senView addSubview:jfLB];
-    [jfLB mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(numBT.mas_left).offset(-10);
-        make.centerY.mas_equalTo(0);
-    }];
+
+    
 
     UIImageView *numImage1 = [PosTool imageViewWithImageName:@"Integral"];
     [_senView addSubview:numImage1];
+    [numBT mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-10);
+        make.centerY.mas_equalTo(0);
+        make.width.offset(15);
+    }];
     [numImage1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(jfLB.mas_left).offset(-5);
         make.centerY.mas_equalTo(0);
+        make.width.offset(23);
+
     }];
 
+    [integralLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(numImage1.mas_left).offset(-5);
+        make.centerY.mas_equalTo(0);
+        make.width.offset(30);
+    }];
+    [jfLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(numBT.mas_left).offset(-10);
+        make.centerY.mas_equalTo(0);
+        make.width.offset([XXHelper widthForLabel:self.jifen fontSize:15]);
+    }];
+
+
+    [JUImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(0);
+        make.right.mas_equalTo(integralLB.mas_left).offset(-4);
+        make.width.offset(2);
+
+    }];
+
+    
     UIButton *pushButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_senView addSubview:pushButton];
 
