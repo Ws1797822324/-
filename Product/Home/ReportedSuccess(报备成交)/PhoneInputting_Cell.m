@@ -12,7 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-
+    [[kNoteCenter rac_addObserverForName:@"deleteTextFieldValue" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        _left_TF.text = @"";
+        _right_TF.text = @"";
+    }];
     [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
 
         if (_left_TF.text.length >= 4) {

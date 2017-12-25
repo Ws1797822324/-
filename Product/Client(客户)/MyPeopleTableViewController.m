@@ -211,4 +211,12 @@
 }
 
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [kNoteCenter postNotificationName:@"deleteTextFieldValue" object:nil];
+
+}
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
 @end

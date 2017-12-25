@@ -263,8 +263,6 @@ cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 #pragma mark - 报备客户接口请求
 
 -(void) requestBBKH {
-
-
     kUserData;
 
     if (_yixiangArr.count == 0) {

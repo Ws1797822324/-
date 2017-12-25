@@ -16,7 +16,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-
+    [[kNoteCenter rac_addObserverForName:@"deleteTextFieldValue" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        _sfz_TF.text = @"";
+    }];
     self.sfz_TF.ry_inputType = RYIDCardInputType;
     self.sfz_TF.ry_inputAccessoryText = @"请输入身份证号";
     [[kNoteCenter rac_addObserverForName:UITextFieldTextDidChangeNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
