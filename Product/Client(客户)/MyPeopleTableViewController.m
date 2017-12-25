@@ -13,6 +13,7 @@
 #import "AllPeopleTableViewCell.h"
 #import "SearchViewController.h"
 
+
 @interface MyPeopleTableViewController ()
 
 @property (nonatomic, strong) NSString * page;
@@ -45,8 +46,12 @@
         self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadSingleData)];
         self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreSingleData)];
     }
-    
+
+
 }
+
+
+
 - (void)rightAction
 {
     SearchViewController * VC = [[SearchViewController alloc] init];

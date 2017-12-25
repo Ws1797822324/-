@@ -27,6 +27,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+
     [self loadRequest];
 }
 - (void)viewDidLoad {
@@ -37,7 +39,6 @@
     UISwipeGestureRecognizer * recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
     [recognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];
     [self.view addGestureRecognizer:recognizer];
-
 
     self.navigationItem.title = @"客户中心";
     _baobei_L.font = [UIFont fontWithName:@"GurmukhiMN-Bold" size:19];

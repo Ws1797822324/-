@@ -43,7 +43,14 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController.navigationBar lt_setBackgroundColor:kRGB_HEX(0x66a8fc)];
+    self.navigationController.navigationBar.translucent = NO;
     [self loadRequest];
+
+}
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.navigationController.navigationBar.translucent = YES;
 
 }
 - (void)loadRequest

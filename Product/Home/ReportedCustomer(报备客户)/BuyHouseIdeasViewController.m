@@ -18,6 +18,9 @@
     [super viewDidLoad];
     self.navigationItem.title = @"购房意向";
     kViewRadius(self.sureBtn, 6);
+    if (kArrayIsEmpty(_valueArray)) {
+        _valueArray = @[@"",@"",@"",@"",@""];
+    }
     self.TF_firstMoney.text = _valueArray[0];
     self.TF_secondMoney.text = _valueArray[1];
     self.TF_firstArea.text = _valueArray[2];

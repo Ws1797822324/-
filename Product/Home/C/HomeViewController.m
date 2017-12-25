@@ -171,6 +171,7 @@ CLLocationManagerDelegate>
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    self.navigationController.delegate = self;
 
     // 如果你发现你的CycleScrollview会在viewWillAppear时图片卡在中间位置，你可以调用此方法调整图片位置
     [_cycleScrollView adjustWhenControllerViewWillAppera];
@@ -242,8 +243,6 @@ CLLocationManagerDelegate>
     [self startLocation];
 
     [self requestImage];
-
-    self.navigationController.delegate = self;
 
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,-20, [[UIScreen mainScreen] bounds].size.width, kScreenHeight +20)];
     [self.view addSubview:_tableView];
